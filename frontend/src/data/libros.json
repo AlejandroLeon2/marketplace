@@ -1,0 +1,57 @@
+[
+  {
+    "titulo": "Lógica Modular Aplicada",
+    "descripcion": "Explora cómo la modularidad transforma sistemas web y videojuegos.",
+    "precio": 34.90,
+    "autor": "Pedro Alejandro",
+    "anio_publicacion": 2023,
+    "fecha_subida": "2025-08-21",
+    "categoria": "Tecnología",
+    "idioma": "Español",
+    "imagen": "/images/gato.jpg"
+  },
+  {
+    "titulo": "Gamificación Estratégica",
+    "descripcion": "Convierte procesos técnicos en experiencias memorables y colaborativas.",
+    "precio": 27.50,
+    "autor": "Pedro Alejandro",
+    "anio_publicacion": 2022,
+    "fecha_subida": "2025-08-20",
+    "categoria": "Marketing",
+    "idioma": "Español",
+    "imagen": "/images/gato.jpg"
+  },
+  {
+    "titulo": "Documentación con Impacto",
+    "descripcion": "Técnicas para enseñar tecnología con claridad y emoción.",
+    "precio": 22.00,
+    "autor": "Pedro Alejandro",
+    "anio_publicacion": 2021,
+    "fecha_subida": "2025-08-19",
+    "categoria": "Educación",
+    "idioma": "Español",
+    "imagen": "/images/gato.jpg"
+  },
+  {
+    "titulo": "Traducción Técnica Modular",
+    "descripcion": "Cómo adaptar sistemas complejos para públicos diversos sin perder precisión.",
+    "precio": 30.25,
+    "autor": "Pedro Alejandro",
+    "anio_publicacion": 2020,
+    "fecha_subida": "2025-08-18",
+    "categoria": "Localización",
+    "idioma": "Español",
+    "imagen": "/images/gato.jpg"
+  },
+  {
+    "titulo": "Experiencias Digitales Personalizadas",
+    "descripcion": "Diseña regalos web, kits interactivos y landing pages con lógica emocional.",
+    "precio": 39.99,
+    "autor": "Pedro Alejandro",
+    "anio_publicacion": 2024,
+    "fecha_subida": "2025-08-17",
+    "categoria": "Diseño UX",
+    "idioma": "Español",
+    "imagen": "/images/gato.jpg"
+  }
+]
