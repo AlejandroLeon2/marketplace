@@ -1,5 +1,5 @@
 ---
-/* Navbar.astro */
+
 ---
 <nav class="shadow-md">
   <!-- Franja superior -->
@@ -14,46 +14,53 @@
       <div class="hidden md:flex flex-1 mx-4 md:mx-8">
         <input
           type="text"
-          placeholder="Escribe título, autor, editorial"
+          placeholder="Escribe el título o el autor"
           class="w-full max-w-xl px-3 py-2 rounded-l-md text-black bg-white focus:outline-none"
         />
         <button class="bg-green-500 px-4 cursor-pointer rounded-r-md hover:bg-green-600 transition">🔍</button>
       </div>
-
+      
       <!-- Idioma y carrito -->
       <div class="flex items-center gap-4 md:gap-6">
         <!-- Idioma -->
         <div class="relative" data-dropdown="lang">
-          <button
-            id="btn-lang"
-            class="flex items-center gap-1 px-2 py-1 rounded hover:bg-white/10 focus:outline-none"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            🌐 <span id="current-lang">Español</span>
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-
-          <!-- Lista idiomas -->
-          <div
-            id="menu-lang"
-            class="hidden absolute right-0 mt-2 w-44 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-50"
-            role="menu"
-          >
-            <button data-lang="en" class="block w-full text-left px-4 py-2 hover:bg-gray-100">English</button>
-            <button data-lang="es" class="block w-full text-left px-4 py-2 hover:bg-gray-100">Español</button>
-            <button data-lang="fr" class="block w-full text-left px-4 py-2 hover:bg-gray-100">Français</button>
-          </div>
+        <button
+          id="btn-lang"
+          class="flex items-center gap-1 px-3 py-2 rounded hover:shadow-xl rounded transition duration-300 ease-in-out"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          🌐 Idioma
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        
+        <div
+          id="menu-lang"
+          class="hidden absolute right-0 mt-2 w-28 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
+          role="menu"
+        >
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Español</a>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100">English</a>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Français</a>
         </div>
-
+        </div>
+        
         <!-- Carrito -->
-        <button class="relative flex items-center gap-1">
-          🛒 <span class="hidden sm:inline">Carrito</span>
+        <button class="relative flex items-center gap-1 px-3 py-2 hover:shadow-xl rounded transition duration-300 ease-in-out">
+          <!-- Carrito (outline) -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <!-- asa del carrito -->
+            <path d="M4 5h2l2.2 9.5a2 2 0 0 0 2 1.5h6.9a2 2 0 0 0 2-1.6l1.1-6.4a1 1 0 0 0-1-1.2H7.3"/>
+            <!-- ruedas -->
+            <circle cx="10" cy="20" r="1.6"/>
+            <circle cx="18" cy="20" r="1.6"/>
+          </svg>
+           <span class="hidden sm:inline">Carrito</span>
           <span
             id="contador-carrito"
-            class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1"
+            class="absolute -top-0 -right-0 bg-red-500 text-white text-xs rounded-full px-1"
           >2</span>
         </button>
       </div>
@@ -75,7 +82,7 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            MENÚ RÁPIDO
+            CATEGORIAS
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
@@ -86,9 +93,11 @@
             class="hidden absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
             role="menu"
           >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Categoría 1</a>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Categoría 2</a>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Categoría 3</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Biografía e historia</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Comics y humor</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Ciencia y tecnología</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Romance</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Terror</a>
           </div>
         </div>
 
@@ -113,17 +122,78 @@
           >
             <a href="#" class="block px-4 py-2 hover:bg-gray-100">Libros más vendidos</a>
             <a href="#" class="block px-4 py-2 hover:bg-gray-100">Libros nuevos</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Libros gratis</a>
           </div>
         </div>
       </div>
 
       <!-- Menú derecho -->
       <div class="flex items-center gap-4 md:gap-6">
-        <a href="#" class="px-2 py-2 hover:bg-[var(--color-verde)] hover:text-white rounded">ENTRAR</a>
-        <a href="#" class="px-2 py-2 hover:bg-[var(--color-verde)] hover:text-white rounded">REGISTRO</a>
+        <a href="#" class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out">ENTRAR</a>
+        <a href="#" class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out">REGISTRO</a>
       </div>
     </div>
   </div>
 </nav>
 
- 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  type Dropdown = {
+    button: HTMLButtonElement;
+    menu: HTMLElement;
+  };
+
+  const dropdowns: Record<string, Dropdown> = {
+    quick: {
+      button: document.getElementById("btn-quick") as HTMLButtonElement,
+      menu: document.getElementById("menu-quick") as HTMLElement
+    },
+    discover: {
+      button: document.getElementById("btn-discover") as HTMLButtonElement,
+      menu: document.getElementById("menu-discover") as HTMLElement
+    },
+    lang: {
+      button: document.getElementById("btn-lang") as HTMLButtonElement,
+      menu: document.getElementById("menu-lang") as HTMLElement
+    }
+  };
+
+  // Función para cerrar todos los menús
+  function closeAll(): void {
+    Object.values(dropdowns).forEach(({ button, menu }) => {
+      menu.classList.add("hidden");
+      button.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  // Asignar eventos a cada botón
+  Object.entries(dropdowns).forEach(([_, { button, menu }]) => {
+    button.addEventListener("click", (e: MouseEvent) => {
+      e.stopPropagation(); // Evita que el clic burbujee al document
+      const isOpen = !menu.classList.contains("hidden");
+      closeAll(); // Cierra todos antes
+      if (!isOpen) {
+        menu.classList.remove("hidden");
+        button.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    // Cerrar al seleccionar una opción
+    menu.querySelectorAll("a").forEach((option) => {
+      option.addEventListener("click", () => closeAll());
+    });
+  });
+
+  // Cerrar menús si se hace clic fuera
+  document.addEventListener("click", () => {
+    closeAll();
+  });
+
+  // Extra: cerrar con tecla ESC
+  document.addEventListener("keydown", (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      closeAll();
+    }
+  });
+});
+</script>
