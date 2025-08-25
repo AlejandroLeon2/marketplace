@@ -3,6 +3,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import MasVendidos from '../components/MasVendidos/MasVendidos.astro';
 ---
 
 <Layout titulo="home" descripcion="tienda de libros">
@@ -10,7 +11,9 @@ import Footer from '../components/Footer.astro';
 	<main class="h-screen w-screen ">
 
 
-		
+		<section class="w-full h-full bg-black flex justify-center items-center">
+		<MasVendidos/>
+		</section>
 	</main>
 	<Footer/>
 	
