@@ -1,0 +1,23 @@
+---
+import Titulo from "../ui/Titulo.astro";
+import CardLibro from "../ui/CardLibro.astro";
+const { libros, tituloSeccion } = Astro.props;
+---
+
+<section class="p-4">
+  <Titulo texto={tituloSeccion} />
+  <ul class="px-4">
+    {
+      libros.map((libro) => (
+        <li class="">
+          <CardLibro
+            image={libro.images}
+            titulo={libro.titulo}
+            autor={libro.autor}
+            precio={libro.precio}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</section>

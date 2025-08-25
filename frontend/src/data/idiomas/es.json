@@ -1,0 +1,7 @@
+{
+  "paginaInicio": {
+    "categorias": ["Libros", "Tecnología", "Hogar", "Moda"],
+    "recomendados": "Recomendados para ti",
+    "footer": ["Contacto", "Términos", "Privacidad"]
+  }
+}
