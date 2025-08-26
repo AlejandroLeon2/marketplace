@@ -1,6 +1,6 @@
 import { generadorDeArticulos } from "./generadorArticles";
 
-export const masVendidos = document.getElementById("masVendidos");
+export const boxMostWanted = document.getElementById("boxMostWanted");
 export type MostWanted = {
 //  id: number | string,   id no disponible en ejemplo
     pick: string,

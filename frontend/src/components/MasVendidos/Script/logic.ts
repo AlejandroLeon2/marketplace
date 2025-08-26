@@ -1,9 +1,9 @@
 
-import { MostWanted } from "./dom";
+import type { MostWanted } from "./dom";
 
     export function trueData(array:any[]) : MostWanted[] {
 
-        let allData:MostWanted[];
+        let allData:MostWanted[] =[];
 
         for (const datos of array) {
             if(datos.titulo.length >= 1){

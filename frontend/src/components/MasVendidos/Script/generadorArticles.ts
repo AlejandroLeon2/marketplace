@@ -1,4 +1,4 @@
-import { MostWanted } from "./dom";
+import type { MostWanted } from "./dom";
     
     export function generadorDeArticulos (obj:MostWanted, Numero: string) :HTMLElement {
 
