@@ -10,7 +10,7 @@ import type { MostWanted } from "./dom";
         const img = document.createElement("img");
         img.src = obj.pick;
         img.alt = "foto";
-        img.className = "w-[30%] h-full bg-sky-300";
+        img.className = "w-[50%] h-full bg-sky-300";
 
         // Crear el div para el número
         const numberDiv = document.createElement("div");

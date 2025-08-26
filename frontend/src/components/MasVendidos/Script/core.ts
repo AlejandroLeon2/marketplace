@@ -13,7 +13,7 @@ export async function showMasVendidos():Promise<void>{
 
 export function eventoArticulo(event: Event){
     
-    if(event.target instanceof HTMLElement && event.target.tagName === "ARTICLE"){
+    if(event.target instanceof HTMLElement && event.target.closest('article')){
         console.log(`Script de salto de pagina a incorporar`);
         window.location.href = '#'
         
