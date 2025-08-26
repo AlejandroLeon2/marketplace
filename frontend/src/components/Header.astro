@@ -1,0 +1,199 @@
+---
+
+---
+<nav class="shadow-md">
+  <!-- Franja superior -->
+  <div class="bg-[var(--color-morado)]">
+    <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 flex justify-between items-center h-16 text-white">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img src="/images/mainlogo.png" alt="Logo Perú eBooks" class="h-6 md:h-8 w-auto" />
+      </a>
+
+      <!-- Búsqueda (oculta en móvil) -->
+      <div class="hidden md:flex flex-1 mx-4 md:mx-8">
+        <input
+          type="text"
+          placeholder="Escribe el título o el autor"
+          class="w-full max-w-xl px-3 py-2 rounded-l-md text-black bg-white focus:outline-none"
+        />
+        <button class="bg-green-500 px-4 cursor-pointer rounded-r-md hover:bg-green-600 transition">🔍</button>
+      </div>
+      
+      <!-- Idioma y carrito -->
+      <div class="flex items-center gap-4 md:gap-6">
+        <!-- Idioma -->
+        <div class="relative" data-dropdown="lang">
+        <button
+          id="btn-lang"
+          class="flex items-center gap-1 px-3 py-2 rounded hover:shadow-xl rounded transition duration-300 ease-in-out"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          🌐 Idioma
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        
+        <div
+          id="menu-lang"
+          class="hidden absolute right-0 mt-2 w-28 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
+          role="menu"
+        >
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Español</a>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100">English</a>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Français</a>
+        </div>
+        </div>
+        
+        <!-- Carrito -->
+        <button class="relative flex items-center gap-1 px-3 py-2 hover:shadow-xl rounded transition duration-300 ease-in-out">
+          <!-- Carrito (outline) -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <!-- asa del carrito -->
+            <path d="M4 5h2l2.2 9.5a2 2 0 0 0 2 1.5h6.9a2 2 0 0 0 2-1.6l1.1-6.4a1 1 0 0 0-1-1.2H7.3"/>
+            <!-- ruedas -->
+            <circle cx="10" cy="20" r="1.6"/>
+            <circle cx="18" cy="20" r="1.6"/>
+          </svg>
+           <span class="hidden sm:inline">Carrito</span>
+          <span
+            id="contador-carrito"
+            class="absolute -top-0 -right-0 bg-red-500 text-white text-xs rounded-full px-1"
+          >2</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Franja inferior -->
+  <div class="bg-[var(--color-plomo)] border-t border-gray-300">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-y-2 justify-between items-center min-h-12 text-sm font-medium text-gray-800"
+    >
+      <!-- Menú izquierdo -->
+      <div class="flex items-center gap-4 md:gap-6">
+        <!-- Menú rápido -->
+        <div class="relative" data-dropdown="quick">
+          <button
+            id="btn-quick"
+            class="flex items-center gap-1 px-3 py-2 rounded bg-[var(--color-verde)] text-white hover:bg-green-600"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            CATEGORIAS
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <div
+            id="menu-quick"
+            class="hidden absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
+            role="menu"
+          >
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Biografía e historia</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Comics y humor</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Ciencia y tecnología</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Romance</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Terror</a>
+          </div>
+        </div>
+
+        <!-- Descubre -->
+        <div class="relative" data-dropdown="discover">
+          <button
+            id="btn-discover"
+            class="flex items-center gap-1 px-2 py-2 rounded hover:bg-gray-200"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            DESCUBRE
+            <svg class="h-4 w-4 text-[var(--color-verde)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <div
+            id="menu-discover"
+            class="hidden absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
+            role="menu"
+          >
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Libros más vendidos</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Libros nuevos</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Libros gratis</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menú derecho -->
+      <div class="flex items-center gap-4 md:gap-6">
+        <a href="#" class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out">ENTRAR</a>
+        <a href="#" class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out">REGISTRO</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  type Dropdown = {
+    button: HTMLButtonElement;
+    menu: HTMLElement;
+  };
+
+  const dropdowns: Record<string, Dropdown> = {
+    quick: {
+      button: document.getElementById("btn-quick") as HTMLButtonElement,
+      menu: document.getElementById("menu-quick") as HTMLElement
+    },
+    discover: {
+      button: document.getElementById("btn-discover") as HTMLButtonElement,
+      menu: document.getElementById("menu-discover") as HTMLElement
+    },
+    lang: {
+      button: document.getElementById("btn-lang") as HTMLButtonElement,
+      menu: document.getElementById("menu-lang") as HTMLElement
+    }
+  };
+
+  // Función para cerrar todos los menús
+  function closeAll(): void {
+    Object.values(dropdowns).forEach(({ button, menu }) => {
+      menu.classList.add("hidden");
+      button.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  // Asignar eventos a cada botón
+  Object.entries(dropdowns).forEach(([_, { button, menu }]) => {
+    button.addEventListener("click", (e: MouseEvent) => {
+      e.stopPropagation(); // Evita que el clic burbujee al document
+      const isOpen = !menu.classList.contains("hidden");
+      closeAll(); // Cierra todos antes
+      if (!isOpen) {
+        menu.classList.remove("hidden");
+        button.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    // Cerrar al seleccionar una opción
+    menu.querySelectorAll("a").forEach((option) => {
+      option.addEventListener("click", () => closeAll());
+    });
+  });
+
+  // Cerrar menús si se hace clic fuera
+  document.addEventListener("click", () => {
+    closeAll();
+  });
+
+  // Extra: cerrar con tecla ESC
+  document.addEventListener("keydown", (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      closeAll();
+    }
+  });
+});
+</script>
