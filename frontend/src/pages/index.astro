@@ -33,7 +33,7 @@ const secciones = obtenerDatos();
 
 <Layout titulo="home" descripcion="tienda de libros">
   <Header />
-  <main class="h-screen w-screen">
+  <main class="flex flex-col min-h-screen mx-auto w-full max-w-6xl justify-center items-center ">
     {
       secciones.configuracion.inicio.secciones.map((data) => (
         <Categoria libros={secciones.libros} tituloSeccion={data} />
