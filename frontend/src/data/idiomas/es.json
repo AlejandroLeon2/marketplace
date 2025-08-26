@@ -1,7 +1,6 @@
 {
-  "paginaInicio": {
-    "categorias": ["Libros", "Tecnología", "Hogar", "Moda"],
-    "recomendados": "Recomendados para ti",
+  "inicio": {
+    "secciones": ["Nuevos", "Populares", "Recomendados"],
     "footer": ["Contacto", "Términos", "Privacidad"]
   }
 }

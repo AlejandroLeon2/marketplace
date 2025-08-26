@@ -33,6 +33,6 @@
 @layer utilities{
 
     .boton{
-        @apply  hover:scale-105 active:scale-95 duration-300 rounded-lg active:bg-blue-600 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 ; 
+        @apply  hover:scale-105 active:scale-95 duration-300 rounded-xs active:bg-blue-600 bg-blue-500 hover:bg-blue-600 text-white ; 
     }
 }

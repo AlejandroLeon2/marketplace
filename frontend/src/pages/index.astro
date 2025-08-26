@@ -15,23 +15,17 @@ interface Libro {
   fecha_subida: string;
   categoria: string;
   idioma: string;
-  images: string;
+  imagen: string;
 }
 interface PaginaInicio {
-  categorias: string[];
-  recomendados: string;
-  footer: string[];
+  inicio: { secciones: string[]; footer: string[] };
 }
 
-
-function obtenerDatos(): ({
+function obtenerDatos(): {
   libros: Libro[];
   configuracion: PaginaInicio;
-} ){
-  const libros: Libro[] = librosData;
-  const configuracion: PaginaInicio = seccionesData;
-
-  return { libros, configuracion };
+} {
+  return { libros: librosData, configuracion: seccionesData };
 }
 
 const secciones = obtenerDatos();
@@ -41,7 +35,7 @@ const secciones = obtenerDatos();
   <Header />
   <main class="h-screen w-screen">
     {
-      secciones.configuracion.categorias.map((data) => (
+      secciones.configuracion.inicio.secciones.map((data) => (
         <Categoria libros={secciones.libros} tituloSeccion={data} />
       ))
     }

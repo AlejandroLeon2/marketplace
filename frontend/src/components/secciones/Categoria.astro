@@ -5,13 +5,13 @@ const { libros, tituloSeccion } = Astro.props;
 ---
 
 <section class="p-4">
-  <Titulo texto={tituloSeccion} />
-  <ul class="px-4">
+  <Titulo titulo={tituloSeccion} />
+  <ul class="px-4 gap-4 flex  h-full overflow-x-scroll ">
     {
       libros.map((libro) => (
         <li class="">
           <CardLibro
-            image={libro.images}
+            image={libro.imagen}
             titulo={libro.titulo}
             autor={libro.autor}
             precio={libro.precio}

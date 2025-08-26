@@ -3,18 +3,18 @@ import Boton from "./Boton.astro"
 const {image, titulo, autor, precio,} =Astro.props;
 
 ---
-<article class="card">
+<article class="w-45 md:w-35 shadow-xl   h-80 space-y-2 flex flex-col">
   <figure>
-    <img src={image} alt={`Portada del libro ${titulo}.`} />
-    <figcaption>{`Portada de ${titulo}.`}</figcaption>
+    <img class="w-full h-50  object-cover" src={image} alt={`Portada del libro ${titulo}.`} />
+    <figcaption class="sr-only">{`Portada de ${titulo}.`}</figcaption>
   </figure>
 
-  <header>
-    <h2>{titulo}</h2>
-    <p class="author">Por <strong>{autor? autor :"Anonimo"}</strong></p>
+  <header class="px-4">
+    <h2 class="text-sm">{titulo}</h2>
+    <p class="text-xs">Por <strong>{autor? autor :"Anonimo"}</strong></p>
   </header>
 
-  <footer>
+  <footer class="px-4  mt-auto mb-4 ">
     <Boton precio={precio}/>
   </footer>
 </article>
