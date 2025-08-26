@@ -1,0 +1,6 @@
+{
+  "inicio": {
+    "secciones": ["Nuevos", "Populares", "Recomendados"],
+    "footer": ["Contacto", "Términos", "Privacidad"]
+  }
+}
