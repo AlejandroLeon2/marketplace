@@ -1,0 +1,129 @@
+---
+/* Navbar.astro */
+---
+<nav class="shadow-md">
+  <!-- Franja superior -->
+  <div class="bg-[var(--color-morado)]">
+    <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 flex justify-between items-center h-16 text-white">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img src="/images/mainlogo.png" alt="Logo Perú eBooks" class="h-6 md:h-8 w-auto" />
+      </a>
+
+      <!-- Búsqueda (oculta en móvil) -->
+      <div class="hidden md:flex flex-1 mx-4 md:mx-8">
+        <input
+          type="text"
+          placeholder="Escribe título, autor, editorial"
+          class="w-full max-w-xl px-3 py-2 rounded-l-md text-black bg-white focus:outline-none"
+        />
+        <button class="bg-green-500 px-4 cursor-pointer rounded-r-md hover:bg-green-600 transition">🔍</button>
+      </div>
+
+      <!-- Idioma y carrito -->
+      <div class="flex items-center gap-4 md:gap-6">
+        <!-- Idioma -->
+        <div class="relative" data-dropdown="lang">
+          <button
+            id="btn-lang"
+            class="flex items-center gap-1 px-2 py-1 rounded hover:bg-white/10 focus:outline-none"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            🌐 <span id="current-lang">Español</span>
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <!-- Lista idiomas -->
+          <div
+            id="menu-lang"
+            class="hidden absolute right-0 mt-2 w-44 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-50"
+            role="menu"
+          >
+            <button data-lang="en" class="block w-full text-left px-4 py-2 hover:bg-gray-100">English</button>
+            <button data-lang="es" class="block w-full text-left px-4 py-2 hover:bg-gray-100">Español</button>
+            <button data-lang="fr" class="block w-full text-left px-4 py-2 hover:bg-gray-100">Français</button>
+          </div>
+        </div>
+
+        <!-- Carrito -->
+        <button class="relative flex items-center gap-1">
+          🛒 <span class="hidden sm:inline">Carrito</span>
+          <span
+            id="contador-carrito"
+            class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1"
+          >2</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Franja inferior -->
+  <div class="bg-[var(--color-plomo)] border-t border-gray-300">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-y-2 justify-between items-center min-h-12 text-sm font-medium text-gray-800"
+    >
+      <!-- Menú izquierdo -->
+      <div class="flex items-center gap-4 md:gap-6">
+        <!-- Menú rápido -->
+        <div class="relative" data-dropdown="quick">
+          <button
+            id="btn-quick"
+            class="flex items-center gap-1 px-3 py-2 rounded bg-[var(--color-verde)] text-white hover:bg-green-600"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            MENÚ RÁPIDO
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <div
+            id="menu-quick"
+            class="hidden absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
+            role="menu"
+          >
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Categoría 1</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Categoría 2</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Categoría 3</a>
+          </div>
+        </div>
+
+        <!-- Descubre -->
+        <div class="relative" data-dropdown="discover">
+          <button
+            id="btn-discover"
+            class="flex items-center gap-1 px-2 py-2 rounded hover:bg-gray-200"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            DESCUBRE
+            <svg class="h-4 w-4 text-[var(--color-verde)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <div
+            id="menu-discover"
+            class="hidden absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
+            role="menu"
+          >
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Libros más vendidos</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Libros nuevos</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menú derecho -->
+      <div class="flex items-center gap-4 md:gap-6">
+        <a href="#" class="px-2 py-2 hover:bg-[var(--color-verde)] hover:text-white rounded">ENTRAR</a>
+        <a href="#" class="px-2 py-2 hover:bg-[var(--color-verde)] hover:text-white rounded">REGISTRO</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+ 

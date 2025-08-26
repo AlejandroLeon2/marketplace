@@ -1,17 +1,45 @@
----
 
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Categoria from "../components/secciones/Categoria.astro";
+import librosData from "../data/libros.json";
+import seccionesData from "../data/idiomas/es.json";
+
+interface Libro {
+  titulo: string;
+  descripcion: string;
+  precio: number;
+  autor: string;
+  anio_publicacion: number;
+  fecha_subida: string;
+  categoria: string;
+  idioma: string;
+  imagen: string;
+}
+interface PaginaInicio {
+  inicio: { secciones: string[]; footer: string[] };
+}
+
+function obtenerDatos(): {
+  libros: Libro[];
+  configuracion: PaginaInicio;
+} {
+  return { libros: librosData, configuracion: seccionesData };
+}
+
+const secciones = obtenerDatos();
 ---
 
 <Layout titulo="home" descripcion="tienda de libros">
-	<Header/>
-	<main class="h-screen w-screen ">
-
-
-		
-	</main>
-<Footer/>
-	
+  <Header />
+  <main class="flex flex-col min-h-screen mx-auto w-full max-w-6xl justify-center items-center ">
+    {
+      secciones.configuracion.inicio.secciones.map((data) => (
+        <Categoria libros={secciones.libros} tituloSeccion={data} />
+      ))
+    }
+  </main>
+  <Footer />
 </Layout>
