@@ -10,7 +10,7 @@ const { libros, tituloSeccion } = Astro.props;
     class="  flex w-full max-w-95 sm:max-w-150 md:max-w-180 lg:max-w-243 xl:max-w-260 h-auto  absolute duration-300  gap-4 md:gap-6 lg:gap-8  overflow-x-scroll "
   >
     {
-      libros.map((libro) => (
+      libros.map((libro:any) => (
         <li class="">
           <CardLibro
             image={libro.imagen}

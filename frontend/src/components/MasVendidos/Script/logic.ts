@@ -5,12 +5,12 @@ import type { MostWanted } from "./dom";
 
         let allData:MostWanted[] =[];
 
-        for (const datos of array) {
-            if(datos.titulo.length >= 1){
+        for (const obj of array) {
+            if(obj.titulo.length >= 1){
                 const newData :MostWanted = {
-                    pick: datos.imagen,
-                    title: datos.titulo,
-                    autor: datos.autor
+                    pick: obj.imagen,
+                    title: obj.titulo,
+                    autor: obj.autor
                 };
 
                 allData.push(newData);
