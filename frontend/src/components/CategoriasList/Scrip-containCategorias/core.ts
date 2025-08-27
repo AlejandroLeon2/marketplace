@@ -9,6 +9,7 @@ export async function showArticulosDeCategoria(tipo:string) {
 
     if(boxContain instanceof HTMLElement && NameList instanceof HTMLElement ){
         NameList.textContent = tipo;
+        boxContain.textContent = "";
         
         renderArticles(datosFiltrados, boxContain);
 

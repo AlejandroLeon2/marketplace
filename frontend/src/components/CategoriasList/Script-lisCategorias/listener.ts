@@ -1,9 +1,8 @@
-import { boxLists } from "./dom";
+import { boxLists, boxContain } from "./dom";
 import { eventolista } from "./core";
 
 export function eventoCategorias ():void{
-    if(boxLists instanceof HTMLElement){
-        boxLists.textContent = "";
+    if(boxLists instanceof HTMLElement && boxContain instanceof HTMLElement){
         boxLists.addEventListener('click', eventolista)
     }
     
