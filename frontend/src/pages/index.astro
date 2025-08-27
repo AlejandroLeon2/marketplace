@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Categoria from "../components/secciones/Categoria.astro";
-        import MasVendidos from '../components/MasVendidos/MasVendidos.astro';
+        import MasVendidos from '../components/MasVendidos.astro';
 import librosData from "../data/libros.json";
 import seccionesData from "../data/idiomas/es.json";
         
@@ -42,8 +42,8 @@ const secciones = obtenerDatos();
         <Categoria libros={secciones.libros} tituloSeccion={data} />
       ))
     }
-    		<section class="w-[30%] h-[70%] flex justify-center items-center">
-		<MasVendidos/>
+    <section class="w-[30%] h-[70%] flex justify-center items-center">
+		  <MasVendidos/>
 		</section>
   </main>
   <Footer />
