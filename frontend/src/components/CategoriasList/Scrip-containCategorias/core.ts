@@ -14,3 +14,12 @@ export async function showArticulosDeCategoria(tipo:string) {
 
     };
 }
+
+export function eventoArticulo(event: Event){
+    
+    if(event.target instanceof HTMLElement && event.target.closest('article')){
+        console.log(`Script de salto de pagina a incorporar`);
+        window.location.href = '#'
+        
+    }
+}
