@@ -1,9 +1,9 @@
-import { takeInformation } from "./services";
+import { getInformation } from "./services";
 import { trueData } from "./logic";
 import { renderArticles, boxMostWanted } from "./dom";
 
 export async function showMasVendidos():Promise<void>{
-    const datos = await takeInformation();
+    const datos = await getInformation();
     const datosFiltrados = trueData(datos)
 
     if(boxMostWanted instanceof HTMLElement ){

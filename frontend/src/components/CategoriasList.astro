@@ -1,0 +1,30 @@
+
+    <section class=" w-full h-full flex ">
+        <section class="w-[30%] h-auto bg-cyan-500 flex justify-center items-center pr-3">
+            <div class="w-full h-[70%] border">
+            <h3  class="text-[1.9rem] m-3 font-bold">Lista de Categorias</h3>
+                <div id="box-lists" class="w-full h-full p-4">
+<!-- espacio para listas -->
+                </div>
+            </div>
+        </section>
+        <section class="w-[70%] h-full bg-amber-300 flex justify-center flex-col pl-3">
+            <h3 id="name-list" class="m-[7vh_0_2vh] text-[3rem] grid place-items-center font-bold">Titulo de Categoria</h3>
+            <div id="box-contain" class="w-full h-full border p-5 grid grid-cols-[repeat(auto-fit, minmax(30%,1fr)) gap-4]">
+                <!-- espacio para productos -->
+            </div>
+        </section>
+    </section>
+
+    <script type="module">
+        import { indexListaCategorias } from "../../src/components/CategoriasList/indexCL";
+        indexListaCategorias()
+    </script>
+
+    <style>
+        li{
+            font-weight: 400;
+            font-size: 1.5rem;
+            margin: 1vh 0;
+        }
+    </style>
