@@ -1,6 +1,3 @@
----
-
----
 <nav class="shadow-md">
   <!-- Franja superior -->
   <div class="bg-[var(--color-morado)]">
@@ -11,63 +8,99 @@
       </a>
 
       <!-- Búsqueda (oculta en móvil) -->
-      <div class="hidden md:flex flex-1 mx-4 md:mx-8">
+      <div class="hidden md:flex flex-1 mx-4 md:mx-8" id="search-desktop">
         <input
+          id="search-input-desktop"
           type="text"
           placeholder="Escribe el título o el autor"
           class="w-full max-w-xl px-3 py-2 rounded-l-md text-black bg-white focus:outline-none"
         />
-        <button class="bg-green-500 px-4 cursor-pointer rounded-r-md hover:bg-green-600 transition">🔍</button>
-      </div>
-      
-      <!-- Idioma y carrito -->
-      <div class="flex items-center gap-4 md:gap-6">
-        <!-- Idioma -->
-        <div class="relative" data-dropdown="lang">
-        <button
-          id="btn-lang"
-          class="flex items-center gap-1 px-3 py-2 rounded hover:shadow-xl rounded transition duration-300 ease-in-out"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          🌐 Idioma
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        <button id="search-desktop-btn" class="bg-[var(--color-verde)] px-4 cursor-pointer rounded-r-md hover:bg-green-600 transition" aria-label="Buscar">
+          <!-- Icono de lupa -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
         </button>
-        
-        <div
-          id="menu-lang"
-          class="hidden absolute right-0 mt-2 w-28 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
-          role="menu"
-        >
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Español</a>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100">English</a>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Français</a>
+      </div>
+
+      <!-- Idioma y carrito -->
+      <div class="flex items-center gap-0 md:gap-6">
+        <!-- Búsqueda Mobile (solo icono) -->
+        <button id="search-mobile-btn" class="md:hidden p-2 runded cursor-pointer hover:shadow-xl transition duration-300 ease-in-out bg-transparent" aria-label="Buscar (móvil)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+
+        <!-- Idioma -->
+        <div class="relative" data-dropdown="lang">
+          <button
+            id="btn-lang"
+            class="flex items-center gap-1 px-2 py-2 rounded cursor-pointer hover:shadow-xl transition duration-300 ease-in-out bg-transparent"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="menu-lang"
+          >
+            <!-- Icono de globo -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 0 20a15.3 15.3 0 0 1 0-20"/>
+            </svg>
+
+            <span id="text-lang" class="hidden sm:inline">Español</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <div
+            id="menu-lang"
+            class="hidden absolute right-0 mt-2 w-28 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
+            role="menu"
+            aria-labelledby="btn-lang"
+          >
+            <a href="#" data-lang="Español" class="block px-4 py-2 hover:bg-gray-100">Español</a>
+            <a href="#" data-lang="English" class="block px-4 py-2 hover:bg-gray-100">English</a>
+            <a href="#" data-lang="Français" class="block px-4 py-2 hover:bg-gray-100">Français</a>
+          </div>
         </div>
-        </div>
-        
+
+        <!-- Login -->
+        <a href="#" class="flex items-center gap-1 px-2 py-2 hover:shadow-xl rounded transition duration-300 ease-in-out" aria-label="Entrar">
+          <!-- Icono de usuario -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span class="hidden sm:inline">Entrar</span>
+        </a>
+
         <!-- Carrito -->
-        <button class="relative flex items-center gap-1 px-3 py-2 hover:shadow-xl rounded transition duration-300 ease-in-out">
+        <button class="relative flex items-center gap-1 px-2 py-2 cursor-pointer hover:shadow-xl rounded transition duration-300 ease-in-out" aria-label="Carrito">
           <!-- Carrito (outline) -->
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <!-- asa del carrito -->
             <path d="M4 5h2l2.2 9.5a2 2 0 0 0 2 1.5h6.9a2 2 0 0 0 2-1.6l1.1-6.4a1 1 0 0 0-1-1.2H7.3"/>
-            <!-- ruedas -->
             <circle cx="10" cy="20" r="1.6"/>
             <circle cx="18" cy="20" r="1.6"/>
           </svg>
-           <span class="hidden sm:inline">Carrito</span>
+          <span class="hidden sm:inline">Carrito</span>
           <span
             id="contador-carrito"
-            class="absolute -top-0 -right-0 bg-red-500 text-white text-xs rounded-full px-1"
+            class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1"
           >2</span>
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Franja inferior -->
+  <!-- Franja inferior (repuesto) -->
   <div class="bg-[var(--color-plomo)] border-t border-gray-300">
     <div
       class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-y-2 justify-between items-center min-h-12 text-sm font-medium text-gray-800"
@@ -78,12 +111,13 @@
         <div class="relative" data-dropdown="quick">
           <button
             id="btn-quick"
-            class="flex items-center gap-1 px-3 py-2 rounded bg-[var(--color-verde)] text-white hover:bg-green-600"
+            class="flex items-center gap-1 px-3 py-2 rounded bg-[var(--color-verde)] text-white cursor-pointer hover:bg-green-600"
             aria-haspopup="true"
             aria-expanded="false"
+            aria-controls="menu-quick"
           >
             CATEGORIAS
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
@@ -92,6 +126,7 @@
             id="menu-quick"
             class="hidden absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
             role="menu"
+            aria-labelledby="btn-quick"
           >
             <a href="#" class="block px-4 py-2 hover:bg-gray-100">Biografía e historia</a>
             <a href="#" class="block px-4 py-2 hover:bg-gray-100">Comics y humor</a>
@@ -105,12 +140,13 @@
         <div class="relative" data-dropdown="discover">
           <button
             id="btn-discover"
-            class="flex items-center gap-1 px-2 py-2 rounded hover:bg-gray-200"
+            class="flex items-center gap-1 px-2 py-2 rounded cursor-pointer hover:bg-gray-200"
             aria-haspopup="true"
             aria-expanded="false"
+            aria-controls="menu-discover"
           >
             DESCUBRE
-            <svg class="h-4 w-4 text-[var(--color-verde)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <svg class="h-4 w-4 text-[var(--color-verde)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
@@ -119,6 +155,7 @@
             id="menu-discover"
             class="hidden absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
             role="menu"
+            aria-labelledby="btn-discover"
           >
             <a href="#" class="block px-4 py-2 hover:bg-gray-100">Libros más vendidos</a>
             <a href="#" class="block px-4 py-2 hover:bg-gray-100">Libros nuevos</a>
@@ -126,74 +163,185 @@
           </div>
         </div>
       </div>
-
-      <!-- Menú derecho -->
-      <div class="flex items-center gap-4 md:gap-6">
-        <a href="#" class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out">ENTRAR</a>
-        <a href="#" class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out">REGISTRO</a>
-      </div>
     </div>
   </div>
 </nav>
 
+<!-- Overlay búsqueda móvil -->
+<div id="search-mobile-overlay" class="hidden fixed inset-0 bg-black/70 flex items-start justify-center p-4 z-50">
+  <div id="search-mobile-box" class="bg-white w-full max-w-lg rounded-lg shadow-md flex">
+    <input
+      id="search-input-mobile"
+      type="text"
+      placeholder="Escribe el título o el autor"
+      class="flex-1 px-3 py-2 rounded-l-md text-black focus:outline-none"
+      aria-label="Buscar"
+    />
+    <button id="search-go" class="px-3 cursor-pointer bg-[var(--color-verde)] hover:bg-green-600  text-white" aria-label="Buscar acción">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </button>
+    <button id="search-close" class="bg-[var(--color-morado)] text-white cursor-pointer px-4 rounded-r-md hover:bg-pink-600" aria-label="Cerrar búsqueda">✕</button>
+  </div>
+</div>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  type Dropdown = {
-    button: HTMLButtonElement;
-    menu: HTMLElement;
-  };
+  // Dropdown mapping
+  interface Dropdown {
+    button: HTMLButtonElement | null;
+    menu: HTMLElement | null;
+  }
 
   const dropdowns: Record<string, Dropdown> = {
     quick: {
       button: document.getElementById("btn-quick") as HTMLButtonElement,
-      menu: document.getElementById("menu-quick") as HTMLElement
+      menu: document.getElementById("menu-quick") as HTMLElement,
     },
     discover: {
       button: document.getElementById("btn-discover") as HTMLButtonElement,
-      menu: document.getElementById("menu-discover") as HTMLElement
+      menu: document.getElementById("menu-discover") as HTMLElement,
     },
     lang: {
       button: document.getElementById("btn-lang") as HTMLButtonElement,
-      menu: document.getElementById("menu-lang") as HTMLElement
-    }
+      menu: document.getElementById("menu-lang") as HTMLElement,
+    },
   };
 
-  // Función para cerrar todos los menús
+  // Util: cerrar todos los dropdowns
   function closeAll(): void {
-    Object.values(dropdowns).forEach(({ button, menu }) => {
-      menu.classList.add("hidden");
-      button.setAttribute("aria-expanded", "false");
+    Object.values(dropdowns).forEach((d) => {
+      if (!d?.menu || !d?.button) return;
+      d.menu.classList.add("hidden");
+      d.button.setAttribute("aria-expanded", "false");
     });
   }
 
-  // Asignar eventos a cada botón
-  Object.entries(dropdowns).forEach(([_, { button, menu }]) => {
-    button.addEventListener("click", (e: MouseEvent) => {
-      e.stopPropagation(); // Evita que el clic burbujee al document
-      const isOpen = !menu.classList.contains("hidden");
-      closeAll(); // Cierra todos antes
+  // Toggle para cada dropdown
+  Object.entries(dropdowns).forEach(([k, d]) => {
+    if (!d || !d.button || !d.menu) return;
+
+    // Evitar que click en el menu burbujee al document
+    d.menu.addEventListener("click", (e: MouseEvent) => e.stopPropagation());
+
+    d.button.addEventListener("click", (e: MouseEvent) => {
+      e.stopPropagation();
+      const isOpen = !d.menu!.classList.contains("hidden");
+      closeAll();
       if (!isOpen) {
-        menu.classList.remove("hidden");
-        button.setAttribute("aria-expanded", "true");
+        d.menu!.classList.remove("hidden");
+        d.button!.setAttribute("aria-expanded", "true");
       }
     });
 
-    // Cerrar al seleccionar una opción
-    menu.querySelectorAll("a").forEach((option) => {
-      option.addEventListener("click", () => closeAll());
+    // Si el menu tiene enlaces, al hacer click en cualquiera, cierra
+    const links = d.menu.querySelectorAll<HTMLAnchorElement>("a");
+    links.forEach((link) => {
+      link.addEventListener("click", (ev: MouseEvent) => {
+        if (k === "lang") {
+          ev.preventDefault();
+          const lang =
+            link.getAttribute("data-lang") || link.textContent?.trim() || "";
+          const textLang = document.getElementById("text-lang");
+          if (textLang) textLang.textContent = lang;
+        }
+        closeAll();
+      });
     });
   });
 
-  // Cerrar menús si se hace clic fuera
-  document.addEventListener("click", () => {
-    closeAll();
+  // Cerrar si clic fuera
+  document.addEventListener("click", () => closeAll());
+
+  // Cerrar con ESC
+  document.addEventListener("keydown", (e: KeyboardEvent) => {
+    if (e.key === "Escape") closeAll();
   });
 
-  // Extra: cerrar con tecla ESC
-  document.addEventListener("keydown", (e: KeyboardEvent) => {
-    if (e.key === "Escape") {
-      closeAll();
-    }
-  });
+  /* ===== BÚSQUEDA MÓVIL ===== */
+  const searchMobileBtn = document.getElementById(
+    "search-mobile-btn"
+  ) as HTMLButtonElement | null;
+  const searchOverlay = document.getElementById(
+    "search-mobile-overlay"
+  ) as HTMLElement | null;
+  const searchClose = document.getElementById(
+    "search-close"
+  ) as HTMLButtonElement | null;
+  const searchInputMobile = document.getElementById(
+    "search-input-mobile"
+  ) as HTMLInputElement | null;
+  const searchGo = document.getElementById(
+    "search-go"
+  ) as HTMLButtonElement | null;
+
+  if (searchMobileBtn && searchOverlay) {
+    searchMobileBtn.addEventListener("click", () => {
+      searchOverlay.classList.remove("hidden");
+      setTimeout(() => searchInputMobile?.focus(), 50);
+    });
+  }
+
+  if (searchClose && searchOverlay) {
+    searchClose.addEventListener("click", () => {
+      searchOverlay.classList.add("hidden");
+    });
+  }
+
+  if (searchOverlay) {
+    searchOverlay.addEventListener("click", (e: MouseEvent) => {
+      if (e.target === searchOverlay) searchOverlay.classList.add("hidden");
+    });
+  }
+
+  function doSearch(q: string): void {
+    console.log("Buscar:", q);
+    if (searchOverlay) searchOverlay.classList.add("hidden");
+  }
+
+  if (searchGo) {
+    searchGo.addEventListener("click", () => {
+      const q = searchInputMobile?.value || "";
+      doSearch(q);
+    });
+  }
+
+  if (searchInputMobile) {
+    searchInputMobile.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        doSearch(searchInputMobile.value);
+      } else if (e.key === "Escape" && searchOverlay) {
+        searchOverlay.classList.add("hidden");
+      }
+    });
+  }
+
+  /* ===== BÚSQUEDA DESKTOP ===== */
+  const searchDesktopBtn = document.getElementById(
+    "search-desktop-btn"
+  ) as HTMLButtonElement | null;
+  const searchInputDesktop = document.getElementById(
+    "search-input-desktop"
+  ) as HTMLInputElement | null;
+
+  if (searchDesktopBtn) {
+    searchDesktopBtn.addEventListener("click", () => {
+      const q = searchInputDesktop?.value || "";
+      doSearch(q);
+    });
+  }
+
+  if (searchInputDesktop) {
+    searchInputDesktop.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        doSearch(searchInputDesktop.value);
+      }
+    });
+  }
 });
 </script>
