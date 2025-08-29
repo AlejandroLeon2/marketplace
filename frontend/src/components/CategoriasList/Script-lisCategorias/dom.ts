@@ -6,7 +6,7 @@
         for (const list of array) {
             const lista:HTMLElement = document.createElement("li");
             lista.textContent = list
-            lista.className = "text-[1.5rem] font-[400] m-[1vh_0]"
+            lista.className = "text-[1.5rem] font-[400] m-[1vh_0] cursor-pointer"
 
             ubicacion.appendChild(lista);
         }
