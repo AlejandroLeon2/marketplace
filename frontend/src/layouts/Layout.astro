@@ -1,44 +1,42 @@
-
 ---
 import "../styles/global.css";
-const {
-	titulo, descripcion
-} = Astro.props;
+import ModalCarrito from "../components/ModalCarrito.astro";
+const { titulo, descripcion } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="en">
-<head>
-  <!-- Codificación y responsive -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <!-- Codificación y responsive -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Favicon adaptado para SVG y fallback -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="alternate icon" href="/favicon.ico" />
+    <!-- Favicon adaptado para SVG y fallback -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
 
-  <!-- SEO básico -->
-  <title>{titulo}</title>
-  <meta name="description" content={descripcion} />
-  <meta name="keywords" content="palabra1, palabra2, palabra3" />
-  <meta name="author" content="Tu nombre o marca" />
-  <meta name="generator" content={Astro.generator} />
+    <!-- SEO básico -->
+    <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
+    <meta name="keywords" content="palabra1, palabra2, palabra3" />
+    <meta name="author" content="Tu nombre o marca" />
+    <meta name="generator" content={Astro.generator} />
 
-  <!-- Open Graph para redes sociales -->
-  <meta property="og:title" content={titulo} />
-  <meta property="og:description" content={descripcion} />
-  <meta property="og:image" content="/imagen-og.jpg" />
-  <meta property="og:url" content="https://tusitio.com" />
-  <meta property="og:type" content="website" />
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:image" content="/imagen-og.jpg" />
+    <meta property="og:url" content="https://tusitio.com" />
+    <meta property="og:type" content="website" />
 
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={titulo} />
-  <meta name="twitter:description" content={descripcion} />
-  <meta name="twitter:image" content="/imagen-og.jpg" />
-
-</head>
-	<body class="font-poppins flex flex-col  ">
-		<slot />
-	</body>
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={titulo} />
+    <meta name="twitter:description" content={descripcion} />
+    <meta name="twitter:image" content="/imagen-og.jpg" />
+  </head>
+  <body class="font-poppins flex flex-col relative">
+    <slot />
+    <ModalCarrito/>
+  </body>
 </html>
-
