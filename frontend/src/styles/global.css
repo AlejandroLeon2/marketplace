@@ -51,3 +51,4 @@
     @apply hover:scale-105 active:scale-95 duration-300 rounded-xs active:bg-green-600 bg-verde hover:bg-green-600 text-white;
   }
 
+}
