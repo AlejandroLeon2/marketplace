@@ -30,6 +30,9 @@
     --color-morado: #990467;
     --color-plomo: #EEEEEE;
     --color-verde: #66CC66;
+    --color-amarillo: #F0AD4E;
+    --color-gris: #F6F6F6;
+    --color-celeste: #2981B9;
 }
 @layer utilities{
 
