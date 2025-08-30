@@ -1,0 +1,51 @@
+
+  <main class="h-screen flex items-center justify-center bg-gray-100">
+    <div class="w-full max-w-sm border-2 border-gray-400 rounded-xl bg-white p-6 shadow-lg">
+      <h2 class="text-[var(--color-morado)] text-2xl font-bold text-center mb-6">Iniciar Sesión</h2>
+      <hr class="border-t-2 border-gray-400 mt-2">
+      <br>
+
+      <form class="space-y-4">
+        <div>
+          <label for="email" class="block text-sm font-medium mb-1">Correo Electrónico</label>
+          <input 
+            id="email"
+            type="email"
+            placeholder="Ingresa tu correo"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium mb-1">Contraseña</label>
+          <input 
+            id="password"
+            type="password"
+            placeholder="Ingresa tu contraseña"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
+
+        <button 
+          type="submit"
+          class="w-full bg-[var(--color-celeste)] text-white p-2 rounded-lg hover:bg-blue-700 transition"
+        >
+         Ingresar
+        </button>
+        <a class="text-[var(--color-celeste)] block text-right">¿Olvidaste tu contraseña?</a>
+        <br>
+        <br>
+        <button 
+          type="submit"
+          class="w-full bg-[var(--color-amarillo)] text-white p-2 rounded-lg hover:bg-orange-700 transition"
+        >
+         Ingresa con Amazon
+        </button>
+        <p class="text-sm text-center mt-4">
+          ¿No tienes una cuenta?
+          <a href="/login" class="text-[var(--color-celeste)] hover:underline">Registrate aquí</a>
+        </p>
+      
+      </form>
+    </div>
+  </main>
