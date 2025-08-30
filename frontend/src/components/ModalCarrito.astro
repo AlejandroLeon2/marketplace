@@ -1,0 +1,90 @@
+---
+import CardCarrito from "./ui/CardCarrito.astro";
+import Titulo from "./ui/Titulo.astro";
+import carritoData from "../data/carrito.json";
+import type { Libro } from "../types/libro";
+let carrito: Libro[] = carritoData;
+---
+
+<div
+  id="modal-carrito"
+  role="dialog"
+  aria-labelledby="titulo-carrito"
+  aria-modal="true"
+  class="fixed flex duration-500 translate-x-400 justify-end bg-black/40 h-full w-full"
+>
+  <div class="border flex flex-col not-only-of-type: relative border-white bg-white h-full w-full max-w-sm">
+    <button id="cerrar-modal" class=" botonRojo absolute right-1 top-1 px-2" aria-label="Cerrar carrito">✕</button
+    >
+
+    <Titulo titulo="Carrito de compras" />
+    <ul class="space-y-2  h-[80svh] overflow-y-scroll flex flex-col  px-4">
+      {
+        carrito.map((libro) => (
+          <CardCarrito
+            titulo={libro.titulo}
+            cantidad={1}
+            precio={libro.precio}
+            imagen={libro.imagen}
+          />
+        ))
+      }
+    </ul>
+    <a type="button" class="botonVerde  px-8 border  py-2 my-4 mx-auto  text-center " href="/pagar">pagar</a>
+  </div>
+  
+</div>
+<script type="module" is:inline>
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+  
+const $modalCarrito = document.getElementById('modal-carrito');
+const $btnAbrirModal = document.getElementById('open-modal');
+const $btnCerrarModal = document.getElementById('cerrar-modal');
+
+
+const mostrarModal = () => {
+  $modalCarrito?.classList.remove('translate-x-400');
+  
+  $modalCarrito?.classList.add('translate-x-0');
+  $modalCarrito?.classList.add('bg-black/40');
+};
+
+const ocultarModal = () => {
+  
+  $modalCarrito?.classList.remove('translate-x-0');
+  $modalCarrito?.classList.add('translate-x-400');
+  $modalCarrito?.classList.remove('bg-black/40');
+};
+
+$modalCarrito?.addEventListener('click', (event) => {
+  if (event.target === $modalCarrito) {
+    ocultarModal();
+  }
+});
+
+$btnAbrirModal?.addEventListener('click', mostrarModal);
+$btnCerrarModal?.addEventListener('click', ocultarModal);
+
+    const grupos = document.querySelectorAll(".selector-cantidad");
+
+    grupos.forEach((grupo) => {
+      const $input = grupo.querySelector(".input-cantidad");
+      const $aumentar = grupo.querySelector(".btn-aumentar");
+      const $disminuir = grupo.querySelector(".btn-disminuir");
+
+      $aumentar.addEventListener("click", () => {
+        const actual = parseInt($input.value || "1", 10);
+        $input.value = String(actual + 1);
+      });
+
+      $disminuir.addEventListener("click", () => {
+        const actual = parseInt($input.value || "1", 10);
+        if (actual > 1) {
+          $input.value = String(actual - 1);
+        }
+      });
+    });
+  });
+</script>

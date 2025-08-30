@@ -1,0 +1,25 @@
+---
+type Props ={
+cantidad:number;
+};
+
+const {cantidad}=Astro.props;
+---
+<fieldset class="flex justify-evenly    selector-cantidad" aria-label="Cantidad del producto">
+  <legend class="sr-only">Cantidad</legend>
+
+  <button type="button" class="btn-disminuir px-2 border border-gray-300 rounded-l-xl botonBasico " aria-label="Disminuir cantidad">−</button>
+
+  <input
+    type="number"
+    class="input-cantidad w-8 border border-gray-300 text-center"
+    name="cantidad"
+    min="1"
+    value="1"
+    aria-label="Cantidad seleccionada"
+    readonly
+  />
+
+  <button type="button" class="btn-aumentar px-2 border border-gray-300 rounded-r-xl botonBasico" aria-label="Aumentar cantidad">+</button>
+</fieldset>
+

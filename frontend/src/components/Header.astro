@@ -26,6 +26,20 @@
       </div>
 
       <!-- Idioma y carrito -->
+
+      <div class="flex items-center gap-4 md:gap-6">
+        <!-- Idioma -->
+        <div class="relative" data-dropdown="lang">
+        <button
+          id="btn-lang"
+          class="flex items-center gap-1 px-3 py-2 hover:shadow-xl rounded transition duration-300 ease-in-out"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          🌐 Idioma
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+
       <div class="flex items-center gap-0 md:gap-6">
         <!-- Búsqueda Mobile (solo icono) -->
         <button id="search-mobile-btn" class="md:hidden p-2 runded cursor-pointer hover:shadow-xl transition duration-300 ease-in-out bg-transparent" aria-label="Buscar (móvil)">
@@ -33,6 +47,7 @@
             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search">
             <circle cx="11" cy="11" r="8"/>
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+
           </svg>
         </button>
 
@@ -83,7 +98,9 @@
         </a>
 
         <!-- Carrito -->
-        <button class="relative flex items-center gap-1 px-2 py-2 cursor-pointer hover:shadow-xl rounded transition duration-300 ease-in-out" aria-label="Carrito">
+
+        <button id="open-modal" class="relative flex items-center gap-1 px-3 py-2 hover:shadow-xl rounded transition duration-300 ease-in-out">
+
           <!-- Carrito (outline) -->
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M4 5h2l2.2 9.5a2 2 0 0 0 2 1.5h6.9a2 2 0 0 0 2-1.6l1.1-6.4a1 1 0 0 0-1-1.2H7.3"/>
@@ -167,8 +184,10 @@
 
       <!-- Menú derecho -->
       <div class="flex items-center gap-4 md:gap-6">
-        <a href=""http://localhost:4321/InicioUsuario"" class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out">ENTRAR</a>
-        <a href="http://localhost:4321/CuentaUsuario" class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out">REGISTRO</a>
+
+        <a href="/InicioUsuario" class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out">ENTRAR</a>
+        <a href="/CuentaUsuario" class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out">REGISTRO</a>
+
       </div>
 
     </div>
