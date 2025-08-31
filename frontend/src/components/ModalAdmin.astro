@@ -1,0 +1,43 @@
+<!-- Modal -->
+<div
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="titulo-modal-cuenta"
+  class="fixed inset-0 z-50 flex bg-black/50"
+>
+  <div class="bg-white rounded-r-lg w-full max-w-xs p-6">
+    <nav class="relative">
+      <h2 id="titulo-modal-cuenta" class="text-xl font-semibold mb-4">Mi cuenta</h2>
+      <button id="cerrar-modal" class="botonRojo absolute right-1 top-1 px-2" aria-label="Cerrar panel">✕</button>
+
+      <ul class="space-y-2">
+        <li><button type="button" class="text-left botonBasico w-full py-2 px-4" data-section="compras">🛒 Compras</button></li>
+        <li><button type="button" class="text-left botonBasico w-full py-2 px-4" data-section="ventas">💼 Ventas</button></li>
+        <li><button type="button" class="text-left botonBasico w-full py-2 px-4" data-section="anuncios">📢 Mis anuncios</button></li>
+        <li><button type="button" class="text-left botonBasico w-full py-2 px-4" data-section="facturacion">🧾 Facturación</button></li>
+        <li><button type="button" class="text-left botonBasico w-full py-2 px-4" data-section="perfil">👤 Mi perfil</button></li>
+        <li><button type="button" class="text-left botonBasico w-full py-2 px-4" data-section="configuracion">⚙️ Configuración</button></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<section id="compras" class="seccion-cuenta hidden">Contenido de Compras</section>
+<section id="ventas" class="seccion-cuenta hidden">Contenido de Ventas</section>
+<section id="anuncios" class="seccion-cuenta hidden">Contenido de Mis anuncios</section>
+<section id="facturacion" class="seccion-cuenta hidden">Contenido de Facturación</section>
+<section id="perfil" class="seccion-cuenta hidden">Contenido de Mi perfil</section>
+<section id="configuracion" class="seccion-cuenta hidden">Contenido de Configuración</section>
+
+<script type="module" is:inline>
+    document.querySelectorAll('[data-section]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.getAttribute('data-section');
+    document.querySelectorAll('.seccion-cuenta').forEach(sec => {
+      sec.classList.add('hidden');
+    });
+    document.getElementById(target)?.classList.remove('hidden');
+  });
+});
+
+</script>

@@ -25,14 +25,14 @@
 }
 
 @theme {
-
   --font-poppins: "Poppins", sans-serif;
   --color-morado: #990467;
   --color-plomo: #eeeeee;
   --color-verde: #66cc66;
-      --color-amarillo: #F0AD4E;
-    --color-gris: #F6F6F6;
-    --color-celeste: #2981B9;
+  --color-amarillo: #f0ad4e;
+  --color-gris: #f6f6f6;
+  --color-celeste: #2981b9;
+  --color-anaranjado:#F68027;
 }
 @layer utilities {
   .boton {
@@ -44,11 +44,10 @@
   .botonRojo {
     @apply hover:scale-105 active:scale-95 duration-300 rounded-xs active:bg-red-600 bg-red-500 hover:bg-red-600 text-white;
   }
-   .botonBasico {
-    @apply hover:scale-105 active:scale-95 duration-300 ;
+  .botonBasico {
+    @apply hover:scale-105 active:scale-95 duration-300;
   }
-    .botonVerde {
+  .botonVerde {
     @apply hover:scale-105 active:scale-95 duration-300 rounded-xs active:bg-green-600 bg-verde hover:bg-green-600 text-white;
   }
-
 }
