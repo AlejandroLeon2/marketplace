@@ -11,7 +11,9 @@ let carrito: Libro[] = carritoData;
   role="dialog"
   aria-labelledby="titulo-carrito"
   aria-modal="true"
+
   class="fixed flex duration-500 translate-x-650 justify-end bg-black/40 h-full w-full"
+
 >
   <div class="border flex flex-col not-only-of-type: relative border-white bg-white h-full w-full max-w-sm">
     <button id="cerrar-modal" class=" botonRojo absolute right-1 top-1 px-2" aria-label="Cerrar carrito">✕</button
@@ -45,7 +47,9 @@ const $btnCerrarModal = document.getElementById('cerrar-modal');
 
 
 const mostrarModal = () => {
+
   $modalCarrito?.classList.remove('translate-x-650');
+
   
   $modalCarrito?.classList.add('translate-x-0');
   $modalCarrito?.classList.add('bg-black/40');
@@ -54,6 +58,7 @@ const mostrarModal = () => {
 const ocultarModal = () => {
   
   $modalCarrito?.classList.remove('translate-x-0');
+
   $modalCarrito?.classList.add('translate-x-650');
   $modalCarrito?.classList.remove('bg-black/40');
 };

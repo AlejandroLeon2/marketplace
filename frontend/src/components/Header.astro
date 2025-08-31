@@ -33,7 +33,9 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
           aria-label="Buscar"
         >
           <!-- Icono de lupa -->
+
           <Lupa />
+
         </button>
       </div>
 
@@ -146,7 +148,7 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
   </div>
 
   <!-- Franja inferior (repuesto) -->
-  <div class="bg-[var(--color-plomo)] border-t border-gray-300">
+  <div class="bg-[var(--color-plomo)] pt-2 border-t border-gray-300">
     <div
       class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-y-2 justify-between items-center min-h-12 text-sm font-medium text-gray-800"
     >
@@ -241,32 +243,15 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
         </div>
       </div>
 
-      <!-- Menú derecho -->
-      <div class="flex items-center gap-4 md:gap-6">
-        <a
-          href="/InicioUsuario"
-          class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out"
-          >ENTRAR</a
-        >
-        <a
-          href="/CuentaUsuario"
-          class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out"
-          >REGISTRO</a
-        >
-      </div>
+
     </div>
   </div>
 </nav>
 
 <!-- Overlay búsqueda móvil -->
-<div
-  id="search-mobile-overlay"
-  class="hidden fixed inset-0 bg-black/70 flex items-start justify-center p-4 z-50"
->
-  <div
-    id="search-mobile-box"
-    class="bg-white w-full max-w-lg rounded-lg shadow-md flex"
-  >
+
+<div id="search-mobile-overlay" class="hidden fixed inset-0 bg-black/70 items-start justify-center p-4 z-50">
+  <div id="search-mobile-box" class="bg-white w-full max-w-lg rounded-lg shadow-md flex">
     <input
       id="search-input-mobile"
       type="text"
@@ -328,30 +313,37 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
       // Evitar que click en el menu burbujee al document
       d.menu.addEventListener("click", (e: MouseEvent) => e.stopPropagation());
 
-      d.button.addEventListener("click", (e: MouseEvent) => {
-        e.stopPropagation();
-        const isOpen = !d.menu!.classList.contains("hidden");
-        closeAll();
-        if (!isOpen) {
-          d.menu!.classList.remove("hidden");
-          d.button!.setAttribute("aria-expanded", "true");
-        }
-      });
 
-      // Si el menu tiene enlaces, al hacer click en cualquiera, cierra
-      const links = d.menu.querySelectorAll<HTMLAnchorElement>("a");
-      links.forEach((link) => {
-        link.addEventListener("click", (ev: MouseEvent) => {
-          if (k === "lang") {
-            ev.preventDefault();
-            const lang =
-              link.getAttribute("data-lang") || link.textContent?.trim() || "";
-            const textLang = document.getElementById("text-lang");
-            if (textLang) textLang.textContent = lang;
-          }
-          closeAll();
-        });
-      });
+  /* ===== BÚSQUEDA MÓVIL ===== */
+  const searchMobileBtn = document.getElementById(
+    "search-mobile-btn"
+  ) as HTMLButtonElement | null;
+  const searchOverlay = document.getElementById(
+    "search-mobile-overlay"
+  ) as HTMLElement | null;
+  const searchClose = document.getElementById(
+    "search-close"
+  ) as HTMLButtonElement | null;
+  const searchInputMobile = document.getElementById(
+    "search-input-mobile"
+  ) as HTMLInputElement | null;
+  const searchGo = document.getElementById(
+    "search-go"
+  ) as HTMLButtonElement | null;
+
+  if (searchMobileBtn && searchOverlay) {
+    searchMobileBtn.addEventListener("click", () => {
+      searchOverlay.classList.remove("hidden");
+      searchOverlay.classList.add("flex");
+      setTimeout(() => searchInputMobile?.focus(), 50);
+    });
+  }
+
+  if (searchClose && searchOverlay) {
+    searchClose.addEventListener("click", () => {
+      searchOverlay.classList.add("hidden");
+      searchOverlay.classList.remove("flex");
+
     });
 
     // Cerrar si clic fuera
