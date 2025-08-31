@@ -17,7 +17,12 @@
         />
         <button id="search-desktop-btn" class="bg-[var(--color-verde)] px-4 cursor-pointer rounded-r-md hover:bg-green-600 transition" aria-label="Buscar">
           <!-- Icono de lupa -->
- 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+
+          </svg>
         </button>
       </div>
 
@@ -102,7 +107,7 @@
   </div>
 
   <!-- Franja inferior (repuesto) -->
-  <div class="bg-[var(--color-plomo)] border-t border-gray-300">
+  <div class="bg-[var(--color-plomo)] pt-2 border-t border-gray-300">
     <div
       class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-y-2 justify-between items-center min-h-12 text-sm font-medium text-gray-800"
     >
@@ -165,21 +170,12 @@
         </div>
       </div>
 
-
-      <!-- Menú derecho -->
-      <div class="flex items-center gap-4 md:gap-6">
-
-        <a href="/InicioUsuario" class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out">ENTRAR</a>
-        <a href="/CuentaUsuario" class="px-2 py-2 hover:text-white hover:bg-[var(--color-verde)] hover:shadow-lg rounded transition duration-300 ease-in-out">REGISTRO</a>
-
-      </div>
-
     </div>
   </div>
 </nav>
 
 <!-- Overlay búsqueda móvil -->
-<div id="search-mobile-overlay" class="hidden fixed inset-0 bg-black/70 flex items-start justify-center p-4 z-50">
+<div id="search-mobile-overlay" class="hidden fixed inset-0 bg-black/70 items-start justify-center p-4 z-50">
   <div id="search-mobile-box" class="bg-white w-full max-w-lg rounded-lg shadow-md flex">
     <input
       id="search-input-mobile"
@@ -292,6 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (searchMobileBtn && searchOverlay) {
     searchMobileBtn.addEventListener("click", () => {
       searchOverlay.classList.remove("hidden");
+      searchOverlay.classList.add("flex");
       setTimeout(() => searchInputMobile?.focus(), 50);
     });
   }
@@ -299,6 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (searchClose && searchOverlay) {
     searchClose.addEventListener("click", () => {
       searchOverlay.classList.add("hidden");
+      searchOverlay.classList.remove("flex");
     });
   }
 
