@@ -1,0 +1,62 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
+import Titulo from "../components/ui/Titulo.astro";
+import CardCarrito from "../components/ui/CardCarrito.astro";
+import carritoData from "../data/carrito.json";
+import type { Libro } from "../types/libro";
+let carrito: Libro[] = carritoData;
+---
+
+<Layout titulo="pago" descripcion="tienda de libros">
+  <Header />
+  <main
+    class="flex flex-col md:flex-row-reverse min-h-screen mx-auto w-full max-w-6xl justify-center items-center md:items-start py-6"
+  >
+    <section aria-labelledby="resumen-pago" class="max-w-xs p-6 space-y-6">
+      <h3 class="etiqueta">Total a Pagar:</h3>
+      <div class="space-y-4 flex flex-col justify-center items-center">
+        <p
+          class="text-3xl text-anaranjado font-semibold"
+          aria-label="Monto en soles"
+        >
+          S/. 62.70
+        </p>
+        <p class="text-xs text-gray-400" aria-label="Monto estimado en dólares">
+          *Valor estimado en Soles. Precio y cobro en Dólares (USD $17.60)
+        </p>
+      </div>
+
+      <div aria-label="Acciones de compra" class="flex flex-col space-y-2">
+        <button type="button" class="boton py-2 px-4">Ir a Caja</button>
+
+        <a
+        href="/"
+          type="button"
+          class="botonBasico text-center py-2 px-4 border border-gray-400"
+          >Sigue Comprando</a
+        >
+      </div>
+    </section>
+    <section class="w-full">
+      <Titulo titulo="Carrito de compras" />
+      <ul
+        class="space-y-2 h-[60svh]  overflow-y-scroll w-full flex flex-col px-4"
+      >
+        {
+          carrito.map((libro) => (
+            <CardCarrito
+              titulo={libro.titulo}
+              cantidad={1}
+              categoria={libro.categoria}
+              precio={libro.precio}
+              imagen={libro.imagen}
+            />
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+  <Footer />
+</Layout>
