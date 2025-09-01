@@ -29,7 +29,7 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
         />
         <button
           id="search-desktop-btn"
-          class="bg-[var(--color-verde)] px-4 cursor-pointer rounded-r-md hover:bg-green-600 transition"
+          class="botonVerde px-4 cursor-pointer rounded-r-md transition"
           aria-label="Buscar"
         >
           <!-- Icono de lupa -->
@@ -119,7 +119,7 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
 
         <!-- Login -->
         <a
-          href="#"
+          href="/inicioUsuario"
           class="flex items-center gap-1 px-2 py-2 hover:shadow-xl rounded transition duration-300 ease-in-out"
           aria-label="Entrar"
         >
@@ -261,7 +261,7 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
     />
     <button
       id="search-go"
-      class="px-3 cursor-pointer bg-[var(--color-verde)] hover:bg-green-600 text-white"
+      class="px-3 cursor-pointer botonVerde text-white"
       aria-label="Buscar acción"
     >
       <Lupa />
@@ -275,44 +275,77 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Dropdown mapping
-    interface Dropdown {
-      button: HTMLButtonElement | null;
-      menu: HTMLElement | null;
-    }
+document.addEventListener("DOMContentLoaded", () => {
+  // Dropdown mapping
+  interface Dropdown {
+    button: HTMLButtonElement | null;
+    menu: HTMLElement | null;
+  }
 
-    const dropdowns: Record<string, Dropdown> = {
-      quick: {
-        button: document.getElementById("btn-quick") as HTMLButtonElement,
-        menu: document.getElementById("menu-quick") as HTMLElement,
-      },
-      discover: {
-        button: document.getElementById("btn-discover") as HTMLButtonElement,
-        menu: document.getElementById("menu-discover") as HTMLElement,
-      },
-      lang: {
-        button: document.getElementById("btn-lang") as HTMLButtonElement,
-        menu: document.getElementById("menu-lang") as HTMLElement,
-      },
-    };
+  const dropdowns: Record<string, Dropdown> = {
+    quick: {
+      button: document.getElementById("btn-quick") as HTMLButtonElement,
+      menu: document.getElementById("menu-quick") as HTMLElement,
+    },
+    discover: {
+      button: document.getElementById("btn-discover") as HTMLButtonElement,
+      menu: document.getElementById("menu-discover") as HTMLElement,
+    },
+    lang: {
+      button: document.getElementById("btn-lang") as HTMLButtonElement,
+      menu: document.getElementById("menu-lang") as HTMLElement,
+    },
+  };
 
-    // Util: cerrar todos los dropdowns
-    function closeAll(): void {
-      Object.values(dropdowns).forEach((d) => {
-        if (!d?.menu || !d?.button) return;
-        d.menu.classList.add("hidden");
-        d.button.setAttribute("aria-expanded", "false");
+  // Util: cerrar todos los dropdowns
+  function closeAll(): void {
+    Object.values(dropdowns).forEach((d) => {
+      if (!d?.menu || !d?.button) return;
+      d.menu.classList.add("hidden");
+      d.button.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  // Toggle para cada dropdown
+  Object.entries(dropdowns).forEach(([k, d]) => {
+    if (!d || !d.button || !d.menu) return;
+
+    // Evitar que click en el menu burbujee al document
+    d.menu.addEventListener("click", (e: MouseEvent) => e.stopPropagation());
+
+    d.button.addEventListener("click", (e: MouseEvent) => {
+      e.stopPropagation();
+      const isOpen = !d.menu!.classList.contains("hidden");
+      closeAll();
+      if (!isOpen) {
+        d.menu!.classList.remove("hidden");
+        d.button!.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    // Si el menu tiene enlaces, al hacer click en cualquiera, cierra
+    const links = d.menu.querySelectorAll<HTMLAnchorElement>("a");
+    links.forEach((link) => {
+      link.addEventListener("click", (ev: MouseEvent) => {
+        if (k === "lang") {
+          ev.preventDefault();
+          const lang =
+            link.getAttribute("data-lang") || link.textContent?.trim() || "";
+          const textLang = document.getElementById("text-lang");
+          if (textLang) textLang.textContent = lang;
+        }
+        closeAll();
       });
-    }
+    });
+  });
 
-    // Toggle para cada dropdown
-    Object.entries(dropdowns).forEach(([k, d]) => {
-      if (!d || !d.button || !d.menu) return;
+  // Cerrar si clic fuera
+  document.addEventListener("click", () => closeAll());
 
-      // Evitar que click en el menu burbujee al document
-      d.menu.addEventListener("click", (e: MouseEvent) => e.stopPropagation());
-
+  // Cerrar con ESC
+  document.addEventListener("keydown", (e: KeyboardEvent) => {
+    if (e.key === "Escape") closeAll();
+  });
 
   /* ===== BÚSQUEDA MÓVIL ===== */
   const searchMobileBtn = document.getElementById(
@@ -343,98 +376,60 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
     searchClose.addEventListener("click", () => {
       searchOverlay.classList.add("hidden");
       searchOverlay.classList.remove("flex");
-
     });
+  }
 
-    // Cerrar si clic fuera
-    document.addEventListener("click", () => closeAll());
-
-    // Cerrar con ESC
-    document.addEventListener("keydown", (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeAll();
+  if (searchOverlay) {
+    searchOverlay.addEventListener("click", (e: MouseEvent) => {
+      if (e.target === searchOverlay) searchOverlay.classList.add("hidden");
     });
+  }
 
-    /* ===== BÚSQUEDA MÓVIL ===== */
-    const searchMobileBtn = document.getElementById(
-      "search-mobile-btn"
-    ) as HTMLButtonElement | null;
-    const searchOverlay = document.getElementById(
-      "search-mobile-overlay"
-    ) as HTMLElement | null;
-    const searchClose = document.getElementById(
-      "search-close"
-    ) as HTMLButtonElement | null;
-    const searchInputMobile = document.getElementById(
-      "search-input-mobile"
-    ) as HTMLInputElement | null;
-    const searchGo = document.getElementById(
-      "search-go"
-    ) as HTMLButtonElement | null;
+  function doSearch(q: string): void {
+    console.log("Buscar:", q);
+    if (searchOverlay) searchOverlay.classList.add("hidden");
+  }
 
-    if (searchMobileBtn && searchOverlay) {
-      searchMobileBtn.addEventListener("click", () => {
-        searchOverlay.classList.remove("hidden");
-        setTimeout(() => searchInputMobile?.focus(), 50);
-      });
-    }
+  if (searchGo) {
+    searchGo.addEventListener("click", () => {
+      const q = searchInputMobile?.value || "";
+      doSearch(q);
+    });
+  }
 
-    if (searchClose && searchOverlay) {
-      searchClose.addEventListener("click", () => {
+  if (searchInputMobile) {
+    searchInputMobile.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        doSearch(searchInputMobile.value);
+      } else if (e.key === "Escape" && searchOverlay) {
         searchOverlay.classList.add("hidden");
-      });
-    }
+      }
+    });
+  }
 
-    if (searchOverlay) {
-      searchOverlay.addEventListener("click", (e: MouseEvent) => {
-        if (e.target === searchOverlay) searchOverlay.classList.add("hidden");
-      });
-    }
+  /* ===== BÚSQUEDA DESKTOP ===== */
+  const searchDesktopBtn = document.getElementById(
+    "search-desktop-btn"
+  ) as HTMLButtonElement | null;
+  const searchInputDesktop = document.getElementById(
+    "search-input-desktop"
+  ) as HTMLInputElement | null;
 
-    function doSearch(q: string): void {
-      console.log("Buscar:", q);
-      if (searchOverlay) searchOverlay.classList.add("hidden");
-    }
+  if (searchDesktopBtn) {
+    searchDesktopBtn.addEventListener("click", () => {
+      const q = searchInputDesktop?.value || "";
+      doSearch(q);
+    });
+  }
 
-    if (searchGo) {
-      searchGo.addEventListener("click", () => {
-        const q = searchInputMobile?.value || "";
-        doSearch(q);
-      });
-    }
-
-    if (searchInputMobile) {
-      searchInputMobile.addEventListener("keydown", (e: KeyboardEvent) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          doSearch(searchInputMobile.value);
-        } else if (e.key === "Escape" && searchOverlay) {
-          searchOverlay.classList.add("hidden");
-        }
-      });
-    }
-
-    /* ===== BÚSQUEDA DESKTOP ===== */
-    const searchDesktopBtn = document.getElementById(
-      "search-desktop-btn"
-    ) as HTMLButtonElement | null;
-    const searchInputDesktop = document.getElementById(
-      "search-input-desktop"
-    ) as HTMLInputElement | null;
-
-    if (searchDesktopBtn) {
-      searchDesktopBtn.addEventListener("click", () => {
-        const q = searchInputDesktop?.value || "";
-        doSearch(q);
-      });
-    }
-
-    if (searchInputDesktop) {
-      searchInputDesktop.addEventListener("keydown", (e: KeyboardEvent) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          doSearch(searchInputDesktop.value);
-        }
-      });
-    }
-  });
+  if (searchInputDesktop) {
+    searchInputDesktop.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        doSearch(searchInputDesktop.value);
+      }
+    });
+  }
+});
 </script>

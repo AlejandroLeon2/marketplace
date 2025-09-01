@@ -1,21 +1,25 @@
 ---
-import Boton from "./Boton.astro"
-const {image, titulo, autor, precio,} =Astro.props;
-
+import Boton from "./Boton.astro";
+const { image, titulo, autor, precio, id } = Astro.props;
 ---
-<article class="w-45  shadow-xl   h-90 space-y-2 flex flex-col">
-  <a href=""></a>
-  <figure>
-    <img class="w-full h-60  object-cover" src={image} alt={`Portada del libro ${titulo}.`} />
-    <figcaption class="sr-only">{`Portada de ${titulo}.`}</figcaption>
-  </figure>
 
+<article class="w-45 shadow-xl h-90 space-y-2 flex flex-col">
+  <a href={`/libros/${id}`}>
+    <figure>
+      <img
+        class="w-full h-60 object-cover"
+        src={image}
+        alt={`Portada del libro ${titulo}.`}
+      />
+      <figcaption class="sr-only">{`Portada de ${titulo}.`}</figcaption>
+    </figure>
+  </a>
   <header class="px-4">
     <h2 class="text-sm h-10 overflow-hidden">{titulo}</h2>
-    <p class="text-xs">Por <strong>{autor? autor :"Anonimo"}</strong></p>
+    <p class="text-xs">Por <strong>{autor ? autor : "Anonimo"}</strong></p>
   </header>
 
-  <footer class="px-4  mt-auto mb-4 ">
-    <Boton precio={precio}/>
+  <footer class="px-4 mt-auto mb-4">
+    <Boton precio={precio} />
   </footer>
 </article>
