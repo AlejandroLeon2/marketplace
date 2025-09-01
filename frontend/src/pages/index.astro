@@ -6,6 +6,7 @@ import Categoria from "../components/secciones/Categoria.astro";
 import MasVendidos from "../components/MasVendidos.astro";
 import librosData from "../data/libros.json";
 import seccionesData from "../data/idiomas/es.json";
+import FiltroAdmin from "../components/FiltroAdmin.astro";
 import type { Libro } from "../types/libro";
 interface PaginaInicio {
   inicio: { secciones: string[]; footer: string[] };
@@ -33,6 +34,9 @@ const secciones = obtenerDatos();
     }
     <section class="w-[30%] h-[70%] flex justify-center items-center">
       <MasVendidos />
+    </section>
+    <section class="w-full h-full my-8">
+    <FiltroAdmin />
     </section>
   </main>
   <Footer />
