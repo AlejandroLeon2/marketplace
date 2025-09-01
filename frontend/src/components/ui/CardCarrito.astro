@@ -1,0 +1,37 @@
+---
+import CantidadBoton from "../ui/CantidadBoton.astro";
+import Tacho from "../svg/Tacho.astro";
+type Props = {
+  titulo: string;
+  cantidad: number;
+  precio: number;
+  imagen: string;
+  categoria?: string;
+};
+
+const { titulo, cantidad, precio, imagen, categoria } = Astro.props;
+---
+
+<li class="">
+  <article class="flex rounded-sm shadow overflow-hidden w-full bg-white">
+    <img
+      src={imagen}
+      alt={`Portada del libro ${titulo}`}
+      class="w-15 object-cover"
+    />
+    <div class="px-4 py-2 w-full">
+      <div class="flex justify-between mb-1">
+        <h3 class="max-w-50 h-10 text-sm">{titulo}</h3>
+        {categoria&&(<p class="text-xs">{categoria}</p>)}
+        <button class="text-red-500 h-5.5 botonRojo">
+          <Tacho />
+        </button>
+      </div>
+
+      <div class="flex justify-around items-center">
+        <CantidadBoton cantidad={cantidad} />
+        <p class="text-morado">S/. {precio}</p>
+      </div>
+    </div>
+  </article>
+</li>

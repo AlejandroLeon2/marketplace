@@ -1,40 +1,53 @@
-
 @import "tailwindcss";
 
 @font-face {
-    font-family: "Poppins";
-    src: url("/fonts/Poppins-Regular.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Poppins";
-    src: url("/fonts/Poppins-SemiBold.ttf") format("truetype");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Poppins";
-    src: url("/fonts/Poppins-Bold.ttf") format("truetype");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme {
-    --font-poppins: "Poppins", sans-serif;
-    --color-morado: #990467;
-    --color-plomo: #EEEEEE;
-    --color-verde: #66CC66;
+  --font-poppins: "Poppins", sans-serif;
+  --color-morado: #990467;
+  --color-plomo: #eeeeee;
+  --color-verde: #66cc66;
+  --color-amarillo: #f0ad4e;
+  --color-gris: #f6f6f6;
+  --color-celeste: #2981b9;
+  --color-anaranjado:#F68027;
 }
-@layer utilities{
-
-    .boton{
-        @apply  hover:scale-105 active:scale-95 duration-300 rounded-xs active:bg-blue-600 bg-blue-500 hover:bg-blue-600 text-white ; 
-    }
-
+@layer utilities {
+  .boton {
+    @apply hover:scale-105 active:scale-95 duration-300 rounded-xs active:bg-blue-600 bg-blue-500 hover:bg-blue-600 text-white;
+  }
+  .botonMorado {
+    @apply hover:scale-105 active:scale-95 duration-300 rounded-xs active:bg-pink-900 bg-morado hover:bg-pink-900 text-white;
+  }
+  .botonRojo {
+    @apply hover:scale-105 active:scale-95 duration-300 rounded-xs active:bg-red-600 bg-red-500 hover:bg-red-600 text-white;
+  }
+  .botonBasico {
+    @apply hover:scale-105 active:scale-95 duration-300;
+  }
+  .botonVerde {
+    @apply hover:scale-105 active:scale-95 duration-300 rounded-xs active:bg-green-600 bg-verde hover:bg-green-600 text-white;
+  }
 }

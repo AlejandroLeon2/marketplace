@@ -1,0 +1,134 @@
+---
+const { libro } = Astro.props;
+---
+
+<article class="max-w-6xl mx-auto mt-4 bg-white shadow p-6 rounded grid grid-cols-1 md:grid-cols-3 gap-6">
+  <!-- Imagen del libro -->
+  <div class="md:col-span-1">
+    <img 
+      src={libro.imagen} 
+      alt={libro.titulo} 
+      class="w-full h-96 object-cover rounded shadow-lg hover:shadow-xl transition duration-300 ease-in-out" 
+    />
+  </div>
+
+  <!-- Info principal del libro -->
+  <div class="md:col-span-1 flex flex-col justify-between">
+    <div>
+      <h1 class="text-3xl font-bold">{libro.titulo}</h1>
+      <p>Por <span class="text-blue-600">{libro.autor}</span></p>
+      <p class="text-sm text-gray-500">{libro.anio_publicacion}</p>
+
+      <div class="mt-4 space-y-2">
+        <p><strong>Formato:</strong> {libro.formato}</p>
+        <p><strong>Categoría:</strong> {libro.categoria}</p>
+        <p><strong>Idioma:</strong> {libro.idioma}</p>
+        <p class="flex gap-2 text-verde"><strong class="text-black">Disponible: </strong>Descarga inmediata
+        <svg xmlns="http://www.w3.org/2000/svg"
+          width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="Verificado">
+          <circle cx="12" cy="12" r="10" fill="#28a745"/>
+          <path d="M9 12.5l2 2.2 4.2-4.6"
+                fill="none" stroke="#ffffff" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Precio y acciones -->
+  <div class="md:col-span-1  p-4 flex flex-col justify-between">
+    <div class="text-center bg-gray-50 border rounded p-6 shadow-2xl">
+      <p class="text-3xl font-bold text-anaranjado">S/. {libro.precio.toFixed(2)}</p>
+      <p class="text-sm text-gray-500">(SOLES)</p>
+      <button id="btn-comprar" class="mt-4 w-full gap-2 flex items-center justify-center botonVerde text-white font-semibold py-2 px-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Ruedas -->
+          <circle cx="8" cy="20" r="2"/>
+          <circle cx="17" cy="20" r="2"/>
+          <!-- Cesta -->
+          <rect x="5" y="6" width="14" height="10" rx="1" ry="1"/>
+          <!-- Manija -->
+          <path d="M5 6L4 3H2"/>
+        </svg>
+        COMPRA AHORA
+      </button>
+      <div class="mt-2 flex flex-col gap-1 text-sm text-gray-600">
+        <p class="flex items-center justify-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" 
+            width="24" height="24" 
+            fill="currentColor" 
+            viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                    2 6 3.99 4 6.5 4 
+                    c1.74 0 3.41 0.81 4.5 2.09 
+                    C12.09 4.81 13.76 4 15.5 4 
+                    18.01 4 20 6 20 8.5 
+                    c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            Hazlo tu favorito
+        </p>
+        <p class="flex items-center justify-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" 
+            width="24" height="24" 
+            fill="none" stroke="currentColor" 
+            stroke-width="2" stroke-linecap="round" 
+            stroke-linejoin="round" 
+            class="lucide lucide-thumbs-up">
+            <path d="M7 10v12H3V10z"/>
+            <path d="M15 21h4a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-5.28l.72-4.34A2 2 0 0 0 12.5 4H12l-5 7v10h8z"/>
+            </svg>
+            Recomiéndalo
+        </p>
+      </div>
+    </div>
+
+    
+    <div class="mt-4 gap-2 flex flex-col items-center justify-center">
+        <p>Puedes leer este eBook en:</p>
+        <div class="flex gap-6 mt-2">
+            <div class="flex flex-col items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-label="Icono PC de escritorio">
+                    <!-- Monitor -->
+                    <rect x="3" y="4" width="18" height="12" rx="2" ry="2"/>
+                    <!-- Peana/base -->
+                    <line x1="12" y1="16" x2="12" y2="19"/>
+                    <rect x="8" y="19" width="8" height="2" rx="1"/>
+                </svg>
+              <p class="text-sm mt-1">Pc/Mac</p>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-label="Icono celular">
+                    <rect x="7" y="2" width="12" height="20" rx="2" ry="2"/>
+                    <line x1="13" y1="18" x2="13" y2="18"/>
+                </svg>
+                <p class="text-sm mt-1">Phone</p>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-label="Icono tablet">
+                    <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+                    <line x1="12" y1="18" x2="12" y2="18"/>
+                </svg>
+                <p class="text-sm mt-1">Tablet</p>
+            </div>
+        </div>
+    </div>
+  </div>
+</article>
+
+<!-- Sinopsis debajo -->
+<section class="max-w-6xl mx-auto mt-8 bg-white shadow p-6 rounded">
+  <h2 class="text-xl font-semibold">Sinopsis</h2>
+  <p class="mt-2 text-gray-700 leading-relaxed">{libro.sinopsis}</p>
+</section>

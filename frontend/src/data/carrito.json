@@ -1,0 +1,35 @@
+[
+  {
+    "titulo": "Interfaces Estratégicas",
+    "descripcion": "Diseña componentes visuales que comuniquen intención, contexto y propósito.",
+    "precio": 31.75,
+    "autor": "Pedro Alejandro",
+    "anio_publicacion": 2025,
+    "fecha_subida": "2025-08-29",
+    "categoria": "Diseño UI",
+    "idioma": "Español",
+    "imagen": "/images/gato.jpg"
+  },
+  {
+    "titulo": "Auditoría Semántica Automatizada",
+    "descripcion": "Implementa validaciones por componente y genera changelogs con impacto técnico.",
+    "precio": 36.40,
+    "autor": "Pedro Alejandro",
+    "anio_publicacion": 2023,
+    "fecha_subida": "2025-08-28",
+    "categoria": "Ingeniería de Software",
+    "idioma": "Español",
+    "imagen": "/images/gato.jpg"
+  },
+  {
+    "titulo": "Compilación Modular por Carpeta",
+    "descripcion": "Domina flujos de build escalables y diferenciación de recursos internos y públicos.",
+    "precio": 29.99,
+    "autor": "Pedro Alejandro",
+    "anio_publicacion": 2022,
+    "fecha_subida": "2025-08-27",
+    "categoria": "Arquitectura Web",
+    "idioma": "Español",
+    "imagen": "/images/gato.jpg"
+  }
+]

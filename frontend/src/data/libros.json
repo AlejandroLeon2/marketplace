@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "titulo": "Lógica Modular Aplicada",
     "descripcion": "Explora cómo la modularidad transforma sistemas web y videojuegos.",
     "precio": 34.90,
@@ -8,9 +9,12 @@
     "fecha_subida": "2025-08-21",
     "categoria": "Tecnología",
     "idioma": "Español",
-    "imagen": "/images/gato.jpg"
+    "formato": "EPUB",
+    "imagen": "/images/gato.jpg",
+    "sinopsis": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo."
   },
   {
+    "id": 2,
     "titulo": "Gamificación Estratégica",
     "descripcion": "Convierte procesos técnicos en experiencias memorables y colaborativas.",
     "precio": 27.50,
@@ -19,9 +23,12 @@
     "fecha_subida": "2025-08-20",
     "categoria": "Marketing",
     "idioma": "Español",
-    "imagen": "/images/gato.jpg"
+    "formato": "EPUB",
+    "imagen": "/images/gato.jpg",
+    "sinopsis": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo."
   },
   {
+    "id": 3,
     "titulo": "Documentación con Impacto",
     "descripcion": "Técnicas para enseñar tecnología con claridad y emoción.",
     "precio": 22.00,
@@ -30,9 +37,13 @@
     "fecha_subida": "2025-08-19",
     "categoria": "Educación",
     "idioma": "Español",
-    "imagen": "/images/gato.jpg"
+    "formato": "EPUB",
+    "imagen": "/images/gato.jpg",
+    "sinopsis": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo."
+
   },
   {
+    "id": 4,
     "titulo": "Traducción Técnica Modular",
     "descripcion": "Cómo adaptar sistemas complejos para públicos diversos sin perder precisión.",
     "precio": 30.25,
@@ -41,9 +52,13 @@
     "fecha_subida": "2025-08-18",
     "categoria": "Localización",
     "idioma": "Español",
-    "imagen": "/images/gato.jpg"
+    "formato": "EPUB",
+    "imagen": "/images/gato.jpg",
+    "sinopsis": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo."
+
   },
   {
+    "id": 5,
     "titulo": "Experiencias Digitales Personalizadas",
     "descripcion": "Diseña regalos web, kits interactivos y landing pages con lógica emocional.",
     "precio": 39.99,
@@ -52,6 +67,9 @@
     "fecha_subida": "2025-08-17",
     "categoria": "Diseño UX",
     "idioma": "Español",
-    "imagen": "/images/gato.jpg"
+    "formato": "EPUB",
+    "imagen": "/images/gato.jpg",
+    "sinopsis": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo."
+
   }
 ]
