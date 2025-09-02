@@ -3,7 +3,7 @@ import Boton from "./Boton.astro";
 const { image, titulo, autor, precio, id } = Astro.props;
 ---
 
-<article class="w-45 shadow-xl h-90 space-y-2 flex flex-col">
+<article class="w-45 shadow-xl h-95 space-y-2 flex flex-col">
   <a href={`/libros/${id}`}>
     <figure>
       <img
@@ -15,8 +15,8 @@ const { image, titulo, autor, precio, id } = Astro.props;
     </figure>
   </a>
   <header class="px-4">
-    <h2 class="text-sm h-10 overflow-hidden">{titulo}</h2>
-    <p class="text-xs">Por <strong>{autor ? autor : "Anonimo"}</strong></p>
+    <h2 class="text-sm  h-10 overflow-hidden">{titulo}</h2>
+    <p class="text-xs text-balance">Por <strong>{autor ? autor : "Anonimo"}</strong></p>
   </header>
 
   <footer class="px-4 mt-auto mb-4">

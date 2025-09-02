@@ -6,7 +6,7 @@ import Categoria from "../components/secciones/Categoria.astro";
 import MasVendidos from "../components/MasVendidos.astro";
 import librosData from "../data/libros.json";
 import seccionesData from "../data/idiomas/es.json";
-import FiltroAdmin from "../components/FiltroAdmin.astro";
+import SliderPortada from "../components/secciones/SliderPortada.astro";
 import type { Libro } from "../types/libro";
 interface PaginaInicio {
   inicio: { secciones: string[]; footer: string[] };
@@ -25,19 +25,18 @@ const secciones = obtenerDatos();
 <Layout titulo="home" descripcion="tienda de libros">
   <Header />
   <main
-    class="flex flex-col min-h-screen mx-auto w-full max-w-6xl justify-center items-center"
+    class="flex flex-col px-4 min-h-screen mx-auto w-full max-w-6xl justify-center items-center"
   >
+  <SliderPortada/>
     {
       secciones.configuracion.inicio.secciones.map((data) => (
         <Categoria libros={secciones.libros} tituloSeccion={data} />
       ))
     }
-    <section class="w-[30%] h-[70%] flex justify-center items-center">
+
       <MasVendidos />
-    </section>
-    <section class="w-full h-full my-8">
-    <FiltroAdmin />
-    </section>
+
+ 
   </main>
   <Footer />
 

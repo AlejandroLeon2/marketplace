@@ -1,7 +1,9 @@
 ---
 import Lupa from "./svg/Lupa.astro";
 import Usuario from "./svg/Usuario.astro";
-import CarritoCompras from "./svg/CarritoCompras.astro"
+import Globo from "./svg/Globo.astro";
+import FlechaCorta from "./svg/FlechaCorta.astro"
+import CarritoCompras from "./svg/CarritoCompras.astro";
 ---
 
 <nav class="shadow-md">
@@ -35,7 +37,6 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
           <!-- Icono de lupa -->
 
           <Lupa />
-
         </button>
       </div>
 
@@ -61,22 +62,8 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
             aria-controls="menu-lang"
           >
             <!-- Icono de globo -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-globe"
-            >
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 0 20a15.3 15.3 0 0 1 0-20"></path>
-            </svg>
 
+            <Globo />
             <span id="text-lang" class="hidden sm:inline">Español</span>
             <svg
               class="h-4 w-4"
@@ -119,7 +106,7 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
 
         <!-- Login -->
         <a
-          href="/inicioUsuario"
+          href="/inicio-usuario"
           class="flex items-center gap-1 px-2 py-2 hover:shadow-xl rounded transition duration-300 ease-in-out"
           aria-label="Entrar"
         >
@@ -135,7 +122,7 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
           class="relative flex items-center gap-1 px-3 py-2 hover:shadow-xl rounded transition duration-300 ease-in-out"
         >
           <!-- Carrito (outline) -->
-<CarritoCompras/>
+          <CarritoCompras />
           <span class="hidden sm:inline">Carrito</span>
           <span
             id="contador-carrito"
@@ -148,7 +135,7 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
   </div>
 
   <!-- Franja inferior (repuesto) -->
-  <div class="bg-[var(--color-plomo)] pt-2 border-t border-gray-300">
+  <div class="bg-plomo pt-2 border-t border-gray-300">
     <div
       class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-y-2 justify-between items-center min-h-12 text-sm font-medium text-gray-800"
     >
@@ -164,19 +151,7 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
             aria-controls="menu-quick"
           >
             CATEGORIAS
-            <svg
-              class="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
-            </svg>
+          <FlechaCorta/>
           </button>
 
           <div
@@ -209,19 +184,7 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
             aria-controls="menu-discover"
           >
             DESCUBRE
-            <svg
-              class="h-4 w-4 text-[var(--color-verde)]"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
-            </svg>
+<FlechaCorta/>
           </button>
 
           <div
@@ -242,16 +205,20 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 </nav>
 
 <!-- Overlay búsqueda móvil -->
 
-<div id="search-mobile-overlay" class="hidden fixed inset-0 bg-black/70 items-start justify-center p-4 z-50">
-  <div id="search-mobile-box" class="bg-white w-full max-w-lg rounded-lg shadow-md flex">
+<div
+  id="search-mobile-overlay"
+  class="hidden fixed inset-0 bg-black/70 items-start justify-center p-4 z-50"
+>
+  <div
+    id="search-mobile-box"
+    class="bg-white w-full max-w-lg rounded-lg shadow-md flex"
+  >
     <input
       id="search-input-mobile"
       type="text"
@@ -275,161 +242,161 @@ import CarritoCompras from "./svg/CarritoCompras.astro"
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Dropdown mapping
-  interface Dropdown {
-    button: HTMLButtonElement | null;
-    menu: HTMLElement | null;
-  }
+  document.addEventListener("DOMContentLoaded", () => {
+    // Dropdown mapping
+    interface Dropdown {
+      button: HTMLButtonElement | null;
+      menu: HTMLElement | null;
+    }
 
-  const dropdowns: Record<string, Dropdown> = {
-    quick: {
-      button: document.getElementById("btn-quick") as HTMLButtonElement,
-      menu: document.getElementById("menu-quick") as HTMLElement,
-    },
-    discover: {
-      button: document.getElementById("btn-discover") as HTMLButtonElement,
-      menu: document.getElementById("menu-discover") as HTMLElement,
-    },
-    lang: {
-      button: document.getElementById("btn-lang") as HTMLButtonElement,
-      menu: document.getElementById("menu-lang") as HTMLElement,
-    },
-  };
+    const dropdowns: Record<string, Dropdown> = {
+      quick: {
+        button: document.getElementById("btn-quick") as HTMLButtonElement,
+        menu: document.getElementById("menu-quick") as HTMLElement,
+      },
+      discover: {
+        button: document.getElementById("btn-discover") as HTMLButtonElement,
+        menu: document.getElementById("menu-discover") as HTMLElement,
+      },
+      lang: {
+        button: document.getElementById("btn-lang") as HTMLButtonElement,
+        menu: document.getElementById("menu-lang") as HTMLElement,
+      },
+    };
 
-  // Util: cerrar todos los dropdowns
-  function closeAll(): void {
-    Object.values(dropdowns).forEach((d) => {
-      if (!d?.menu || !d?.button) return;
-      d.menu.classList.add("hidden");
-      d.button.setAttribute("aria-expanded", "false");
-    });
-  }
+    // Util: cerrar todos los dropdowns
+    function closeAll(): void {
+      Object.values(dropdowns).forEach((d) => {
+        if (!d?.menu || !d?.button) return;
+        d.menu.classList.add("hidden");
+        d.button.setAttribute("aria-expanded", "false");
+      });
+    }
 
-  // Toggle para cada dropdown
-  Object.entries(dropdowns).forEach(([k, d]) => {
-    if (!d || !d.button || !d.menu) return;
+    // Toggle para cada dropdown
+    Object.entries(dropdowns).forEach(([k, d]) => {
+      if (!d || !d.button || !d.menu) return;
 
-    // Evitar que click en el menu burbujee al document
-    d.menu.addEventListener("click", (e: MouseEvent) => e.stopPropagation());
+      // Evitar que click en el menu burbujee al document
+      d.menu.addEventListener("click", (e: MouseEvent) => e.stopPropagation());
 
-    d.button.addEventListener("click", (e: MouseEvent) => {
-      e.stopPropagation();
-      const isOpen = !d.menu!.classList.contains("hidden");
-      closeAll();
-      if (!isOpen) {
-        d.menu!.classList.remove("hidden");
-        d.button!.setAttribute("aria-expanded", "true");
-      }
-    });
-
-    // Si el menu tiene enlaces, al hacer click en cualquiera, cierra
-    const links = d.menu.querySelectorAll<HTMLAnchorElement>("a");
-    links.forEach((link) => {
-      link.addEventListener("click", (ev: MouseEvent) => {
-        if (k === "lang") {
-          ev.preventDefault();
-          const lang =
-            link.getAttribute("data-lang") || link.textContent?.trim() || "";
-          const textLang = document.getElementById("text-lang");
-          if (textLang) textLang.textContent = lang;
-        }
+      d.button.addEventListener("click", (e: MouseEvent) => {
+        e.stopPropagation();
+        const isOpen = !d.menu!.classList.contains("hidden");
         closeAll();
+        if (!isOpen) {
+          d.menu!.classList.remove("hidden");
+          d.button!.setAttribute("aria-expanded", "true");
+        }
+      });
+
+      // Si el menu tiene enlaces, al hacer click en cualquiera, cierra
+      const links = d.menu.querySelectorAll<HTMLAnchorElement>("a");
+      links.forEach((link) => {
+        link.addEventListener("click", (ev: MouseEvent) => {
+          if (k === "lang") {
+            ev.preventDefault();
+            const lang =
+              link.getAttribute("data-lang") || link.textContent?.trim() || "";
+            const textLang = document.getElementById("text-lang");
+            if (textLang) textLang.textContent = lang;
+          }
+          closeAll();
+        });
       });
     });
-  });
 
-  // Cerrar si clic fuera
-  document.addEventListener("click", () => closeAll());
+    // Cerrar si clic fuera
+    document.addEventListener("click", () => closeAll());
 
-  // Cerrar con ESC
-  document.addEventListener("keydown", (e: KeyboardEvent) => {
-    if (e.key === "Escape") closeAll();
-  });
-
-  /* ===== BÚSQUEDA MÓVIL ===== */
-  const searchMobileBtn = document.getElementById(
-    "search-mobile-btn"
-  ) as HTMLButtonElement | null;
-  const searchOverlay = document.getElementById(
-    "search-mobile-overlay"
-  ) as HTMLElement | null;
-  const searchClose = document.getElementById(
-    "search-close"
-  ) as HTMLButtonElement | null;
-  const searchInputMobile = document.getElementById(
-    "search-input-mobile"
-  ) as HTMLInputElement | null;
-  const searchGo = document.getElementById(
-    "search-go"
-  ) as HTMLButtonElement | null;
-
-  if (searchMobileBtn && searchOverlay) {
-    searchMobileBtn.addEventListener("click", () => {
-      searchOverlay.classList.remove("hidden");
-      searchOverlay.classList.add("flex");
-      setTimeout(() => searchInputMobile?.focus(), 50);
+    // Cerrar con ESC
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeAll();
     });
-  }
 
-  if (searchClose && searchOverlay) {
-    searchClose.addEventListener("click", () => {
-      searchOverlay.classList.add("hidden");
-      searchOverlay.classList.remove("flex");
-    });
-  }
+    /* ===== BÚSQUEDA MÓVIL ===== */
+    const searchMobileBtn = document.getElementById(
+      "search-mobile-btn"
+    ) as HTMLButtonElement | null;
+    const searchOverlay = document.getElementById(
+      "search-mobile-overlay"
+    ) as HTMLElement | null;
+    const searchClose = document.getElementById(
+      "search-close"
+    ) as HTMLButtonElement | null;
+    const searchInputMobile = document.getElementById(
+      "search-input-mobile"
+    ) as HTMLInputElement | null;
+    const searchGo = document.getElementById(
+      "search-go"
+    ) as HTMLButtonElement | null;
 
-  if (searchOverlay) {
-    searchOverlay.addEventListener("click", (e: MouseEvent) => {
-      if (e.target === searchOverlay) searchOverlay.classList.add("hidden");
-    });
-  }
+    if (searchMobileBtn && searchOverlay) {
+      searchMobileBtn.addEventListener("click", () => {
+        searchOverlay.classList.remove("hidden");
+        searchOverlay.classList.add("flex");
+        setTimeout(() => searchInputMobile?.focus(), 50);
+      });
+    }
 
-  function doSearch(q: string): void {
-    console.log("Buscar:", q);
-    if (searchOverlay) searchOverlay.classList.add("hidden");
-  }
-
-  if (searchGo) {
-    searchGo.addEventListener("click", () => {
-      const q = searchInputMobile?.value || "";
-      doSearch(q);
-    });
-  }
-
-  if (searchInputMobile) {
-    searchInputMobile.addEventListener("keydown", (e: KeyboardEvent) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        doSearch(searchInputMobile.value);
-      } else if (e.key === "Escape" && searchOverlay) {
+    if (searchClose && searchOverlay) {
+      searchClose.addEventListener("click", () => {
         searchOverlay.classList.add("hidden");
-      }
-    });
-  }
+        searchOverlay.classList.remove("flex");
+      });
+    }
 
-  /* ===== BÚSQUEDA DESKTOP ===== */
-  const searchDesktopBtn = document.getElementById(
-    "search-desktop-btn"
-  ) as HTMLButtonElement | null;
-  const searchInputDesktop = document.getElementById(
-    "search-input-desktop"
-  ) as HTMLInputElement | null;
+    if (searchOverlay) {
+      searchOverlay.addEventListener("click", (e: MouseEvent) => {
+        if (e.target === searchOverlay) searchOverlay.classList.add("hidden");
+      });
+    }
 
-  if (searchDesktopBtn) {
-    searchDesktopBtn.addEventListener("click", () => {
-      const q = searchInputDesktop?.value || "";
-      doSearch(q);
-    });
-  }
+    function doSearch(q: string): void {
+      console.log("Buscar:", q);
+      if (searchOverlay) searchOverlay.classList.add("hidden");
+    }
 
-  if (searchInputDesktop) {
-    searchInputDesktop.addEventListener("keydown", (e: KeyboardEvent) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        doSearch(searchInputDesktop.value);
-      }
-    });
-  }
-});
+    if (searchGo) {
+      searchGo.addEventListener("click", () => {
+        const q = searchInputMobile?.value || "";
+        doSearch(q);
+      });
+    }
+
+    if (searchInputMobile) {
+      searchInputMobile.addEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          doSearch(searchInputMobile.value);
+        } else if (e.key === "Escape" && searchOverlay) {
+          searchOverlay.classList.add("hidden");
+        }
+      });
+    }
+
+    /* ===== BÚSQUEDA DESKTOP ===== */
+    const searchDesktopBtn = document.getElementById(
+      "search-desktop-btn"
+    ) as HTMLButtonElement | null;
+    const searchInputDesktop = document.getElementById(
+      "search-input-desktop"
+    ) as HTMLInputElement | null;
+
+    if (searchDesktopBtn) {
+      searchDesktopBtn.addEventListener("click", () => {
+        const q = searchInputDesktop?.value || "";
+        doSearch(q);
+      });
+    }
+
+    if (searchInputDesktop) {
+      searchInputDesktop.addEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          doSearch(searchInputDesktop.value);
+        }
+      });
+    }
+  });
 </script>

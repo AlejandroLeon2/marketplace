@@ -1,75 +1,86 @@
 [
   {
     "id": 1,
-    "titulo": "Lógica Modular Aplicada",
-    "descripcion": "Explora cómo la modularidad transforma sistemas web y videojuegos.",
+    "titulo": "Cien Años de Soledad",
+    "descripcion": "La saga de la familia Buendía en el mítico pueblo de Macondo.",
     "precio": 34.90,
-    "autor": "Pedro Alejandro",
-    "anio_publicacion": 2023,
+    "autor": "Gabriel García Márquez",
+    "anio_publicacion": 1967,
     "fecha_subida": "2025-08-21",
-    "categoria": "Tecnología",
+    "categoria": "Literatura",
     "idioma": "Español",
     "formato": "EPUB",
     "imagen": "/images/gato.jpg",
-    "sinopsis": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo."
+    "sinopsis": "Una obra maestra del realismo mágico que narra la historia de siete generaciones de la familia Buendía, marcada por el amor, la soledad y el destino."
   },
   {
     "id": 2,
-    "titulo": "Gamificación Estratégica",
-    "descripcion": "Convierte procesos técnicos en experiencias memorables y colaborativas.",
+    "titulo": "1984",
+    "descripcion": "Una distopía sobre vigilancia, control y pérdida de libertad.",
     "precio": 27.50,
-    "autor": "Pedro Alejandro",
-    "anio_publicacion": 2022,
+    "autor": "George Orwell",
+    "anio_publicacion": 1949,
     "fecha_subida": "2025-08-20",
-    "categoria": "Marketing",
+    "categoria": "Ficción política",
     "idioma": "Español",
     "formato": "EPUB",
     "imagen": "/images/gato.jpg",
-    "sinopsis": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo."
+    "sinopsis": "Winston Smith lucha contra un régimen totalitario que controla cada aspecto de la vida, incluso los pensamientos. Una advertencia sobre el poder sin límites."
   },
   {
     "id": 3,
-    "titulo": "Documentación con Impacto",
-    "descripcion": "Técnicas para enseñar tecnología con claridad y emoción.",
+    "titulo": "El Principito",
+    "descripcion": "Una fábula poética sobre la infancia, la amistad y lo esencial.",
     "precio": 22.00,
-    "autor": "Pedro Alejandro",
-    "anio_publicacion": 2021,
+    "autor": "Antoine de Saint-Exupéry",
+    "anio_publicacion": 1943,
     "fecha_subida": "2025-08-19",
-    "categoria": "Educación",
+    "categoria": "Fábula",
     "idioma": "Español",
     "formato": "EPUB",
     "imagen": "/images/gato.jpg",
-    "sinopsis": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo."
-
+    "sinopsis": "Un pequeño príncipe viaja por planetas y descubre verdades profundas sobre el amor, la soledad y la importancia de mirar con el corazón."
   },
   {
     "id": 4,
-    "titulo": "Traducción Técnica Modular",
-    "descripcion": "Cómo adaptar sistemas complejos para públicos diversos sin perder precisión.",
+    "titulo": "Don Quijote de la Mancha",
+    "descripcion": "La historia del caballero que confundió la realidad con la fantasía.",
     "precio": 30.25,
-    "autor": "Pedro Alejandro",
-    "anio_publicacion": 2020,
+    "autor": "Miguel de Cervantes",
+    "anio_publicacion": 1605,
     "fecha_subida": "2025-08-18",
-    "categoria": "Localización",
+    "categoria": "Clásico",
     "idioma": "Español",
     "formato": "EPUB",
     "imagen": "/images/gato.jpg",
-    "sinopsis": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo."
-
+    "sinopsis": "Don Quijote y Sancho Panza recorren España enfrentando molinos, nobles y aldeanos, en una sátira sobre la locura, la nobleza y los ideales."
   },
   {
     "id": 5,
-    "titulo": "Experiencias Digitales Personalizadas",
-    "descripcion": "Diseña regalos web, kits interactivos y landing pages con lógica emocional.",
+    "titulo": "Harry Potter y la Piedra Filosofal",
+    "descripcion": "El inicio de la saga del joven mago en Hogwarts.",
     "precio": 39.99,
-    "autor": "Pedro Alejandro",
-    "anio_publicacion": 2024,
+    "autor": "J.K. Rowling",
+    "anio_publicacion": 1997,
     "fecha_subida": "2025-08-17",
-    "categoria": "Diseño UX",
+    "categoria": "Fantasía",
     "idioma": "Español",
     "formato": "EPUB",
     "imagen": "/images/gato.jpg",
-    "sinopsis": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae nihil tenetur quos! Blanditiis, eveniet! Consequatur asperiores ipsam possimus rerum nam numquam assumenda excepturi amet! Aliquam obcaecati veniam iusto dolor explicabo."
-
+    "sinopsis": "Harry descubre que es un mago y se embarca en una aventura mágica en la escuela Hogwarts, enfrentando misterios y el regreso de un oscuro enemigo."
+  },
+  {
+    "id": 6,
+    "titulo": "Orgullo y Prejuicio",
+    "descripcion": "Una historia de amor, clase social y malentendidos en la Inglaterra del siglo XIX.",
+    "precio": 31.75,
+    "autor": "Jane Austen",
+    "anio_publicacion": 1813,
+    "fecha_subida": "2025-08-16",
+    "categoria": "Romance",
+    "idioma": "Español",
+    "formato": "EPUB",
+    "imagen": "/images/gato.jpg",
+    "sinopsis": "Elizabeth Bennet y el señor Darcy navegan entre prejuicios, orgullo y convenciones sociales en una novela que redefine el amor y la independencia femenina."
   }
 ]

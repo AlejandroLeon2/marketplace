@@ -4,7 +4,7 @@ export async function getInformation () :Promise<any[]> {
 
     // funcion que obtiene datos de Firebase
 
-    const datos = data
+    const datos = data.filter((datos)=> datos.id <= 5 );
 
     return datos
 }
