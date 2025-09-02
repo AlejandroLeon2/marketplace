@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FiltroAdmin from "../components/FiltroAdmin.astro";
+import Header from "../components/Header.astro";
+import ModalAdmin from "../components/ModalAdmin.astro";
+import Footer from "../components/Footer.astro";
+import type { Libro } from "../types/libro";
+import LibroData from "../data/libros.json";
+---
+
+<Layout>
+  <Header />
+  <main class="flex relative flex-col min-h-screen mx-auto w-full max-w-6xl">
+
+<button id="abrir-modalAdmin" class="botonVerde absolute right-0 px-2">=</button>
+
+
+
+    <FiltroAdmin data={LibroData} />
+  </main>
+  <Footer />
+  <ModalAdmin/>
+</Layout>
