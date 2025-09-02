@@ -1,5 +1,5 @@
 ---
-import EstadoProducto from "../components/EstadoProducto.astro";
+import EstadoProducto from "./EstadoProducto.astro";
 import Xcirculo from "../components/svg/Xcirculo.astro";
 const { data } = Astro.props;
 ---
@@ -77,28 +77,32 @@ const { data } = Astro.props;
 
   <!-- Estado vacío -->
   <ul class=" flex flex-col space-y-2">
-    {
-      data?
-        data.map((datas) => (
-          <li>
-            <EstadoProducto libro={datas} />
-          </li>
-        )) : (
+ {data && data.length > 0 ? (
+  <ul class="flex flex-col space-y-2">
+    {data.map((datas) => (
+      <li>
+        <EstadoProducto libro={datas} />
+      </li>
+    ))}
+  </ul>
+) : (
+  <div class="flex flex-col items-center space-y-2">
     <Xcirculo />
     <p class="text-gray-500">El filtro seleccionado no muestra resultados</p>
-        )
-    }
+  </div>
+)}
+
   </ul>
 </section>
 
-<script>
+<script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
     const menuBtn = document.getElementById(
       "menu-btn"
-    ) as HTMLButtonElement | null;
-    const menu = document.getElementById("menu") as HTMLDivElement | null;
+    ) ;
+    const menu = document.getElementById("menu")  ;
 
-    function closeMenu(): void {
+    function closeMenu(){
       if (!menu || !menuBtn) return;
       menu.classList.add("hidden");
       menuBtn.setAttribute("aria-expanded", "false");
@@ -106,7 +110,7 @@ const { data } = Astro.props;
 
     if (menuBtn && menu) {
       // Toggle menú
-      menuBtn.addEventListener("click", (e: MouseEvent) => {
+      menuBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         const isHidden = menu.classList.contains("hidden");
         if (isHidden) {
@@ -118,15 +122,15 @@ const { data } = Astro.props;
       });
 
       // Cerrar al hacer clic fuera
-      document.addEventListener("click", (e: MouseEvent) => {
-        const target = e.target as Node;
+      document.addEventListener("click", (e) => {
+        const target = e.target ;
         if (!menu.contains(target) && target !== menuBtn) {
           closeMenu();
         }
       });
 
       // Cerrar con ESC
-      document.addEventListener("keydown", (e: KeyboardEvent) => {
+      document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeMenu();
       });
     }
