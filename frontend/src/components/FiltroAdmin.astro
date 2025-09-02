@@ -1,6 +1,10 @@
 ---
 import EstadoProducto from "../components/EstadoProducto.astro";
 import Xcirculo from "../components/svg/Xcirculo.astro";
+import type {Libro} from "../types/libro";
+type Props ={
+data:Libro[];
+}
 const { data } = Astro.props;
 ---
 
@@ -76,33 +80,32 @@ const { data } = Astro.props;
   </div>
 
   <!-- Estado vacío -->
-  <ul class=" flex flex-col space-y-2">
- {data && data.length > 0 ? (
-  <ul class="flex flex-col space-y-2">
-    {data.map((datas) => (
-      <li>
-        <EstadoProducto libro={datas} />
-      </li>
-    ))}
-  </ul>
-) : (
-  <div class="flex flex-col items-center space-y-2">
-    <Xcirculo />
-    <p class="text-gray-500">El filtro seleccionado no muestra resultados</p>
-  </div>
-)}
-
-  </ul>
+  {
+    data && data.length > 0 ? (
+      <ul class="flex flex-col space-y-2">
+        {data.map((datas) => (
+          <li>
+            <EstadoProducto libro={datas} />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <div class="flex flex-col items-center space-y-2">
+        <Xcirculo />
+        <p class="text-gray-500">
+          El filtro seleccionado no muestra resultados
+        </p>
+      </div>
+    )
+  }
 </section>
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.getElementById(
-      "menu-btn"
-    ) ;
-    const menu = document.getElementById("menu")  ;
+    const menuBtn = document.getElementById("menu-btn");
+    const menu = document.getElementById("menu");
 
-    function closeMenu(){
+    function closeMenu() {
       if (!menu || !menuBtn) return;
       menu.classList.add("hidden");
       menuBtn.setAttribute("aria-expanded", "false");
@@ -123,7 +126,7 @@ const { data } = Astro.props;
 
       // Cerrar al hacer clic fuera
       document.addEventListener("click", (e) => {
-        const target = e.target ;
+        const target = e.target;
         if (!menu.contains(target) && target !== menuBtn) {
           closeMenu();
         }
