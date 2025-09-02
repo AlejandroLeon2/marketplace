@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import FiltroAdmin from "../components/FiltroAdmin.astro";
+import FiltroAdmin from "../components/secciones/FiltroAdmin.astro";
 import Header from "../components/Header.astro";
 import ModalAdmin from "../components/ModalAdmin.astro";
 import Footer from "../components/Footer.astro";
-import type { Libro } from "../types/libro";
-import LibroData from "../data/libros.json";
+import libroData from "../data/libros.json";
+
 ---
 
 <Layout>
@@ -16,7 +16,7 @@ import LibroData from "../data/libros.json";
 
 
 
-    <FiltroAdmin data={LibroData} />
+    <FiltroAdmin data={libroData} />
   </main>
   <Footer />
   <ModalAdmin/>
