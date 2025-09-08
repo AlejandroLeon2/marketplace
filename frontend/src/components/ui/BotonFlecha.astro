@@ -1,0 +1,16 @@
+---
+import FlechaCorta from "../svg/FlechaCorta.astro";
+type Props = {
+  id?: string;
+  direccion?: string;
+  style?: string;
+};
+const { id, direccion, style } = Astro.props;
+---
+
+<button
+  id={id}
+  class=`${style} absolute top-1/2  transform botonBasico -translate-y-1/2 bg-black/40 text-white px-3 py-6 rounded hover:bg-gray-800`
+>
+  <FlechaCorta style={direccion} />
+</button>

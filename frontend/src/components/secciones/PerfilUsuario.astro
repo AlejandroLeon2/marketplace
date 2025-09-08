@@ -1,0 +1,62 @@
+---
+import Titulo from "../ui/Titulo.astro"
+---
+<section class="w-full flex flex-col gap-6 px-8 py-6 max-w-4xl mx-auto">
+  <!-- Encabezado del perfil -->
+  <div class="flex items-center gap-6">
+    <figure class="w-24 h-24 shrink-0">
+      <img
+        src="/images/gato.jpg"
+        alt="Foto de perfil de Juan de Las Nieves"
+        class="w-full h-full object-cover rounded-full"
+      />
+    </figure>
+    <div class="flex flex-col justify-center flex-1">
+      <h2 class="text-2xl font-bold">Juan de Las Nieves</h2>
+      <nav class="flex items-center gap-4 mt-2">
+
+        <button class="text-sm font-medium text-red-600 hover:underline">Cerrar Sesión</button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Navegación de secciones -->
+  <nav class="border-b border-gray-300">
+    <ul class="flex gap-4">
+      <li>
+        <button data-perfil="perfildatos" class="px-4 botonBasico py-2 text-gray-700 focus:text-blue-500 hover:underline hover:text-blue-500">Perfil</button>
+      </li>
+      <li>
+        <button data-perfil="pago" class="px-4 py-2 botonBasico text-gray-700 focus:text-blue-500 hover:underline hover:text-blue-500 ">
+          Información de Pago
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Datos personales -->
+  <section id="perfildatos" class="flex seccion-perfil hidden flex-col gap-4">
+    <Titulo titulo="Datos Personales"/>
+    <dl class="grid gap-4">
+      <div>
+        <dt class="text-sm font-medium text-gray-600">Nombres</dt>
+        <dd class="text-base text-gray-900">Pedrio Angustia</dd>
+      </div>
+      <div>
+        <dt class="text-sm font-medium text-gray-600">Apellidos</dt>
+        <dd class="text-base text-gray-900">Alejandro Mango</dd>
+      </div>
+      <div>
+        <dt class="text-sm font-medium text-gray-600">Nickname</dt>
+        <dd class="text-base text-gray-900">Spantan3000</dd>
+      </div>
+      <div>
+        <dt class="text-sm font-medium text-gray-600">Email</dt>
+        <dd class="text-base text-gray-900">corre@correo.com</dd>
+      </div>
+    </dl>
+  </section>
+  <section id="pago" class="seccion-perfil hidden">
+    <Titulo titulo="Datos de Pago"/>
+  </section>
+</section>

@@ -1,8 +1,10 @@
 ---
-const {libro}=Astro.props;
+const { libro } = Astro.props;
 ---
 
-<div class="flex  items-center bg-white rounded-2xl shadow-md p-3 sm:p-4">
+<div
+  class="flex gap-2 items-center justify-stretch bg-white rounded-lg border border-gray-200 shadow-md p-3 sm:p-4"
+>
   <!-- Checkbox -->
   <input
     type="checkbox"
@@ -10,40 +12,75 @@ const {libro}=Astro.props;
   />
 
   <!-- Imagen + info libro -->
-  <div class="flex items-center gap-3 flex-1 ml-3">
+
     <img
       src={libro.imagen}
       alt={libro.titulo}
-      class="w-14 h-14 sm:w-16 sm:h-16 rounded-md object-cover"
+      class="w-13 h-16 rounded-md object-cover"
     />
-    <div>
+    <div class=" max-w-3xl w-full">
       <h3 class="text-sm sm:text-lg font-semibold">{libro.titulo}</h3>
       <p class="text-xs sm:text-sm text-gray-500">{libro.categoria}</p>
     </div>
-  </div>
 
-  <!-- Precio (columna fija a la derecha) -->
-  <div class="w-24 text-left ml-20">
-    <p class="text-base sm:text-xl font-bold text-green-600">
+
+
+    <p class="text-md w-full text-center max-w-20 font-semibold text-green-600">
       S/ {libro.precio}
     </p>
-  </div>
+
 
   <!-- Switch -->
-  <div class="flex items-center gap-2 ml-4">
-    <span class="text-xs sm:text-sm text-gray-600">
-      {libro.activo ? "Activo" : "Inactivo"}
+  <div class="flex items-center gap-2 w-25">
+    <span
+      class="estado-label text-center  w-14 text-xs sm:text-sm text-gray-600"
+      aria-live="polite"
+    >
+      Activo
     </span>
-    <label class="inline-flex items-center cursor-pointer">
-      <input type="checkbox" checked={libro.activo} class="sr-only peer" />
+
+    <label
+      class="inline-flex w-9 items-center cursor-pointer"
+      role="switch"
+      aria-label="Cambiar estado"
+    >
+      <input type="checkbox" class="sr-only peer estado-toggle" />
       <div
-        class="w-9 h-5 sm:w-11 sm:h-6 bg-gray-200 rounded-full peer peer-checked:bg-blue-600 relative"
+        class="w-9 h-5 sm:w-11 sm:h-6 bg-gray-200 rounded-full peer-checked:bg-blue-600 relative transition-colors duration-300"
       >
         <div
-          class="absolute top-0.5 left-0.5 w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full transition peer-checked:translate-x-4 sm:peer-checked:translate-x-5"
+          class="bolita absolute top-0.5 left-0.5 w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full transition-transform duration-300 transform peer-checked:translate-x-4 sm:peer-checked:translate-x-5"
         >
         </div>
       </div>
     </label>
   </div>
 </div>
+
+<script is:inline>
+  document.querySelectorAll(".estado-toggle").forEach((checkbox) => {
+    const container = checkbox.closest(".flex");
+    const label = container.querySelector(".estado-label");
+    const bolita = container.querySelector(".bolita");
+    const fondo = container.querySelector(".switch-bg");
+
+    checkbox.addEventListener("change", () => {
+      const activo = checkbox.checked;
+      label.textContent = activo ? "Activo" : "Inactivo";
+
+      // 🔄 Mueve la bolita cambiando clases
+      bolita.classList.remove("left-0.5");
+      bolita.classList.remove("right-0.5");
+
+      if (activo) {
+        bolita.classList.add("right-0.5");
+        fondo.classList.remove("bg-gray-200");
+        fondo.classList.add("bg-blue-600");
+      } else {
+        bolita.classList.add("left-0.5");
+        fondo.classList.remove("bg-blue-600");
+        fondo.classList.add("bg-gray-200");
+      }
+    });
+  });
+</script>
