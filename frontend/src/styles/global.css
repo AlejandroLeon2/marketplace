@@ -50,4 +50,7 @@
   .botonVerde {
     @apply hover:scale-105 active:scale-95 duration-300 rounded-xs active:bg-green-600 bg-verde hover:bg-green-600 text-white;
   }
+  .input-form{
+    @apply w-full p-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
 }

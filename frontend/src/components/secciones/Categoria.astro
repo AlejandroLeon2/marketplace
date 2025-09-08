@@ -1,16 +1,16 @@
 ---
 import Titulo from "../ui/Titulo.astro";
 import CardLibro from "../ui/CardLibro.astro";
-import FlechaCorta from "../svg/FlechaCorta.astro";
+import BotonFlecha from "../ui/BotonFlecha.astro";
 import type { Libro } from "../../types/libro";
 const { libros, tituloSeccion } = Astro.props;
 ---
 
-<section class="relative h-120 overflow-hidden w-full">
+<section class="relative slider-wrapper h-120 overflow-hidden w-full">
   <Titulo titulo={tituloSeccion} />
   <ul
     style="transform: translateX(0%) "
-    class="slider-libros transition-transform flex w-full max-w-95 sm:max-w-150 md:max-w-180 lg:max-w-243 xl:max-w-260 h-auto absolute duration-300 gap-4 md:gap-6 lg:gap-8 overflow-x-scroll"
+    class="slider-libros transition-transform flex w-full  h-auto absolute duration-300 gap-4 md:gap-6 lg:gap-8 overflow-x-scroll"
   >
     {
       libros.map((libro: Libro) => (
@@ -26,40 +26,27 @@ const { libros, tituloSeccion } = Astro.props;
       ))
     }
   </ul>
-  <button
-
-    class="btn-anterior absolute top-1/2 left-2 transform -translate-y-1/2 bg-black text-white px-3 py-1 rounded hover:bg-gray-800"
-    aria-label="Slide anterior"
-  >
-    <FlechaCorta style="rotate-90"/>
-  </button>
-
-
-  <button
-
-    class="btn-siguiente absolute top-1/2 right-2 transform -translate-y-1/2 bg-black text-white px-3 py-1 rounded hover:bg-gray-800"
-    aria-label="Slide siguiente"
-  >
-    <FlechaCorta style="-rotate-90"/>
-  </button>
+  <BotonFlecha style="left-2 btn-anterior" direccion="rotate-90"  />
+  <BotonFlecha style="right-2 btn-siguiente" direccion="-rotate-90"  />
 </section>
 
 <script is:inline>
-  const track = document.querySelectorAll(".slider-libros");
-  const total = track.children.length;
-  let index = 0;
+  document.querySelectorAll(".slider-wrapper").forEach(wrapper => {
+    const track = wrapper.querySelector(".slider-libros");
+    const btnAnterior = wrapper.querySelector(".btn-anterior");
+    const btnSiguiente = wrapper.querySelector(".btn-siguiente");
 
-  document.querySelectorAll(".btn-siguiente").addEventListener("click", () => {
-    if (index < total - 1) index++;
-    update();
+    const scrollAmount = 200; // Ajustable según el ancho de tus tarjetas
+
+    btnSiguiente.addEventListener("click", () => {
+      track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+
+    btnAnterior.addEventListener("click", () => {
+      track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
   });
-
-  document.querySelectorAll(".btn-anterior").addEventListener("click", () => {
-    if (index > 0) index--;
-    update();
-  });
-
-  function update() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-  };
 </script>
+
+
+

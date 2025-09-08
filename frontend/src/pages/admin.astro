@@ -4,20 +4,31 @@ import FiltroAdmin from "../components/secciones/FiltroAdmin.astro";
 import Header from "../components/Header.astro";
 import ModalAdmin from "../components/ModalAdmin.astro";
 import Footer from "../components/Footer.astro";
+import PerfilUsuario from "../components/secciones/PerfilUsuario.astro";
+import FlechaCorta from "../components/svg/FlechaCorta.astro";
 import libroData from "../data/libros.json";
 
 ---
 
 <Layout>
   <Header />
-  <main class="flex relative flex-col min-h-screen mx-auto w-full max-w-6xl">
+  <main class="flex duration-300 relative flex-col min-h-screen mx-auto w-full max-w-6xl">
 
-<button id="abrir-modalAdmin" class="botonVerde absolute right-0 px-2">=</button>
+<button id="abrir-modalAdmin" class="botonVerde absolute -left-2 py-2 pl-4 pr-2 "><FlechaCorta style="-rotate-90"/></button>
 
 
 
-    <FiltroAdmin data={libroData} />
+    
+
+<section id="compras" class="seccion-cuenta hidden"><h2>Mis Compras</h2><FiltroAdmin data={libroData} /></section>
+<section id="ventas" class="seccion-cuenta hidden"><h2>Mis ventas</h2><FiltroAdmin data={libroData} /></section>
+<section id="anuncios" class="seccion-cuenta hidden"><h2>Mis libros</h2><FiltroAdmin data={libroData} /></section>
+<section id="reportes" class="seccion-cuenta hidden"><h2>Mis reportes</h2><FiltroAdmin data={libroData} /></section>
+<section id="perfil" class="seccion-cuenta hidden"><PerfilUsuario/></section>
+
   </main>
   <Footer />
   <ModalAdmin/>
 </Layout>
+
+<script src="../scripts/util/tab/tabPerfil"></script>

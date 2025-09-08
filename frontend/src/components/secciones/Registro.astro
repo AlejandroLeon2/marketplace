@@ -1,48 +1,53 @@
-  <main class="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-    <div class="w-full max-w-sm border-2 border-gray-400 rounded-xl bg-white p-6 shadow-lg">
-      <h2 class="text-[var(--color-morado)] text-2xl font-bold text-center mb-6">Crear Cuenta Nueva</h2>
-      <form class="space-y-4">
-        <div>
-          <label for="nombre" class="block text-sm font-medium mb-1">Nombre</label>
-          <input 
-            id="nombre"
-            type="text"
-            placeholder="Nombre"
-            class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-          >
-        </div>
+<main class="min-h-screen flex items-center justify-center p-4">
+  <div
+    class="w-full max-w-sm border border-gray-200 rounded-xl bg-white p-6 shadow-lg"
+  >
+    <h2 class="text-[var(--color-morado)] text-2xl font-bold text-center mb-6">
+      Crear Cuenta Nueva
+    </h2>
+    <form class="flex flex-col space-y-2">
+      <label for="nombre" class="block text-sm font-medium mb-1">Nombre</label>
+      <input
+        id="nombre"
+        type="text"
+        placeholder="Nombre"
+        class="input-form"
+      />
 
-        <div>
-          <label for="email" class="block text-sm font-medium mb-1">Correo Electrónico</label>
-          <input 
-            id="email"
-            type="email"
-            placeholder="Correo Electrónico"
-            class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-          >
-        </div>
+      <label for="email" class="block text-sm font-medium mb-1"
+        >Correo Electrónico</label
+      >
+      <input
+        id="email"
+        type="email"
+        placeholder="Correo Electrónico"
+        class="input-form"
+      />
 
-        <div>
-          <label for="password" class="block text-sm font-medium mb-1">Contraseña</label>
-          <input 
-            id="password"
-            type="password"
-            placeholder="Crea una contraseña"
-            class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-          >
-        </div>
+      <label for="password" class="block text-sm font-medium mb-1"
+        >Contraseña</label
+      >
+      <input
+        id="password"
+        type="password"
+        placeholder="Crea una contraseña"
+        class="input-form"
+      />
 
-        <button 
-          type="submit"
-          class="w-full bg-[var(--color-celeste)] text-white p-2 rounded-lg hover:bg-blue-700 transition"
+      <a
+        href="#"
+        type="submit"
+        class="w-full text-center boton text-white px-4 py-2 rounded-lg transition"
+      >
+        Crear Cuenta
+      </a>
+
+      <p class="text-sm text-center mt-4">
+        ¿Ya tienes una cuenta?
+        <a href="/inicio-usuario" class="text-celeste hover:underline"
+          >Inicia sesión aquí</a
         >
-         Crear Cuenta
-        </button>
-
-        <p class="text-sm text-center mt-4">
-          ¿Ya tienes una cuenta?
-          <a href="/inicio-usuario" class="text-[var(--color-celeste)] hover:underline">Inicia sesión aquí</a>
-        </p>
-      </form>
-    </div>
-  </main>
+      </p>
+    </form>
+  </div>
+</main>

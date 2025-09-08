@@ -25,19 +25,26 @@ const secciones = obtenerDatos();
 <Layout titulo="home" descripcion="tienda de libros">
   <Header />
   <main
-    class="flex flex-col px-4 min-h-screen mx-auto w-full max-w-6xl justify-center items-center"
+    class="flex flex-col px-4 min-h-screen mx-auto w-full max-w-6xl justify-center"
   >
-  <SliderPortada/>
-    {
-      secciones.configuracion.inicio.secciones.map((data) => (
-        <Categoria libros={secciones.libros} tituloSeccion={data} />
-      ))
-    }
-
+    <SliderPortada />
+    <Categoria
+      libros={secciones.libros}
+      tituloSeccion={secciones.configuracion.inicio.secciones[0]}
+    />
+    <div class="flex flex-col md:flex-row gap-4">
+      <div class="flex flex-col w-full">
+        <Categoria
+          libros={secciones.libros}
+          tituloSeccion={secciones.configuracion.inicio.secciones[1]}
+        />
+        <Categoria
+          libros={secciones.libros}
+          tituloSeccion={secciones.configuracion.inicio.secciones[2]}
+        />
+      </div>
       <MasVendidos />
-
- 
+    </div>
   </main>
   <Footer />
-
 </Layout>

@@ -11,7 +11,7 @@ let carrito: Libro[] = carritoData;
   role="dialog"
   aria-labelledby="titulo-carrito"
   aria-modal="true"
-  class="fixed flex duration-500 translate-x-650 justify-end bg-black/40 h-full w-full"
+  class="fixed flex right-0 transition-all duration-1000 ease-in-out translate-x-650 justify-end  h-full w-full"
 >
   <div
     class="border flex flex-col not-only-of-type: relative border-white bg-white h-full w-full max-w-sm"
@@ -42,53 +42,39 @@ let carrito: Libro[] = carritoData;
     >
   </div>
 </div>
+<script src="../scripts/util/modal/carritoModal"></script>
 <script type="module" is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    const $modalCarrito = document.getElementById("modal-carrito");
-    const $btnAbrirModal = document.getElementById("open-modal");
-    const $btnCerrarModal = document.getElementById("cerrar-modal");
 
-    const mostrarModal = () => {
-      $modalCarrito?.classList.remove("translate-x-650");
+function aumentarCantidad(input) {
+  const actual = parseInt(input.value || "1", 10);
+  input.value = String(actual + 1);
+}
 
-      $modalCarrito?.classList.add("translate-x-0");
-      $modalCarrito?.classList.add("bg-black/40");
-    };
 
-    const ocultarModal = () => {
-      $modalCarrito?.classList.remove("translate-x-0");
+function disminuirCantidad(input) {
+  const actual = parseInt(input.value || "1", 10);
+  if (actual > 1) {
+    input.value = String(actual - 1);
+  }
+}
 
-      $modalCarrito?.classList.add("translate-x-650");
-      $modalCarrito?.classList.remove("bg-black/40");
-    };
+function inicializarGrupoCantidad(grupo) {
+  const input = grupo.querySelector(".input-cantidad");
+  const btnAumentar = grupo.querySelector(".btn-aumentar");
+  const btnDisminuir = grupo.querySelector(".btn-disminuir");
 
-    $modalCarrito?.addEventListener("click", (event) => {
-      if (event.target === $modalCarrito) {
-        ocultarModal();
-      }
-    });
+  if (!input || !btnAumentar || !btnDisminuir) return;
 
-    $btnAbrirModal?.addEventListener("click", mostrarModal);
-    $btnCerrarModal?.addEventListener("click", ocultarModal);
+  btnAumentar.addEventListener("click", () => aumentarCantidad(input));
+  btnDisminuir.addEventListener("click", () => disminuirCantidad(input));
+}
 
-    const grupos = document.querySelectorAll(".selector-cantidad");
 
-    grupos.forEach((grupo) => {
-      const $input = grupo.querySelector(".input-cantidad");
-      const $aumentar = grupo.querySelector(".btn-aumentar");
-      const $disminuir = grupo.querySelector(".btn-disminuir");
-
-      $aumentar.addEventListener("click", () => {
-        const actual = parseInt($input.value || "1", 10);
-        $input.value = String(actual + 1);
-      });
-
-      $disminuir.addEventListener("click", () => {
-        const actual = parseInt($input.value || "1", 10);
-        if (actual > 1) {
-          $input.value = String(actual - 1);
-        }
-      });
-    });
+function inicializarControlesCantidad(selector = ".selector-cantidad") {
+  const grupos = document.querySelectorAll(selector);
+  grupos.forEach(inicializarGrupoCantidad);
+}
+ inicializarControlesCantidad();
   });
 </script>
