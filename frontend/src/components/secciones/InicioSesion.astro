@@ -29,9 +29,8 @@
         class="input-form"
       />
 
-      <a href="/admin" type="submit" class="w-full boton text-center py-2">
-        Ingresar
-      </a>
+      <button type="submit" id="email-login" class="w-full boton text-center py-2">Ingresar</button>
+      <button id="google-login" class="w-full boton text-center py-2">Ingresa con Google</button>
       <a class="text-celeste text-right">¿Olvidaste tu contraseña?</a>
       <p class="text-sm text-center">
         ¿No tienes una cuenta?
@@ -42,3 +41,14 @@
     </form>
   </section>
 </main>
+<script>
+  import { singInWithEmail, signInWithGoogle } from '../../services/auth.js';
+  import {$user} from '../../stores/userStore.js';
+
+  //revisar el any
+  $user.subscribe((user: any) => { //redirecciona si ya hay un usuario logueado
+    if (user) {
+      window.location.href = '/admin';
+    }
+  })
+</script>
