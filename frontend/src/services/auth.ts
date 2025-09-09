@@ -37,7 +37,7 @@ export const signUpWithEmail= async (email: string, pass: string) => {
 };
 
 //funcion de login con Email
-export const singInWithEmail= async (email: string, pass: string) => {
+export const signInWithEmail= async (email: string, pass: string) => {
     try {
         await signInWithEmailAndPassword(auth, email, pass);
     } catch (err) {

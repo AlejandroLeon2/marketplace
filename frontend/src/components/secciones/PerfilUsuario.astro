@@ -6,16 +6,19 @@ import Titulo from "../ui/Titulo.astro"
   <div class="flex items-center gap-6">
     <figure class="w-24 h-24 shrink-0">
       <img
+        id="foto-perfil"
         src="/images/gato.jpg"
         alt="Foto de perfil de Juan de Las Nieves"
         class="w-full h-full object-cover rounded-full"
       />
     </figure>
     <div class="flex flex-col justify-center flex-1">
-      <h2 class="text-2xl font-bold">Juan de Las Nieves</h2>
+      <h2 class="text-2xl font-bold">
+        <samp id="username">Cargando...</samp>
+      </h2>
       <nav class="flex items-center gap-4 mt-2">
 
-        <button class="text-sm font-medium text-red-600 hover:underline">Cerrar Sesión</button>
+        <button id="cerrar-sesion" class="text-sm font-medium text-red-600 hover:underline">Cerrar Sesión</button>
       </nav>
     </div>
   </div>
@@ -52,7 +55,7 @@ import Titulo from "../ui/Titulo.astro"
       </div>
       <div>
         <dt class="text-sm font-medium text-gray-600">Email</dt>
-        <dd class="text-base text-gray-900">corre@correo.com</dd>
+        <dd class="text-base text-gray-900"><samp id="email">Cargando...</samp></dd>
       </div>
     </dl>
   </section>
@@ -60,3 +63,24 @@ import Titulo from "../ui/Titulo.astro"
     <Titulo titulo="Datos de Pago"/>
   </section>
 </section>
+
+
+<script>
+  import { logOut } from "../../services/auth.js";
+  import { $user } from "../../stores/userStore.js";
+
+  $user.subscribe((userState) => {
+    if (userState.data) {
+      const user = userState.data;
+      (document.getElementById("username") as HTMLParagraphElement).textContent = user.displayName || user.email || "Usuario";
+      (document.getElementById("email") as HTMLParagraphElement).textContent = user.email || "";
+      (document.getElementById("foto-perfil") as HTMLImageElement).src = user.photoURL || "/images/gato.jpg";
+    }
+  });
+
+  document.getElementById("cerrar-sesion")?.addEventListener("click", async () => {
+    await logOut();
+    // Redirige al login o página principal
+    window.location.href = "/inicio-usuario";
+  });
+</script>
