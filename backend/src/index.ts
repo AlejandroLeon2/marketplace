@@ -1,11 +1,19 @@
 import express from "express";
+import libroRoutes from "./routes/productosRoutes.js"
+import usuariosRoutes from "./routes/usuariosRoutes.js"
+
+import cors from "cors";
+
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-    res.send("Servidor corriendot");
+app.use(cors());
+app.use(express.json());
+
+app.use("/api/productos", libroRoutes);
+app.use("/api/users", usuariosRoutes);
+
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
 
-app.listen(port, () => {
-    console.log("Servidor corriendo en http://localhost:" + port);
-});
