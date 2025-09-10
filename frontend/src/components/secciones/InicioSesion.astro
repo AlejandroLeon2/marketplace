@@ -8,7 +8,7 @@
     <hr class="border-t-2 border-gray-400 mt-2" />
     <br />
 
-    <form class="space-y-4 flex flex-col">
+    <form id="email-login"  class="space-y-4 flex flex-col">
       <label for="email" class="block text-sm font-medium mb-1"
         >Correo Electrónico</label
       >
@@ -29,7 +29,7 @@
         class="input-form"
       />
 
-      <button type="submit" id="email-login" class="w-full boton text-center py-2">Ingresar</button>
+      <button type="submit" class="w-full boton text-center py-2">Ingresar</button>
       <a class="text-celeste text-right">¿Olvidaste tu contraseña?</a>
       <p class="text-sm text-center">
         ¿No tienes una cuenta?
@@ -49,8 +49,9 @@
     if (user.data) {
       window.location.href = '/admin';
     }
-  })
+  });
 
+  document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('email-login')?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = (document.getElementById('email') as HTMLInputElement).value;
@@ -61,4 +62,6 @@
   document.getElementById('google-login')?.addEventListener('click', async () => {
     await signInWithGoogle();
   });
+});
+
 </script>

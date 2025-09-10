@@ -72,7 +72,8 @@ import { signUpWithEmail } from '../../services/auth.js';
     e.preventDefault();
     const email = (document.getElementById('email') as HTMLInputElement).value;
     const password = (document.getElementById('password') as HTMLInputElement).value;
-    await signUpWithEmail(email, password);
+    const displayName = (document.getElementById('nombre') as HTMLInputElement).value;
+    await signUpWithEmail(email, password,displayName);
   });
 
 </script>
