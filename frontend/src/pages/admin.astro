@@ -7,6 +7,7 @@ import Footer from "../components/Footer.astro";
 import PerfilUsuario from "../components/secciones/PerfilUsuario.astro";
 import FlechaCorta from "../components/svg/FlechaCorta.astro";
 import libroData from "../data/libros.json";
+import Agregarlibro from "../components/secciones/agregarLibro.astro";
 
 ---
 
@@ -18,7 +19,7 @@ import libroData from "../data/libros.json";
 
 
 <section id="compras" class="seccion-cuenta hidden"><h2>Mis Compras</h2><FiltroAdmin data={libroData} /></section>
-<section id="ventas" class="seccion-cuenta hidden"><h2>Mis ventas</h2><FiltroAdmin data={libroData} /></section>
+<section id="ventas" class="seccion-cuenta hidden"><h2>Mis ventas</h2><FiltroAdmin data={libroData} /><Agregarlibro /></section>
 <section id="anuncios" class="seccion-cuenta hidden"><h2>Mis libros</h2><FiltroAdmin data={libroData} /></section>
 <section id="reportes" class="seccion-cuenta hidden"><h2>Mis reportes</h2><FiltroAdmin data={libroData} /></section>
 <section id="perfil" class="seccion-cuenta hidden"><PerfilUsuario/></section>
