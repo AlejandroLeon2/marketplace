@@ -16,9 +16,12 @@
     // and npm install -D @types/node
 
     // Other Outputs
+      "esModuleInterop": true,
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
 
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
