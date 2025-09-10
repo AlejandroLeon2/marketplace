@@ -29,16 +29,36 @@
         class="input-form"
       />
 
-      <a href="/admin" type="submit" class="w-full boton text-center py-2">
-        Ingresar
-      </a>
+      <button type="submit" id="email-login" class="w-full boton text-center py-2">Ingresar</button>
       <a class="text-celeste text-right">¿Olvidaste tu contraseña?</a>
       <p class="text-sm text-center">
         ¿No tienes una cuenta?
         <a href="/cuenta-usuario" class="text-celeste hover:underline"
-          >Registrate aquí</a
+        >Registrate aquí</a
         >
       </p>
     </form>
+    <button id="google-login" class=" mt-4 w-full boton text-center py-2">Ingresa con Google</button>
   </section>
 </main>
+<script>
+  import { signInWithEmail, signInWithGoogle } from '../../services/auth.js';
+  import { $user } from '../../stores/userStore.js';
+
+  $user.subscribe((user) => { //redirecciona si ya hay un usuario logueado
+    if (user.data) {
+      window.location.href = '/admin';
+    }
+  })
+
+  document.getElementById('email-login')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    const password = (document.getElementById('password') as HTMLInputElement).value;
+    await signInWithEmail(email, password);
+  });
+
+  document.getElementById('google-login')?.addEventListener('click', async () => {
+    await signInWithGoogle();
+  });
+</script>

@@ -1,5 +1,4 @@
 import express from "express";
-
 import libroRoutes from "./routes/productosRoutes.js"
 import usuariosRoutes from "./routes/usuariosRoutes.js"
 
@@ -17,3 +16,4 @@ app.use("/api/users", usuariosRoutes);
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
+

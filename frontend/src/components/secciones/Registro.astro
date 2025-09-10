@@ -5,7 +5,7 @@
     <h2 class="text-[var(--color-morado)] text-2xl font-bold text-center mb-6">
       Crear Cuenta Nueva
     </h2>
-    <form class="flex flex-col space-y-2">
+    <form id="form-registro" class="flex flex-col space-y-2">
       <label for="nombre" class="block text-sm font-medium mb-1">Nombre</label>
       <input
         id="nombre"
@@ -34,13 +34,19 @@
         class="input-form"
       />
 
-      <a
+      <!-- <a
         href="#"
         type="submit"
         class="w-full text-center boton text-white px-4 py-2 rounded-lg transition"
       >
         Crear Cuenta
-      </a>
+      </a> -->
+
+      <button
+        type="submit"
+        class="w-full text-center boton text-white px-4 py-2 rounded-lg transition"
+        >Crear Cuenta
+      </button>
 
       <p class="text-sm text-center mt-4">
         ¿Ya tienes una cuenta?
@@ -51,3 +57,23 @@
     </form>
   </div>
 </main>
+
+<script>
+import { signUpWithEmail } from '../../services/auth.js';
+  import {$user} from '../../stores/userStore.js';
+
+  $user.subscribe((user) => { //redirecciona si ya hay un usuario logueado
+    if (user.data) {
+      window.location.href = '/admin';
+    }
+  })
+
+  document.getElementById('form-registro')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    const password = (document.getElementById('password') as HTMLInputElement).value;
+    await signUpWithEmail(email, password);
+  });
+
+</script>
+
