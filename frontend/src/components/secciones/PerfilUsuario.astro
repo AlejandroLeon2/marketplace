@@ -1,6 +1,7 @@
 ---
-import Titulo from "../ui/Titulo.astro"
+import Titulo from "../ui/Titulo.astro";
 ---
+
 <section class="w-full flex flex-col gap-6 px-8 py-6 max-w-4xl mx-auto">
   <!-- Encabezado del perfil -->
   <div class="flex items-center gap-6">
@@ -17,8 +18,11 @@ import Titulo from "../ui/Titulo.astro"
         <samp id="username">Cargando...</samp>
       </h2>
       <nav class="flex items-center gap-4 mt-2">
-
-        <button id="cerrar-sesion" class="text-sm font-medium text-red-600 hover:underline">Cerrar Sesión</button>
+        <button
+          id="cerrar-sesion"
+          class="text-sm font-medium text-red-600 hover:underline"
+          >Cerrar Sesión</button
+        >
       </nav>
     </div>
   </div>
@@ -27,10 +31,17 @@ import Titulo from "../ui/Titulo.astro"
   <nav class="border-b border-gray-300">
     <ul class="flex gap-4">
       <li>
-        <button data-perfil="perfildatos" class="px-4 botonBasico py-2 text-gray-700 focus:text-blue-500 hover:underline hover:text-blue-500">Perfil</button>
+        <button
+          data-perfil="perfildatos"
+          class="px-4 botonBasico py-2 text-gray-700 focus:text-blue-500 hover:underline hover:text-blue-500"
+          >Perfil</button
+        >
       </li>
       <li>
-        <button data-perfil="pago" class="px-4 py-2 botonBasico text-gray-700 focus:text-blue-500 hover:underline hover:text-blue-500 ">
+        <button
+          data-perfil="pago"
+          class="px-4 py-2 botonBasico text-gray-700 focus:text-blue-500 hover:underline hover:text-blue-500"
+        >
           Información de Pago
         </button>
       </li>
@@ -39,19 +50,19 @@ import Titulo from "../ui/Titulo.astro"
 
   <!-- Datos personales -->
   <section id="perfildatos" class="flex seccion-perfil hidden flex-col gap-4">
-    <Titulo titulo="Datos Personales"/>
+    <Titulo titulo="Datos Personales" />
 
-      <div>
-        <dt class="text-sm font-medium text-gray-600">Email</dt>
-        <dd class="text-base text-gray-900"><samp id="email">Cargando...</samp></dd>
-      </div>
-    </dl>
-  </section>
-  <section id="pago" class="seccion-perfil hidden">
-    <Titulo titulo="Datos de Pago"/>
+    <div>
+      <dt class="text-sm font-medium text-gray-600">Email</dt>
+      <dd class="text-base text-gray-900">
+        <samp id="email">Cargando...</samp>
+      </dd>
+    </div>
   </section>
 </section>
-
+<section id="pago" class="seccion-perfil hidden">
+  <Titulo titulo="Datos de Pago" />
+</section>
 
 <script>
   import { logOut } from "../../services/auth.js";
@@ -60,15 +71,32 @@ import Titulo from "../ui/Titulo.astro"
   $user.subscribe((userState) => {
     if (userState.data) {
       const user = userState.data;
-      (document.getElementById("username") as HTMLParagraphElement).textContent = user.displayName || user.email || "Usuario";
-      (document.getElementById("email") as HTMLParagraphElement).textContent = user.email || "";
-      (document.getElementById("foto-perfil") as HTMLImageElement).src = user.photoURL || "/images/gato.jpg";
+      (
+        document.getElementById("username") as HTMLParagraphElement
+      ).textContent = user.displayName || user.email || "Usuario";
+      (document.getElementById("email") as HTMLParagraphElement).textContent =
+        user.email || "";
+      (document.getElementById("foto-perfil") as HTMLImageElement).src =
+        user.photoURL || "/images/gato.jpg";
+
+      const userData = {
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        createdAt: user.metadata.creationTime,
+        lastLoginAt: user.metadata.lastSignInTime,
+      };
+
+      localStorage.setItem("usuario", JSON.stringify(userData));
     }
   });
 
-  document.getElementById("cerrar-sesion")?.addEventListener("click", async () => {
-    await logOut();
-    // Redirige al login o página principal
-    window.location.href = "/inicio-usuario";
-  });
+  document
+    .getElementById("cerrar-sesion")
+    ?.addEventListener("click", async () => {
+      await logOut();
+      // Redirige al login o página principal
+      window.location.href = "/inicio-usuario";
+    });
 </script>

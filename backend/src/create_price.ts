@@ -11,7 +11,7 @@ async function createProduct() {
   try {
     const name = "Libre TypeScript";
     const description = "Creación de un producto de prueba";
-    const unit_amount = 12000; // 120.00 soles
+    const unit_amount = 1200; // 120.00 soles
     const currency = "pen";   // Soles peruanos
 
     // Crear producto

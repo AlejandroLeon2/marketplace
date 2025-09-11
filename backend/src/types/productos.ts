@@ -30,5 +30,5 @@ export interface Libro {
   fecha_subida: Date;
   vendedorId?: string;
   estado?: "activo" | "pausado" | "agotado";
-  formato?: "físico" | "digital";
+  formato?: "fisico" | "digital";
 }

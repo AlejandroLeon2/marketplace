@@ -16,22 +16,24 @@ const googleProvider = new GoogleAuthProvider();
 export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
+    console.log(result);
     const user = result.user;
 
-    // Guardar en Firestore
-await setDoc(doc(db, "users", user.uid), {
-  uid: user.uid,
-  email: user.email,
-  displayName: user.displayName || user.email?.split("@")[0],
-  photoURL: user.photoURL || "",
-  createdAt: new Date()
-}, { merge: true });
-
+    const userData = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName || user.email?.split("@")[0],
+      photoURL: user.photoURL || "",
+      createdAt: new Date().toISOString()
+    };
+    await setDoc(doc(db, "users", user.uid), userData, { merge: true });
+    alert(userData);
 
   } catch (err) {
     console.error("Error signing in with Google", err);
   }
 };
+
 
 
 export const signUpWithEmail = async (email: string, password: string, displayName:string) => {
