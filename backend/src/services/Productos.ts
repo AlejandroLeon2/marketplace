@@ -16,7 +16,7 @@ export class LibroService {
     }
 
     await stripe.prices.create({
-      unit_amount: data.precio,
+      unit_amount: (data.precio * 100),
       currency: "pen",
       product: product.id,
     });

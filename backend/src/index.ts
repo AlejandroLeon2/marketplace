@@ -1,6 +1,7 @@
 import express from "express";
 import libroRoutes from "./routes/productosRoutes.js"
 import usuariosRoutes from "./routes/usuariosRoutes.js"
+import checkoutRouter from "./routes/checkout.js"; // ajusta la ruta según tu estructura
 
 import cors from "cors";
 
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/checkout", checkoutRouter); // monta el router de checkout
 app.use("/api/productos", libroRoutes);
 app.use("/api/users", usuariosRoutes);
 
