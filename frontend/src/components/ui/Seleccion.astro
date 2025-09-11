@@ -1,0 +1,23 @@
+---
+
+
+type Props ={ data:string[],id:string};
+const {data, id}=Astro.props;
+
+const capitalizar = (texto: string) =>
+  texto.charAt(0).toUpperCase() + texto.slice(1);
+---
+
+<select
+  id={id}
+  name={id}
+  required
+  class="mt-1 sm:mt-0 flex-1 text-sm rounded-xl border-gray-300 shadow border-1 p-2"
+>
+  <option value="seleccionar">Seleccionar</option>
+  {data.map((elemento) => (
+    <option value={elemento.toLowerCase().replace(/\s/g, "-")}>
+      {capitalizar(elemento)}
+    </option>
+  ))}
+</select>

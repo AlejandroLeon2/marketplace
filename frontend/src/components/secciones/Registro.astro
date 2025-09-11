@@ -73,7 +73,17 @@ import { signUpWithEmail } from '../../services/auth.js';
     const email = (document.getElementById('email') as HTMLInputElement).value;
     const password = (document.getElementById('password') as HTMLInputElement).value;
     const displayName = (document.getElementById('nombre') as HTMLInputElement).value;
+    try {
     await signUpWithEmail(email, password,displayName);
+
+    alert("Registro exitoso. ¡Bienvenido!");
+    window.location.href = "/inicio-usuario"; 
+
+  } catch (error) {
+
+    alert(error || "Error al registrar usuario");
+    console.error("Error en el registro:", error);
+  }
   });
 
 </script>
