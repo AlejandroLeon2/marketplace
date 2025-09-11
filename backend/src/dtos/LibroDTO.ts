@@ -88,6 +88,6 @@ export class LibroDTO implements Libro {
   estado?: "activo" | "pausado" | "agotado";
 
   @IsOptional()
-  @IsIn(["físico", "digital"])
-  formato?: "físico" | "digital";
+  @IsIn(["fisico", "digital"])
+  formato?: "fisico" | "digital";
 }
