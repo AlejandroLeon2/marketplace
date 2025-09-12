@@ -25,21 +25,23 @@ const { libro } = Astro.props;
   <div class="md:col-span-1 flex flex-col justify-between">
     <div>
       <h1 class="text-3xl font-bold">{libro.titulo}</h1>
-      <p>Por <span class="text-blue-600">{libro.autor}</span></p>
+      <p><span id ="book-author">Por </span><span class="text-blue-600">{libro.autor}</span></p>
       <p class="text-sm text-gray-500">{libro.anio_publicacion}</p>
 
       <div class="mt-4 space-y-2">
-        <p><strong>Formato:</strong> {libro.formato}</p>
-        <p><strong>Categoría:</strong> {libro.categoria}</p>
-        <p><strong>Idioma:</strong> {libro.idioma}</p>
+        <p><strong id="book-format">Formato:</strong> {libro.formato}</p>
+        <p><strong id="book-category">Categoría:</strong> {libro.categoria}</p>
+        <p><strong id="book-language">Idioma:</strong> {libro.idioma}</p>
         <p class="flex gap-2 text-verde">
-          <strong class="text-black">Disponible: </strong>Descarga inmediata
+          <strong id="book-available" class="text-black">Disponible:</strong>
+          <span id="book-download">Descarga inmediata</span>
           <Check />
         </p>
       </div>
     </div>
-    <!-- Sinopsis debajo -->
   </div>
+
+  <!-- Precio y acciones -->
   <div class="md:col-span-1 flex flex-col justify-between">
     <div
       class="text-center bg-gray-50 border border-gray-300 rounded p-6 shadow"
@@ -53,42 +55,48 @@ const { libro } = Astro.props;
         class="mt-4 w-full gap-2 flex items-center justify-center botonVerde text-white font-semibold py-2 px-4"
       >
         <CarritoCompras />
-        COMPRA AHORA
+        <span id="book-buy">COMPRA AHORA</span>
       </button>
       <div class="mt-2 flex flex-col gap-1 text-sm text-gray-600">
         <p class="flex botonBasico items-center justify-center gap-2">
           <Corazon />
-          Hazlo tu favorito
+          <span id="book-fav">Hazlo tu favorito</span>
         </p>
         <p class="flex items-center botonBasico justify-center gap-2">
           <Like />
-          Recomiéndalo
+          <span id="book-recommend">Recomiéndalo</span>
         </p>
       </div>
     </div>
     <div class="mt-4 gap-2 flex flex-col items-center justify-center">
-      <p>Puedes leer este eBook en:</p>
+      <p id="book-readable">Puedes leer este eBook en:</p>
       <div class="flex gap-6 mt-2">
         <div class="flex flex-col items-center justify-center">
           <Computadora />
-          <p class="text-sm mt-1">Pc/Mac</p>
+          <p id="book-device-pc" class="text-sm mt-1">Pc/Mac</p>
         </div>
         <div class="flex flex-col items-center justify-center">
           <Telefono />
-          <p class="text-sm mt-1">Phone</p>
+          <p id="book-device-phone" class="text-sm mt-1">Phone</p>
         </div>
         <div class="flex flex-col items-center justify-center">
           <Tablet />
-          <p class="text-sm mt-1">Tablet</p>
+          <p id="book-device-tablet" class="text-sm mt-1">Tablet</p>
         </div>
       </div>
     </div>
   </div>
+
   <div
     class="max-w-6xl mx-auto md:col-span-2 bg-white shadow border border-gray-300 p-4 rounded"
   >
-    <h2 class="text-xl font-semibold">Sinopsis</h2>
+    <h2 id="book-synopsis" class="text-xl font-semibold">Sinopsis</h2>
     <p class="mt-2 text-gray-700 leading-relaxed">{libro.sinopsis}</p>
   </div>
-  <!-- Precio y acciones -->
 </section>
+
+<!-- Inicializar traducciones -->
+<script type="module">
+  import { initI18n } from '/src/utils/i18n.ts';
+  initI18n();
+</script>

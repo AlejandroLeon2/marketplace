@@ -2,11 +2,12 @@
   <div
     class="w-full max-w-sm border border-gray-200 rounded-xl bg-white p-6 shadow-lg"
   >
-    <h2 class="text-[var(--color-morado)] text-2xl font-bold text-center mb-6">
+    <h2 id="registro-titulo" class="text-[var(--color-morado)] text-2xl font-bold text-center mb-6">
       Crear Cuenta Nueva
     </h2>
+
     <form id="form-registro" class="flex flex-col space-y-2">
-      <label for="nombre" class="block text-sm font-medium mb-1">Nombre</label>
+      <label id="registro-label-nombre" for="nombre" class="block text-sm font-medium mb-1">Nombre</label>
       <input
         id="nombre"
         type="text"
@@ -14,9 +15,7 @@
         class="input-form"
       />
 
-      <label for="email" class="block text-sm font-medium mb-1"
-        >Correo Electrónico</label
-      >
+      <label id="registro-label-email" for="email" class="block text-sm font-medium mb-1">Correo Electrónico</label>
       <input
         id="email"
         type="email"
@@ -24,9 +23,7 @@
         class="input-form"
       />
 
-      <label for="password" class="block text-sm font-medium mb-1"
-        >Contraseña</label
-      >
+      <label id="registro-label-password" for="password" class="block text-sm font-medium mb-1">Contraseña</label>
       <input
         id="password"
         type="password"
@@ -34,29 +31,24 @@
         class="input-form"
       />
 
-      <!-- <a
-        href="#"
+      <button
+        id="registro-boton"
         type="submit"
         class="w-full text-center boton text-white px-4 py-2 rounded-lg transition"
       >
         Crear Cuenta
-      </a> -->
-
-      <button
-        type="submit"
-        class="w-full text-center boton text-white px-4 py-2 rounded-lg transition"
-        >Crear Cuenta
       </button>
 
-      <p class="text-sm text-center mt-4">
+      <p id="registro-tienes-cuenta" class="text-sm text-center mt-4">
         ¿Ya tienes una cuenta?
-        <a href="/inicio-usuario" class="text-celeste hover:underline"
-          >Inicia sesión aquí</a
-        >
+        <a id="registro-inicia-sesion" href="/inicio-usuario" class="text-celeste hover:underline">
+          Inicia sesión aquí
+        </a>
       </p>
     </form>
   </div>
 </main>
+
 
 <script>
 import { signUpWithEmail } from '../../services/auth.js';

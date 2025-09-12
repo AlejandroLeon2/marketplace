@@ -5,20 +5,13 @@ import Globo from "./svg/Globo.astro";
 import FlechaCorta from "./svg/FlechaCorta.astro"
 import CarritoCompras from "./svg/CarritoCompras.astro";
 ---
-
 <nav class="shadow-md">
   <!-- Franja superior -->
   <div class="bg-morado">
-    <div
-      class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 flex justify-between items-center h-16 text-white"
-    >
+    <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 flex justify-between items-center h-16 text-white">
       <!-- Logo -->
       <a href="/" class="flex items-center">
-        <img
-          src="/images/mainlogo.png"
-          alt="Logo Perú eBooks"
-          class="h-6 md:h-8 w-auto"
-        />
+        <img src="/images/mainlogo.png" alt="Logo Perú eBooks" class="h-6 md:h-8 w-auto" />
       </a>
 
       <!-- Búsqueda (oculta en móvil) -->
@@ -29,179 +22,86 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
           placeholder="Escribe el título o el autor"
           class="w-full max-w-xl px-3 py-2 rounded-l-md text-black bg-white focus:outline-none"
         />
-        <button
-          id="search-desktop-btn"
-          class="botonVerde px-4 cursor-pointer rounded-r-md transition"
-          aria-label="Buscar"
-        >
-          <!-- Icono de lupa -->
-
+        <button id="search-desktop-btn" class="botonVerde px-4 cursor-pointer rounded-r-md transition" aria-label="Buscar">
           <Lupa />
         </button>
       </div>
 
       <!-- Idioma y carrito -->
-
       <div class="flex items-center gap-0 md:gap-6">
         <!-- Búsqueda Mobile (solo icono) -->
-        <button
-          id="search-mobile-btn"
-          class="md:hidden p-2 runded cursor-pointer hover:shadow-xl transition duration-300 ease-in-out bg-transparent"
-          aria-label="Buscar (móvil)"
-        >
+        <button id="search-mobile-btn" class="md:hidden p-2 runded cursor-pointer hover:shadow-xl transition duration-300 ease-in-out bg-transparent" aria-label="Buscar (móvil)">
           <Lupa />
         </button>
 
         <!-- Idioma -->
         <div class="relative" data-dropdown="lang">
-          <button
-            id="btn-lang"
-            class="flex items-center gap-1 px-2 py-2 rounded cursor-pointer hover:shadow-xl transition duration-300 ease-in-out bg-transparent"
-            aria-haspopup="true"
-            aria-expanded="false"
-            aria-controls="menu-lang"
-          >
-            <!-- Icono de globo -->
-
+          <button id="btn-lang" class="flex items-center gap-1 px-2 py-2 rounded cursor-pointer hover:shadow-xl transition duration-300 ease-in-out bg-transparent" aria-haspopup="true" aria-expanded="false" aria-controls="menu-lang">
             <Globo />
-            <span id="text-lang" class="hidden sm:inline">Español</span>
-            <svg
-              class="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
+            <span id="text-lang" class="hidden sm:inline">es</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
 
-          <div
-            id="menu-lang"
-            class="hidden absolute right-0 mt-2 w-28 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
-            role="menu"
-            aria-labelledby="btn-lang"
-          >
-            <a
-              href="#"
-              data-lang="Español"
-              class="block px-4 py-2 hover:bg-gray-100">Español</a
-            >
-            <a
-              href="#"
-              data-lang="English"
-              class="block px-4 py-2 hover:bg-gray-100">English</a
-            >
-            <a
-              href="#"
-              data-lang="Français"
-              class="block px-4 py-2 hover:bg-gray-100">Français</a
-            >
+          <div id="menu-lang" class="hidden absolute right-0 mt-2 w-28 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40" role="menu" aria-labelledby="btn-lang">
+            <a href="#" data-lang="es" class="block px-4 py-2 hover:bg-gray-100">es</a>
+            <a href="#" data-lang="en" class="block px-4 py-2 hover:bg-gray-100">en</a>
+            <!-- <a href="#" data-lang="fr" class="block px-4 py-2 hover:bg-gray-100">Français</a> -->
           </div>
         </div>
 
         <!-- Login -->
-        <a
-          href="/inicio-usuario"
-          class="flex items-center gap-1 px-2 py-2 hover:shadow-xl rounded transition duration-300 ease-in-out"
-          aria-label="Entrar"
-        >
-          <!-- Icono de usuario -->
+        <a href="/inicio-usuario" class="flex items-center gap-1 px-2 py-2 hover:shadow-xl rounded transition duration-300 ease-in-out" aria-label="Entrar">
           <Usuario />
-          <span class="hidden sm:inline">Entrar</span>
+          <!-- *aquí añadí id mínimo* -->
+          <span id="nav-login" class="hidden sm:inline">Entrar</span>
         </a>
 
         <!-- Carrito -->
-
-        <button
-          id="open-modal-carrito"
-          class="relative flex items-center gap-1 px-3 py-2 hover:shadow-xl rounded transition duration-300 ease-in-out"
-        >
-          <!-- Carrito (outline) -->
+        <button id="open-modal-carrito" class="relative flex items-center gap-1 px-3 py-2 hover:shadow-xl rounded transition duration-300 ease-in-out">
           <CarritoCompras />
-          <span class="hidden sm:inline">Carrito</span>
-          <span
-            id="contador-carrito"
-            class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1"
-            >2</span
-          >
+          <!-- *aquí añadí id mínimo* -->
+          <span id="nav-cart" class="hidden sm:inline">Carrito</span>
+          <span id="contador-carrito" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">2</span>
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Franja inferior (repuesto) -->
+  <!-- Franja inferior -->
   <div class="bg-plomo pt-2 border-t border-gray-300">
-    <div
-      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-y-2 justify-between items-center min-h-12 text-sm font-medium text-gray-800"
-    >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-y-2 justify-between items-center min-h-12 text-sm font-medium text-gray-800">
       <!-- Menú izquierdo -->
       <div class="flex items-center gap-4 md:gap-6">
         <!-- Menú rápido -->
         <div class="relative" data-dropdown="quick">
-          <button
-            id="btn-quick"
-            class="flex items-center gap-1 px-3 py-2 rounded bg-[var(--color-verde)] text-white cursor-pointer hover:bg-green-600"
-            aria-haspopup="true"
-            aria-expanded="false"
-            aria-controls="menu-quick"
-          >
-            CATEGORIAS
-          <FlechaCorta/>
+          <button id="btn-quick" class="flex items-center gap-1 px-3 py-2 rounded bg-[var(--color-verde)] text-white cursor-pointer hover:bg-green-600" aria-haspopup="true" aria-expanded="false" aria-controls="menu-quick">
+            <!-- *span con id para no borrar el icono* -->
+            <span id="nav-categories">CATEGORIAS</span>
+            <FlechaCorta/>
           </button>
 
-          <div
-            id="menu-quick"
-            class="hidden absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
-            role="menu"
-            aria-labelledby="btn-quick"
-          >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100"
-              >Biografía e historia</a
-            >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100"
-              >Comics y humor</a
-            >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100"
-              >Ciencia y tecnología</a
-            >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Romance</a>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Terror</a>
+          <div id="menu-quick" class="hidden absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40" role="menu" aria-labelledby="btn-quick">
+            <a href="#" id="nav-biografia-e-historia" class="block px-4 py-2 hover:bg-gray-100">Biografía e historia</a>
+            <a href="#" id="nav-comics-y-humor" class="block px-4 py-2 hover:bg-gray-100">Comics y humor</a>
+            <a href="#" id="nav-ciencia-y-tecnologia" class="block px-4 py-2 hover:bg-gray-100">Ciencia y tecnología</a>
+            <a href="#" id="nav-romance" class="block px-4 py-2 hover:bg-gray-100">Romance</a>
+            <a href="#" id="nav-terror" class="block px-4 py-2 hover:bg-gray-100">Terror</a>
           </div>
         </div>
 
         <!-- Descubre -->
         <div class="relative" data-dropdown="discover">
-          <button
-            id="btn-discover"
-            class="flex items-center gap-1 px-2 py-2 rounded cursor-pointer hover:bg-gray-200"
-            aria-haspopup="true"
-            aria-expanded="false"
-            aria-controls="menu-discover"
-          >
-            DESCUBRE
-<FlechaCorta/>
+          <button id="btn-discover" class="flex items-center gap-1 px-2 py-2 rounded cursor-pointer hover:bg-gray-200" aria-haspopup="true" aria-expanded="false" aria-controls="menu-discover">
+            <span id="nav-discover">DESCUBRE</span>
+            <FlechaCorta/>
           </button>
 
-          <div
-            id="menu-discover"
-            class="hidden absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40"
-            role="menu"
-            aria-labelledby="btn-discover"
-          >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100"
-              >Libros más vendidos</a
-            >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100"
-              >Libros nuevos</a
-            >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100"
-              >Libros gratis</a
-            >
+          <div id="menu-discover" class="hidden absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white text-gray-800 ring-1 ring-black/10 z-40" role="menu" aria-labelledby="btn-discover">
+            <a href="#" id="nav-libros-mas-vendidos" class="block px-4 py-2 hover:bg-gray-100">Libros más vendidos</a>
+            <a href="#" id="nav-libros-nuevos" class="block px-4 py-2 hover:bg-gray-100">Libros nuevos</a>
+            <a href="#" id="nav-libros-gratis" class="block px-4 py-2 hover:bg-gray-100">Libros gratis</a>
           </div>
         </div>
       </div>
@@ -210,39 +110,17 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
 </nav>
 
 <!-- Overlay búsqueda móvil -->
-
-<div
-  id="search-mobile-overlay"
-  class="hidden fixed inset-0 bg-black/70 items-start justify-center p-4 z-50"
->
-  <div
-    id="search-mobile-box"
-    class="bg-white w-full max-w-lg rounded-lg shadow-md flex"
-  >
-    <input
-      id="search-input-mobile"
-      type="text"
-      placeholder="Escribe el título o el autor"
-      class="flex-1 px-3 py-2 rounded-l-md text-black focus:outline-none"
-      aria-label="Buscar"
-    />
-    <button
-      id="search-go"
-      class="px-3 cursor-pointer bg-verde hover:bg-green-600 rounded-l-md text-white"
-      aria-label="Buscar acción"
-    >
-      <Lupa />
-    </button>
-    <button
-      id="search-close"
-      class="bg-morado text-white cursor-pointer px-4 rounded-r-md hover:bg-pink-600"
-      aria-label="Cerrar búsqueda">✕</button
-    >
+<div id="search-mobile-overlay" class="hidden fixed inset-0 bg-black/70 items-start justify-center p-4 z-50">
+  <div id="search-mobile-box" class="bg-white w-full max-w-lg rounded-lg shadow-md flex">
+    <input id="search-input-mobile" type="text" placeholder="Escribe el título o el autor" class="flex-1 px-3 py-2 rounded-l-md text-black focus:outline-none" aria-label="Buscar" />
+    <button id="search-go" class="px-3 cursor-pointer bg-verde hover:bg-green-600 rounded-l-md text-white" aria-label="Buscar acción"><Lupa /></button>
+    <button id="search-close" class="bg-morado text-white cursor-pointer px-4 rounded-r-md hover:bg-pink-600" aria-label="Cerrar búsqueda">✕</button>
   </div>
 </div>
 
+<!-- Scripts existentes: MANTÉN TU BLOQUE EXACTO COMO LO TENÍAS -->
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
     // Dropdown mapping
     interface Dropdown {
       button: HTMLButtonElement | null;
@@ -398,5 +276,12 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
         }
       });
     }
-  });
+  })
+</script>
+
+<!-- Inicializar i18n (import TS desde src) -->
+<script type="module">
+  import { initI18n } from '/src/utils/i18n.ts';
+  // inicializa el sistema de traducción (se encarga de leer localStorage y listeners)
+  initI18n();
 </script>
