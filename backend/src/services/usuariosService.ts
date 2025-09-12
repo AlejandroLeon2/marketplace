@@ -34,3 +34,30 @@ export const getUserById = async (uid: string) => {
   const doc = await db.collection("users").doc(uid).get();
   return doc.exists ? doc.data() : null;
 };
+
+export const createGoogleUser = async (
+  uid: string,
+  email: string,
+  displayName: string,
+  photoURL?: string
+): Promise<UserDTO> => {
+  const userRef = db.collection("users").doc(uid);
+  const userSnap = await userRef.get();
+
+  if (userSnap.exists) {
+ 
+    return userSnap.data() as UserDTO;
+  }
+
+  const userData: UserDTO = {
+    uid,
+    email,
+    displayName,
+    photoURL,
+    createdAt: new Date(),
+  };
+
+  await userRef.set(userData);
+  return userData;
+};
+

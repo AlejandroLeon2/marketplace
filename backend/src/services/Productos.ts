@@ -4,6 +4,23 @@ import { stripe } from "../config/stripe.js";
 
 
 export class LibroService {
+  async buscarPorTexto(texto: string): Promise<({ id: string, titulo:string, imagen:string })[]> {
+    if (texto.length < 2) return [];
+
+    const snapshot = await db
+      .collection("libros")
+      .orderBy("titulo")
+      .startAt(texto)
+      .endAt(texto + "\uf8ff")
+      .get();
+
+    return snapshot.docs.map((doc) => ({
+      id: doc.id,
+      titulo:doc.data().titulo,
+      imagen:doc.data().imagen
+    }));
+  }
+
   async crearLibro(data: LibroDTO): Promise<string> {
     const docRef = await db.collection("libros").add(data);
     const product = await stripe.products.create({
@@ -45,5 +62,49 @@ export class LibroService {
   async eliminarLibro(id: string): Promise<void> {
     await db.collection("libros").doc(id).delete();
   }
+
+
+async obtenerLibrosNuevos(): Promise<(LibroDTO & { id: string })[]> {
+try {
+const snapshot = await db
+    .collection("libros")
+    .where("estado", "==", "activo")
+    .orderBy("fecha_subida", "desc")
+    .limit(10)
+    .get();
+
+  return snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...(doc.data() as LibroDTO),
+  }));
+} catch (error) {
+  console.error("Firestore error:", error);
+  throw new Error("Error al obtener libros nuevos");
+}
+
+}
+
+
+async obtenerLibrosNovela(): Promise<(LibroDTO & { id: string })[]> {
+try {
+const snapshot = await db
+    .collection("libros")
+    .where("estado", "==", "activo")
+    .where("categoria", "==", "novela")
+    .orderBy("fecha_subida", "desc")
+    .limit(10)
+    .get();
+
+  return snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...(doc.data() as LibroDTO),
+  }));
+} catch (error) {
+  console.error("Firestore error:", error);
+  throw new Error("Error al obtener libros nuevos");
+}
+
+}
+
 
 }
