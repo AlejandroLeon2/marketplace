@@ -4,6 +4,7 @@ import Usuario from "./svg/Usuario.astro";
 import Globo from "./svg/Globo.astro";
 import FlechaCorta from "./svg/FlechaCorta.astro"
 import CarritoCompras from "./svg/CarritoCompras.astro";
+import Buscar from "./secciones/buscar.astro";
 ---
 
 <nav class="shadow-md">
@@ -213,14 +214,13 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
 
 <div
   id="search-mobile-overlay"
-  class="hidden fixed inset-0 bg-black/70 items-start justify-center p-4 z-50"
->
+  class="hidden fixed inset-0 bg-black/70 items-start justify-center p-4 z-50">
   <div
     id="search-mobile-box"
     class="bg-white w-full max-w-lg rounded-lg shadow-md flex"
   >
     <input
-      id="search-input-mobile"
+      id="buscador-mobile"
       type="text"
       placeholder="Escribe el título o el autor"
       class="flex-1 px-3 py-2 rounded-l-md text-black focus:outline-none"
@@ -239,8 +239,11 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
       aria-label="Cerrar búsqueda">✕</button
     >
   </div>
-</div>
+  <div id="boxResults-mobile" class="w-full bg-red-500">
 
+  </div>
+</div>
+<script src="../../src/scripts/Buscador/mobil.ts"></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     // Dropdown mapping
