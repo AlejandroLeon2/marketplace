@@ -92,3 +92,29 @@ export const eliminarLibro = async (req: Request, res: Response) => {
     res.status(500).json({ error: "Error al eliminar el libro" });
   }
 };
+
+export const obtenerLibrosNuevos = async (_req: Request, res: Response) => {
+  try {
+    const libros = await libroService.obtenerLibrosNuevos();
+    res.status(200).json(libros);
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener libros nuevos" });
+  }
+};
+
+export const buscarLibros = async (req: Request, res: Response) => {
+  const { texto } = req.query;
+
+  if (!texto || typeof texto !== "string" || texto.length < 2) {
+    return res.status(400).json({ error: "La búsqueda debe tener al menos 2 caracteres" });
+  }
+
+  try {
+    const resultados = await libroService.buscarPorTexto(texto);
+    res.status(200).json(resultados);
+  } catch (error) {
+    console.error("Error en búsqueda:", error);
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
+};
+

@@ -16,24 +16,35 @@ const googleProvider = new GoogleAuthProvider();
 export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
-    console.log(result);
     const user = result.user;
+
+    if (!user) throw new Error("No se obtuvo el usuario de Google");
 
     const userData = {
       uid: user.uid,
-      email: user.email,
-      displayName: user.displayName || user.email?.split("@")[0],
-      photoURL: user.photoURL || "",
-      createdAt: new Date().toISOString()
+      displayName: user.displayName ?? "",
+      email: user.email ?? "",
+      photoURL: user.photoURL ?? "",
     };
-    await setDoc(doc(db, "users", user.uid), userData, { merge: true });
-    alert(userData);
 
+    const response = await fetch("http://localhost:3000/api/users/registerGoogle", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message || "Error al guardar usuario en el backend");
+    }
+
+    console.log("Usuario Google enviado al backend correctamente");
   } catch (err) {
-    console.error("Error signing in with Google", err);
+    console.error("Error en el proceso de login con Google:", err);
   }
 };
-
 
 
 export const signUpWithEmail = async (email: string, password: string, displayName:string) => {
@@ -50,21 +61,19 @@ export const signUpWithEmail = async (email: string, password: string, displayNa
     throw new Error(error.message || 'Error al registrar usuario');
   }
 
-  return await res.json(); // { uid, ... }
+  return await res.json(); 
 };
 
-
-//funcion de login con Email
 export const signInWithEmail= async (email: string, pass: string) => {
     try {
         await signInWithEmailAndPassword(auth, email, pass);
      } catch (err: any) {
   console.error("Error logging in user", err);
-  alert(err.message); // muestra el mensaje real del error
+  alert(err.message);
 }
 };
 
-//funcion de logout
+
 export const logOut = async () => {
     try {
         await signOut(auth);

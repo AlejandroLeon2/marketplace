@@ -9,8 +9,6 @@ export class VentaDTO implements Venta {
   @IsString()
   productoId!: string;
 
-  @IsNumber()
-  cantidad!: number;
 
   @IsNumber()
   precioUnitario!: number;

@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express';
-import { createUser, getUserById , } from '../services/usuariosService.js';
+import { createUser, getUserById ,createGoogleUser } from '../services/usuariosService.js';
 import { RegisterUserDTO } from '../dtos/UsuariosDTO.js';
 import { validate } from 'class-validator';
 
@@ -33,5 +33,20 @@ export const getUserProfile = async (req: Request<{ uid: string }>, res: Respons
   }
 };
 
+export const registerGoogleUser = async (req: Request, res: Response) => {
+  const { uid, email, displayName, photoURL } = req.body;
+
+  if (!uid || !email || !displayName) {
+    return res.status(400).json({ error: "Datos incompletos" });
+  }
+
+  try {
+    const user = await createGoogleUser(uid, email, displayName, photoURL);
+    res.status(201).json(user);
+  } catch (error) {
+    console.error("Error al registrar usuario Google:", error);
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
+};
 
 

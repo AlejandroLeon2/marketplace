@@ -4,8 +4,5 @@ export class ItemCompraDTO {
   productoId!: string;
 
   @IsNumber()
-  cantidad!: number;
-
-  @IsNumber()
   precioUnitario!: number;
 }
