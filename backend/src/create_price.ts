@@ -1,42 +1,19 @@
-// src/createProduct.ts
-import Stripe from "stripe";
-import "dotenv/config";
+import { stripe } from "./config/stripe.js";
 
-// Inicializar Stripe con tu clave secreta del .env
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: "2023-08-16" as any, //revisar la version 
-});
+export const createCheckoutSession = async (customerId: string, priceId: string) => {
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ["card"],
+    mode: "payment",
+    customer: customerId, // 🔗 lo conectas con el cliente creado al registrarse
+    line_items: [
+      {
+        price: priceId, // el ID de precio de tu libro (en Stripe)
+        quantity: 1,
+      },
+    ],
+    success_url: "http://localhost:3000/success", // URL donde redirige si paga bien
+    cancel_url: "http://localhost:3000/cancel",   // URL donde redirige si cancela
+  });
 
-async function createProduct() {
-  try {
-    const name = "Libre TypeScript";
-    const description = "Creación de un producto de prueba";
-    const unit_amount = 1200; // 120.00 soles
-    const currency = "pen";   // Soles peruanos
-
-    // Crear producto
-    const product = await stripe.products.create({
-      name,
-      description,
-    });
-
-    // Crear precio asociado
-    const price = await stripe.prices.create({
-      unit_amount,
-      currency,
-      product: product.id,
-    });
-
-    console.log("Éxito! Producto creado id:", product.id);
-    console.log("Éxito! Precio creado id:", price.id);
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error("Error creando producto:", error.message);
-    } else {
-      console.error("Error desconocido:", error);
-    }
-  }
-}
-
-createProduct();
-
+  return session.url; // devuelves esta URL al frontend
+};

@@ -1,6 +1,7 @@
 import admin from 'firebase-admin';
 import { getAuth } from 'firebase-admin/auth';
 import type {FirebaseServiceAccount} from "../types/serviceAccount.js"
+
 import dotenv from 'dotenv';
 dotenv.config();
 

@@ -29,7 +29,7 @@ let carrito: Libro[] = carritoData;
       </div>
 
       <div aria-label="Acciones de compra" class="flex flex-col space-y-2">
-        <button type="button" class="boton py-2 px-4">Ir a Caja</button>
+        <button id="checkout" type="button" class="boton py-2 px-4">Ir a Caja</button>
 
         <a
         href="/"
@@ -60,3 +60,25 @@ let carrito: Libro[] = carritoData;
   </main>
   <Footer />
 </Layout>
+<script>
+  document.getElementById("checkout")?.addEventListener("click", async () => {
+    try {
+      const response = await fetch("http://localhost:3000/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({}), // si quieres mandar datos extra
+      });
+
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url; // redirige a Stripe
+      } else {
+        alert("No se pudo crear la sesión de pago.");
+        console.error("Respuesta inesperada:", data);
+      }
+    } catch (err) {
+      console.error("Error en checkout:", err);
+    }
+  });
+</script>

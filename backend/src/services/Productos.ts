@@ -26,6 +26,8 @@ export class LibroService {
     const product = await stripe.products.create({
       name: data.titulo,
       description: data.descripcion,
+      images: [typeof data.imagen === "string" ? data.imagen : ""],
+    
     });
 
     if (typeof data.precio !== "number") {
@@ -33,7 +35,7 @@ export class LibroService {
     }
 
     await stripe.prices.create({
-      unit_amount: data.precio,
+      unit_amount: (data.precio * 100),
       currency: "pen",
       product: product.id,
     });

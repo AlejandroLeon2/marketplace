@@ -23,7 +23,7 @@ export interface Libro {
   autor?: string;
   editorial?: string;
   precio?: number;
-  imagen?: string;
+  imagen?: string|string[]|undefined;
   categoria?:Categoria;
   idioma?: string;
   anio_publicacion?: string;
