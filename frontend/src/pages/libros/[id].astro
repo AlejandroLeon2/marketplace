@@ -1,15 +1,16 @@
 ---
-import libros from "../../data/libros.json";
 import BookDetail from "../../components/BookDetail.astro";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Categoria from "../../components/secciones/Categoria.astro";
 import Footer from "../../components/Footer.astro";
 import type { Libro } from "../../types/libro";
-import librosData from "../../data/libros.json";
+import { urlBase } from "../../services/urlBase.ts";
 
 export async function getStaticPaths() {
-  return libros.map((libro) => ({
+  const response = await fetch(`${urlBase}/api/productos/libros`);
+  const librosData = await response.json();
+  return librosData.map((libro) => ({
     params: { id: String(libro.id) },
     props: { libro },
   }));
@@ -22,7 +23,7 @@ const { libro } = Astro.props;
   <Header />
   <main class="flex flex-col min-h-screen mx-auto w-full p-4 max-w-6xl">
     <BookDetail libro={libro} />
-    <Categoria libros={librosData} tituloSeccion="Recomendado"/>
+    <Categoria libros={libro} tituloSeccion="Recomendado" />
   </main>
   <Footer />
 </Layout>
