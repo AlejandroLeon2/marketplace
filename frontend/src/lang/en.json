@@ -1,5 +1,5 @@
 {
-  "text-lang": "English",
+  "text-lang": "en",
   "nav-login": "Login",
   "nav-cart": "Cart",
   "nav-categories": "CATEGORIES",
@@ -43,6 +43,17 @@
   "registro-inicia-sesion": "Log in here",
   "nombre": "Name",
   "email": "Email",
-  "password": "Create a password"
-
+  "password": "Create a password",
+  "login-titulo": "Log in",
+  "login-label-email": "Email",
+  "login-label-password": "Password",
+  "login-boton": "Log in",
+  "login-tienes-cuenta": "Don't have an account?",
+  "registro-registrate": "Sign up",
+  "google-login": "Log in with Google",
+  "ingresar-boton": "Log in",
+  "olvidaste-contrasena": "Forgot your password?",
+  "carrito-total": "Total to Pay:",
+  "checkout": "Go to Checkout",
+  "sigue-comprando": "Continue Shopping"
 }

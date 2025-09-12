@@ -2,14 +2,14 @@
   <section
     class="w-full max-w-sm border-2 border-gray-200 rounded-xl bg-white p-6 shadow-lg"
   >
-    <h2 class="text-morado text-2xl font-bold text-center mb-6">
+    <h2 id="login-titulo" class="text-morado text-2xl font-bold text-center mb-6">
       Iniciar Sesión
     </h2>
     <hr class="border-t-2 border-gray-400 mt-2" />
     <br />
 
     <form id="email-login"  class="space-y-4 flex flex-col">
-      <label for="email" class="block text-sm font-medium mb-1"
+      <label id="login-label-email" for="email" class="block text-sm font-medium mb-1"
         >Correo Electrónico</label
       >
       <input
@@ -19,7 +19,7 @@
         class="input-form"
       />
 
-      <label for="password" class="block text-sm font-medium mb-1"
+      <label id="login-label-password" for="password" class="block text-sm font-medium mb-1"
         >Contraseña</label
       >
       <input
@@ -29,11 +29,11 @@
         class="input-form"
       />
 
-      <button type="submit" class="w-full boton text-center py-2">Ingresar</button>
-      <a class="text-celeste text-right">¿Olvidaste tu contraseña?</a>
+      <button type="submit" id="ingresar-boton" class="w-full boton text-center py-2">Ingresar</button>
+      <a id="olvidaste-contrasena" class="text-celeste text-right">¿Olvidaste tu contraseña?</a>
       <p class="text-sm text-center">
-        ¿No tienes una cuenta?
-        <a href="/cuenta-usuario" class="text-celeste hover:underline"
+        <span id="registro-tienes-cuenta">¿No tienes una cuenta?</span>
+        <a id="registro-registrate" href="/cuenta-usuario" class="text-celeste hover:underline"
         >Registrate aquí</a
         >
       </p>

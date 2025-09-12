@@ -1,5 +1,5 @@
 {
-  "text-lang": "Español",
+  "text-lang": "es",
   "nav-login": "Entrar",
   "nav-cart": "Carrito",
   "nav-categories": "CATEGORIAS",
@@ -43,6 +43,18 @@
   "registro-inicia-sesion": "Inicia sesión aquí",
   "nombre": "Nombre",
   "email": "Correo Electrónico",
-  "password": "Crea una contraseña"
+  "password": "Crea una contraseña",
+  "login-titulo": "Iniciar Sesión",
+  "login-label-email": "Correo Electrónico",
+  "login-label-password": "Contraseña",
+  "login-boton": "Iniciar Sesión",
+  "login-tienes-cuenta": "¿No tienes una cuenta?",
+  "registro-registrate": "Registrate aquí",
+  "google-login": "Ingresa con Google",
+  "ingresar-boton": "Ingresar",
+  "olvidaste-contrasena": "¿Olvidaste tu contraseña?",
+  "carrito-total": "Total a Pagar:",
+  "checkout": "Ir a Caja",
+  "sigue-comprando": "Sigue Comprando"
 
 }

@@ -15,7 +15,7 @@ let carrito: Libro[] = carritoData;
     class="flex flex-col md:flex-row-reverse min-h-screen mx-auto w-full max-w-6xl justify-center items-center md:items-start py-6"
   >
     <section aria-labelledby="resumen-pago" class="max-w-xs p-6 space-y-6">
-      <h3 class="etiqueta">Total a Pagar:</h3>
+      <h3 id="carrito-total" class="etiqueta">Total a Pagar:</h3>
       <div class="space-y-4 flex flex-col justify-center items-center">
         <p
           class="text-3xl text-anaranjado font-semibold"
@@ -33,6 +33,7 @@ let carrito: Libro[] = carritoData;
 
         <a
         href="/"
+        id="sigue-comprando"
           type="button"
           class="botonBasico text-center py-2 px-4 border border-gray-400"
           >Sigue Comprando</a
