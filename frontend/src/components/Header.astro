@@ -26,7 +26,8 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
         <input
           id="search-input-desktop"
           type="text"
-          placeholder="Escribe el título o el autor"
+          placeholder=""
+          data-i18n-placeholder="search_placeholder"
           class="w-full max-w-xl px-3 py-2 rounded-l-md text-black bg-white focus:outline-none"
         />
         <button
@@ -64,7 +65,7 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
             <!-- Icono de globo -->
 
             <Globo />
-            <span id="text-lang" class="hidden sm:inline">Español</span>
+            <span id="text-lang" class="hidden sm:inline" data-i18n="lang-es">Español</span>
             <svg
               class="h-4 w-4"
               viewBox="0 0 24 24"
@@ -89,17 +90,17 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
             <a
               href="#"
               data-lang="es"
-              class="block px-4 py-2 hover:bg-gray-100">Español</a
+              class="block px-4 py-2 hover:bg-gray-100" data-i18n="es">Español</a
             >
             <a
               href="#"
               data-lang="en"
-              class="block px-4 py-2 hover:bg-gray-100">English</a
+              class="block px-4 py-2 hover:bg-gray-100" data-i18n="en">English</a
             >
             <a
               href="#"
               data-lang="fr"
-              class="block px-4 py-2 hover:bg-gray-100">Français</a
+              class="block px-4 py-2 hover:bg-gray-100" data-i18n="fr">Français</a
             >
           </div>
         </div>
@@ -149,9 +150,10 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
             aria-haspopup="true"
             aria-expanded="false"
             aria-controls="menu-quick"
-            data-i18n="categories"
+            
           >
-            CATEGORIAS
+          <span data-i18n="categories">
+            CATEGORIAS</span>
           <FlechaCorta/>
           </button>
 
@@ -161,17 +163,17 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
             role="menu"
             aria-labelledby="btn-quick"
           >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100" data-i18n="bio"
               >Biografía e historia</a
             >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100" data-i18n="comics"
               >Comics y humor</a
             >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100" data-i18n="science"
               >Ciencia y tecnología</a
             >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Romance</a>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Terror</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100" data-i18n="romance">Romance</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100" data-i18n="horror">Terror</a>
           </div>
         </div>
 
@@ -185,7 +187,7 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
             aria-controls="menu-discover"
             data-i18n="discover"
           >
-            DESCUBRE
+           <span data-i18n="discover">DESCUBRE</span> 
 <FlechaCorta/>
           </button>
 
@@ -196,12 +198,12 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
             aria-labelledby="btn-discover"
           >
             <a href="#" class="block px-4 py-2 hover:bg-gray-100"
-              >Libros más vendidos</a
+              data-i18n="best-sellers">Libros más vendidos</a
             >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100" data-i18n="new-books"
               >Libros nuevos</a
             >
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100" data-i18n="free/books"
               >Libros gratis</a
             >
           </div>
@@ -242,6 +244,14 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
     >
   </div>
 </div>
+<script type="module" is:inline>
+  import { initLangMenu } from "../translations/lang-menu";
+  initLangMenu();
+</script>
+
+
+
+
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -401,9 +411,4 @@ import CarritoCompras from "./svg/CarritoCompras.astro";
       });
     }
   });
-</script>
-
-<script type="module">
-  import { initLangMenu } from "../translations/lang-menu";
-  initLangMenu();
 </script>

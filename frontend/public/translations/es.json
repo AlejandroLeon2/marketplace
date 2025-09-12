@@ -1,9 +1,9 @@
 {
   "categories": "Categorías",
   "discover": "Descubre",
-  "spanish": "Español",
-  "english": "Inglés",
-  "french": "Francés",
+  "es": "Español",
+  "en": "Inglés",
+  "fr": "Francés",
   "login": "Entrar",
   "cart": "Carrito",
 
@@ -86,5 +86,13 @@
   "total_to_pay": "Total a pagar",
   "estimated_value": "*Valor estimado en soles. Precio y cobro en dólares",
   "go_checkout": "Ir a caja",
-  "keep_buying": "Sigue comprando"
+  "keep_buying": "Sigue comprando",
+  "lang_es": "Español",
+  "lang_en": "English",
+  "lang_fr": "Français",
+  "bio": "Biografía e historia",
+  "comics": "Comics y humor",
+  "science": "Ciencia y tecnología",
+  "best_sellers": "Libros más vendidos"
+
 }

@@ -1,9 +1,9 @@
 {
   "categories": "Catégories",
   "discover": "Découvrir",
-  "spanish": "Espagnol",
-  "english": "Anglais",
-  "french": "Français",
+  "es": "Espagnol",
+  "en": "Anglais",
+  "fr": "Français",
   "login": "Se connecter",
   "cart": "Panier",
 
@@ -13,7 +13,7 @@
   "romance": "Romance",
   "horror": "Horreur",
 
-  "bestsellers": "Livres les plus vendus",
+  "bestsellers": "Meilleures ventes",
   "new_books": "Nouveaux livres",
   "free_books": "Livres gratuits",
   "new": "Nouveaux",
@@ -21,12 +21,12 @@
   "recommended": "Recommandés",
 
   "site_name": "PerueBooks.com",
-  "site_slogan": "C’est la première et la plus grande librairie en ligne du Pérou spécialisée dans les livres électroniques, avec une couverture en Amérique latine et en Espagne",
+  "site_slogan": "C'est la première et la plus grande librairie en ligne du Pérou spécialisée dans les livres électroniques, avec une couverture en Amérique latine et en Espagne",
 
   "info": "Informations",
   "terms_conditions": "Termes et conditions",
   "help": "Aide",
-  "connect": "Connectez-vous",
+  "connect": "Se connecter",
 
   "sign_in": "Se connecter",
   "email": "E-mail",
@@ -35,7 +35,7 @@
   "enter_password": "Entrez votre mot de passe",
   "submit_login": "Connexion",
   "forgot_password": "Mot de passe oublié ?",
-  "no_account": "Vous n’avez pas de compte ?",
+  "no_account": "Vous n'avez pas de compte ?",
   "register_here": "Inscrivez-vous ici",
   "login_google": "Se connecter avec Google",
 
@@ -48,8 +48,8 @@
   "already_have_account": "Vous avez déjà un compte ?",
   "login_here": "Connectez-vous ici",
 
-  "shopping_cart": "Panier d’achats",
-  "search_placeholder": "Entrez le titre ou l’auteur",
+  "shopping_cart": "Panier d'achat",
+  "search_placeholder": "Écris le titre ou l'auteur",
   "categories_list": "Liste des catégories",
 
   "literature": "Littérature",
@@ -63,7 +63,7 @@
   "book_example2": "Gabriel García Márquez",
   "book_example3": "George Orwell",
   "book_example4": "Le Petit Prince",
-  "book_example5": "Don Quichotte de la Manche",
+  "book_example5": "Don Quichotte",
   "book_example6": "Miguel de Cervantes",
 
   "add_book": "Ajouter un livre",
@@ -71,7 +71,7 @@
   "author": "Auteur",
   "publisher": "Éditeur",
   "price": "Prix",
-  "image_url": "URL de l’image",
+  "image_url": "URL de l'image",
   "category": "Catégorie",
   "language": "Langue",
   "publication_year": "Année de publication",
@@ -84,7 +84,15 @@
   "out_of_stock": "Épuisé",
 
   "total_to_pay": "Total à payer",
-  "estimated_value": "*Valeur estimée en soles. Prix et paiement en dollars",
-  "go_checkout": "Aller à la caisse",
-  "keep_buying": "Continuer vos achats"
+  "estimated_value": "*Valeur estimée en soles. Prix et facturation en dollars",
+  "go_checkout": "Passer à la caisse",
+  "keep_buying": "Continuer vos achats",
+
+  "lang_es": "Espagnol",
+  "lang_en": "Anglais",
+  "lang_fr": "Français",
+  "bio": "Biographie et Histoire",
+  "comics": "Bandes dessinées et Humour",
+  "science": "Science et Technologie",
+  "best_sellers": "Meilleures ventes"
 }
