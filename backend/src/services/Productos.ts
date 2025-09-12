@@ -9,6 +9,8 @@ export class LibroService {
     const product = await stripe.products.create({
       name: data.titulo,
       description: data.descripcion,
+      images: [typeof data.imagen === "string" ? data.imagen : ""],
+    
     });
 
     if (typeof data.precio !== "number") {

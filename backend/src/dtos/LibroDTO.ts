@@ -4,6 +4,7 @@ import {
   IsNumber,
   IsOptional,
   IsIn,
+  IsArray,
   IsDate,
   IsUrl,
 } from "class-validator";
@@ -28,9 +29,9 @@ export class LibroDTO implements Libro {
   precio?: number;
 
   @IsOptional()
-  @IsUrl()
-  @IsString()
-  imagen?: string;
+@IsArray()
+  @IsUrl({}, { each: true })
+  imagen?: string|string[]|undefined;
 
   @IsOptional()
   @IsIn([
