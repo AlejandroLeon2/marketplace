@@ -1,0 +1,1 @@
+export const urlBase:string = "https://marketplace-production-4da4.up.railway.app"

@@ -7,12 +7,10 @@ import { ItemCompraDTO } from "../dtos/ItemCompraDTO.js";
 export const crearCompra = async (req: Request, res: Response) => {
   const { clienteId, fecha, items, total } = req.body;
 
-  // Validar que items sea un arreglo no vacío
   if (!Array.isArray(items) || items.length === 0) {
     return res.status(400).json({ error: "items debe ser un arreglo no vacío" });
   }
 
-  // Instanciar manualmente cada ItemCompraDTO
   const itemInstancias: ItemCompraDTO[] = [];
   for (const item of items) {
     const instancia = new ItemCompraDTO();
@@ -27,14 +25,12 @@ export const crearCompra = async (req: Request, res: Response) => {
     itemInstancias.push(instancia);
   }
 
-  // Instanciar CompraDTO
   const compra = new CompraDTO();
   compra.clienteId = clienteId;
   compra.fecha = new Date(fecha);
   compra.items = itemInstancias;
   compra.total = total;
 
-  // Validar CompraDTO
   const erroresCompra = await validate(compra);
   if (erroresCompra.length > 0) {
     return res.status(400).json({ error: "Compra inválida", detalles: erroresCompra });

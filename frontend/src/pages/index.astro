@@ -4,22 +4,11 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Categoria from "../components/secciones/Categoria.astro";
 import MasVendidos from "../components/MasVendidos.astro";
-import librosData from "../data/libros.json";
-import seccionesData from "../data/idiomas/es.json";
 import SliderPortada from "../components/secciones/SliderPortada.astro";
 import type { Libro } from "../types/libro";
-interface PaginaInicio {
-  inicio: { secciones: string[]; footer: string[] };
-}
-
-function obtenerDatos(): {
-  libros: Libro[];
-  configuracion: PaginaInicio;
-} {
-  return { libros: librosData, configuracion: seccionesData };
-}
-
-const secciones = obtenerDatos();
+import {urlBase} from "../services/urlBase.ts"
+    const response = await fetch(`${urlBase}/api/productos/libros`);
+const librosData= await response.json();
 ---
 
 <Layout titulo="home" descripcion="tienda de libros">
@@ -29,18 +18,18 @@ const secciones = obtenerDatos();
   >
     <SliderPortada />
     <Categoria
-      libros={secciones.libros}
-      tituloSeccion={secciones.configuracion.inicio.secciones[0]}
+      libros="hola"
+      tituloSeccion={librosData}
     />
     <div class="flex flex-col md:flex-row gap-4">
       <div class="flex flex-col w-full">
         <Categoria
-          libros={secciones.libros}
-          tituloSeccion={secciones.configuracion.inicio.secciones[1]}
+          libros="hola"
+          tituloSeccion={librosData}
         />
         <Categoria
-          libros={secciones.libros}
-          tituloSeccion={secciones.configuracion.inicio.secciones[2]}
+          libros="hola"
+          tituloSeccion={librosData}
         />
       </div>
       <MasVendidos />
