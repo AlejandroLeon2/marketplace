@@ -29,7 +29,6 @@ export class LibroDTO implements Libro {
   precio?: number;
 
   @IsOptional()
-@IsArray()
   @IsUrl({}, { each: true })
   imagen?: string|string[]|undefined;
 

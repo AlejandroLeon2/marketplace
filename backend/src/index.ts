@@ -5,6 +5,7 @@ import libroRoutes from "./routes/productosRoutes.js";
 import usuariosRoutes from "./routes/usuariosRoutes.js";
 import ventasRoutes from "./routes/ventasRoutes.js";
 import comprasRoutes from "./routes/comprasRoutes.js";
+import carritosRoutes from "./routes/carritosRoutes.js"
 
 import cors from "cors";
 
@@ -16,11 +17,11 @@ app.use(express.json());
 
 
 app.use("/api/checkout", checkoutRouter); // monta el router de checkout
-
+app.use("/api",carritosRoutes);
 
 app.use("/api", comprasRoutes);
 
-app.use("/api/ventas", ventasRoutes);
+app.use("/api", ventasRoutes);
 
 app.use("/api/productos", libroRoutes);
 app.use("/api/users", usuariosRoutes);

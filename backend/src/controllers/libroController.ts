@@ -41,7 +41,7 @@ export const crearLibro = async (req: Request, res: Response) => {
   }
 };
 
-export const obtenerLibros = async (_req: Request, res: Response) => {
+export const obtenerLibros = async (req: Request, res: Response) => {
   try {
     const libros = await libroService.obtenerLibros();
     res.status(200).json(libros);
@@ -118,3 +118,11 @@ export const buscarLibros = async (req: Request, res: Response) => {
   }
 };
 
+export const obtenerLibrosNovela = async (req: Request, res: Response) => {
+  try {
+    const libros = await libroService.obtenerLibrosNovela();
+    res.status(200).json(libros);
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener libros" });
+  }
+};

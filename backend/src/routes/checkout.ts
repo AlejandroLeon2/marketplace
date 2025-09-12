@@ -10,8 +10,8 @@ const  producto= req.body;
       payment_method_types: ["card"],
       mode: "payment",
       line_items: producto,
-      success_url: "http://localhost:4321/success",
-      cancel_url: "http://localhost:4321/cancel",
+      success_url: "https://marketplace-kjup2ule4-alejandro82s-projects.vercel.app/inicio-usuario",
+      cancel_url: "https://marketplace-kjup2ule4-alejandro82s-projects.vercel.app/carrito-pago",
     });
 
     return res.json({ url: session.url });

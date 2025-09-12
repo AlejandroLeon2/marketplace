@@ -2,9 +2,10 @@ import { db } from "../config/firebase.js";
 import { LibroDTO } from "../dtos/LibroDTO.js";
 import { stripe } from "../config/stripe.js";
 
-
 export class LibroService {
-  async buscarPorTexto(texto: string): Promise<({ id: string, titulo:string, imagen:string })[]> {
+  async buscarPorTexto(
+    texto: string
+  ): Promise<{ id: string; titulo: string; imagen: string }[]> {
     if (texto.length < 2) return [];
 
     const snapshot = await db
@@ -16,29 +17,24 @@ export class LibroService {
 
     return snapshot.docs.map((doc) => ({
       id: doc.id,
-      titulo:doc.data().titulo,
-      imagen:doc.data().imagen
+      titulo: doc.data().titulo,
+      imagen: doc.data().imagen,
     }));
   }
 
   async crearLibro(data: LibroDTO): Promise<string> {
-    const docRef = await db.collection("libros").add(data);
+
     const product = await stripe.products.create({
       name: data.titulo,
       description: data.descripcion,
       images: [typeof data.imagen === "string" ? data.imagen : ""],
-    
+      default_price_data: {
+        currency: "pen",
+        unit_amount: data.precio! * 100,
+      },
     });
-
-    if (typeof data.precio !== "number") {
-      throw new Error("El precio debe estar definido y ser un número");
-    }
-
-    await stripe.prices.create({
-      unit_amount: (data.precio * 100),
-      currency: "pen",
-      product: product.id,
-    });
+    console.log(product);
+    const docRef = await db.collection("libros").add({idprice:product.default_price,...data});
     return docRef.id;
   }
 
@@ -63,48 +59,42 @@ export class LibroService {
     await db.collection("libros").doc(id).delete();
   }
 
+  async obtenerLibrosNuevos(): Promise<(LibroDTO & { id: string })[]> {
+    try {
+      const snapshot = await db
+        .collection("libros")
+        .where("estado", "==", "activo")
+        .orderBy("fecha_subida", "desc")
+        .limit(10)
+        .get();
 
-async obtenerLibrosNuevos(): Promise<(LibroDTO & { id: string })[]> {
-try {
-const snapshot = await db
-    .collection("libros")
-    .where("estado", "==", "activo")
-    .orderBy("fecha_subida", "desc")
-    .limit(10)
-    .get();
+      return snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...(doc.data() as LibroDTO),
+      }));
+    } catch (error) {
+      console.error("Firestore error:", error);
+      throw new Error("Error al obtener libros nuevos");
+    }
+  }
 
-  return snapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...(doc.data() as LibroDTO),
-  }));
-} catch (error) {
-  console.error("Firestore error:", error);
-  throw new Error("Error al obtener libros nuevos");
-}
+  async obtenerLibrosNovela(): Promise<(LibroDTO & { id: string })[]> {
+    try {
+      const snapshot = await db
+        .collection("libros")
+        .where("estado", "==", "activo")
+        .where("categoria", "==", "novela")
+        .orderBy("fecha_subida", "desc")
+        .limit(10)
+        .get();
 
-}
-
-
-async obtenerLibrosNovela(): Promise<(LibroDTO & { id: string })[]> {
-try {
-const snapshot = await db
-    .collection("libros")
-    .where("estado", "==", "activo")
-    .where("categoria", "==", "novela")
-    .orderBy("fecha_subida", "desc")
-    .limit(10)
-    .get();
-
-  return snapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...(doc.data() as LibroDTO),
-  }));
-} catch (error) {
-  console.error("Firestore error:", error);
-  throw new Error("Error al obtener libros nuevos");
-}
-
-}
-
-
+      return snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...(doc.data() as LibroDTO),
+      }));
+    } catch (error) {
+      console.error("Firestore error:", error);
+      throw new Error("Error al obtener libros nuevos");
+    }
+  }
 }

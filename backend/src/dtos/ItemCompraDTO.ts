@@ -1,5 +1,6 @@
 import { IsString, IsNumber,  } from 'class-validator';
-export class ItemCompraDTO {
+import type { ItemCompra } from '../types/items.js';
+export class ItemCompraDTO implements ItemCompra{
   @IsString()
   productoId!: string;
 
