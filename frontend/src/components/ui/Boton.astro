@@ -1,4 +1,13 @@
 ---
-const {precio}= Astro.props;
+const { data} = Astro.props;
 ---
-<a href="" type="button" class="boton text-sm flex px-4 justify-center  py-2">{`S/. ${precio}`}</a>
+
+<button
+  data-id={data.id}
+  data-titulo={data.titulo}
+  data-precio={data.precio}
+  data-imagen={data.imagen}
+  data-idprice={data.idprice}
+  type="button"
+  class="boton agregar-carrito text-sm flex px-4 justify-center py-2">{`S/. ${data.precio.toFixed(2)}`}</button
+>

@@ -1,9 +1,6 @@
 ---
 import CardCarrito from "./ui/CardCarrito.astro";
 import Titulo from "./ui/Titulo.astro";
-import carritoData from "../data/carrito.json";
-import type { Libro } from "../types/libro";
-let carrito: Libro[] = carritoData;
 ---
 
 <div
@@ -23,17 +20,7 @@ let carrito: Libro[] = carritoData;
     >
 
     <Titulo titulo="Carrito de compras" />
-    <ul class="space-y-2 h-[80svh] overflow-y-scroll flex flex-col px-4">
-      {
-        carrito.map((libro) => (
-          <CardCarrito
-            titulo={libro.titulo}
-            cantidad={1}
-            precio={libro.precio}
-            imagen={libro.imagen}
-          />
-        ))
-      }
+    <ul id="carrito" class="space-y-2 h-[80svh] overflow-y-scroll flex flex-col px-4">
     </ul>
     <a
       type="button"
@@ -43,38 +30,5 @@ let carrito: Libro[] = carritoData;
   </div>
 </div>
 <script src="../scripts/util/modal/carritoModal"></script>
-<script type="module" is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
+<script src="../scripts/carrito/carrito"></script>
 
-function aumentarCantidad(input) {
-  const actual = parseInt(input.value || "1", 10);
-  input.value = String(actual + 1);
-}
-
-
-function disminuirCantidad(input) {
-  const actual = parseInt(input.value || "1", 10);
-  if (actual > 1) {
-    input.value = String(actual - 1);
-  }
-}
-
-function inicializarGrupoCantidad(grupo) {
-  const input = grupo.querySelector(".input-cantidad");
-  const btnAumentar = grupo.querySelector(".btn-aumentar");
-  const btnDisminuir = grupo.querySelector(".btn-disminuir");
-
-  if (!input || !btnAumentar || !btnDisminuir) return;
-
-  btnAumentar.addEventListener("click", () => aumentarCantidad(input));
-  btnDisminuir.addEventListener("click", () => disminuirCantidad(input));
-}
-
-
-function inicializarControlesCantidad(selector = ".selector-cantidad") {
-  const grupos = document.querySelectorAll(selector);
-  grupos.forEach(inicializarGrupoCantidad);
-}
- inicializarControlesCantidad();
-  });
-</script>

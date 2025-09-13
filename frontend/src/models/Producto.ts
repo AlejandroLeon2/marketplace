@@ -16,7 +16,6 @@ type Categoria =
   | "cómic"
   | "manga";
 type estado = "activo" | "pausado" | "agotado";
-type formato = "físico" | "digital";
 
 export interface Libro {
   id?: string;
@@ -31,6 +30,6 @@ export interface Libro {
   anio_publicacion?: string;
   fecha_subida?: Date | string;
   vendedorId?: string;
+  idprice?:string;
   estado?: estado | string;
-  formato?: formato | string;
 }

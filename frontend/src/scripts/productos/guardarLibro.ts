@@ -32,7 +32,7 @@ export function initLibroFormHandler(formId: string, endpoint: string) {
       const libro: Libro = {
         titulo: getInputValue("titulo"),
         descripcion: getInputValue("descripcion"),
-        autor: getInputValue("autor"),
+        autor: getInputValue("autor") || "anonimo",
         editorial: getInputValue("editorial"),
         precio: parseFloat(getInputValue("precio") || "0"),
         imagen: getInputValue("imagen"),
@@ -40,7 +40,6 @@ export function initLibroFormHandler(formId: string, endpoint: string) {
         idioma: getInputValue("idioma"),
         anio_publicacion: getInputValue("anio_publicacion"),
         estado: getInputValue("estado"),
-        formato: getInputValue("formato"),
         vendedorId: id,
       };
 
@@ -72,5 +71,5 @@ export function initLibroFormHandler(formId: string, endpoint: string) {
 
 initLibroFormHandler(
   "formLibros",
-  "http://localhost:3000/api/productos/libros"
+  "https://marketplace-production-4da4.up.railway.app/api/productos/libros"
 );

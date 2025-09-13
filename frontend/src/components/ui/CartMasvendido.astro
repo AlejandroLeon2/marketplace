@@ -1,0 +1,40 @@
+---
+import type { Libro } from '../../types/libro';
+
+interface Props {
+  libro: Libro;
+  numero: string;
+}
+
+const { libro, numero } = Astro.props;
+const imagen =
+  typeof libro.imagen === 'string'
+    ? libro.imagen
+    : libro.imagen?.[0] ?? '/placeholder.jpg';
+---
+
+<a href={`/libros/${libro.id}`} class="block no-underline text-inherit">
+  <article class="w-full h-full flex border border-gray-200 gap-1">
+    <img
+      src={imagen}
+      alt={`Portada de ${libro.titulo}`}
+      class="w-13 min-h-17 border object-cover h-full"
+    />
+
+    <span
+      id="number"
+      class="rounded-[100%] border w-auto px-1.5 h-[20px] grid place-items-center font-bold text-[11px]"
+    >
+      {numero}
+    </span>
+
+    <div class="w-[70%] h-full p-1">
+      <h2 id="tittle" class="w-full text-sm font-bold">{libro.titulo}</h2>
+      {libro.autor && (
+        <p id="autor" class="w-full text-xs">
+          {libro.autor}
+        </p>
+      )}
+    </div>
+  </article>
+</a>

@@ -1,14 +1,28 @@
+---
+import { urlBase } from "../services/urlBase.ts";
+import CartMasvendido from "./ui/CartMasvendido.astro";
 
-<section class="bg-white  min-h-[60%] border border-gray-200  h-full  flex flex-col  rounded">
-    <h2 id="masVendidos" class="bg-green-500 w-full text-center h-auto rounded-[] rounded-t p-2 text-white  font-bold">
-        Mas Vendidos
-    </h2>
-    <div id="boxMostWanted" class="w-full h-full flex p-4 space-y-2 border-gray-400 flex-col ">
-        <!--
-        vacio para articulo mas vendidos
-        -->
-    </div>
+const response = await fetch(`${urlBase}/api/productos/librosnew`);
+const librosNuevos = await response.json();
+---
+
+<section
+  class="bg-white w-full max-w-xs min-h-[60%] border border-gray-200 h-full flex flex-col rounded"
+>
+  <h2
+    id="masVendidos"
+    class="bg-green-500 w-full text-center h-auto rounded-[] rounded-t p-2 text-white font-bold"
+  >
+    Mas Vendidos
+  </h2>
+  <div
+    id="boxMostWanted"
+    class="w-full h-full flex p-4 space-y-2 border-gray-400 flex-col"
+  >
+    {
+      librosNuevos.map((libro, index) => (
+        <CartMasvendido libro={libro} numero={index + 1} />
+      ))
+    }
+  </div>
 </section>
-
-<script   src="../scripts/MasVendidos/indexMV"></script>
-

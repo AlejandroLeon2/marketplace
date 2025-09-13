@@ -5,10 +5,12 @@ import Footer from "../components/Footer.astro";
 import Categoria from "../components/secciones/Categoria.astro";
 import MasVendidos from "../components/MasVendidos.astro";
 import SliderPortada from "../components/secciones/SliderPortada.astro";
-import type { Libro } from "../types/libro";
-import {urlBase} from "../services/urlBase.ts"
-    const response = await fetch(`${urlBase}/api/productos/libros`);
-const librosData= await response.json();
+import { urlBase } from "../services/urlBase.ts";
+let response;
+response = await fetch(`${urlBase}/api/productos/librosnew`);
+const librosNuevos = await response.json();
+ response = await fetch(`${urlBase}/api/productos/libros/novela`);
+const librosNovela = await response.json();
 ---
 
 <Layout titulo="home" descripcion="tienda de libros">
@@ -17,20 +19,11 @@ const librosData= await response.json();
     class="flex flex-col px-4 min-h-screen mx-auto w-full max-w-6xl justify-center"
   >
     <SliderPortada />
-    <Categoria
-      libros="hola"
-      tituloSeccion={librosData}
-    />
+    <Categoria libros={librosNuevos} tituloSeccion="Nuevos" />
     <div class="flex flex-col md:flex-row gap-4">
       <div class="flex flex-col w-full">
-        <Categoria
-          libros="hola"
-          tituloSeccion={librosData}
-        />
-        <Categoria
-          libros="hola"
-          tituloSeccion={librosData}
-        />
+        <Categoria libros={librosNovela} tituloSeccion="Novelas" />
+        <Categoria libros={librosNuevos} tituloSeccion={"Nuevos"} />
       </div>
       <MasVendidos />
     </div>

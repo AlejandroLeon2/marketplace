@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import ModalCarrito from "../components/ModalCarrito.astro";
+import { urlBase } from "../services/urlBase";
 const { titulo, descripcion } = Astro.props;
 ---
 
@@ -26,7 +27,7 @@ const { titulo, descripcion } = Astro.props;
     <meta property="og:title" content={titulo} />
     <meta property="og:description" content={descripcion} />
     <meta property="og:image" content="/imagen-og.jpg" />
-    <meta property="og:url" content="https://tusitio.com" />
+    <meta property="og:url" content={urlBase} />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Cards -->

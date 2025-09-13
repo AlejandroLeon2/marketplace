@@ -25,7 +25,10 @@ const { libro } = Astro.props;
   <div class="md:col-span-1 flex flex-col justify-between">
     <div>
       <h1 class="text-3xl font-bold">{libro.titulo}</h1>
-      <p><span id ="book-author">Por </span><span class="text-blue-600">{libro.autor}</span></p>
+      <p>
+        <span id="book-author">Por </span><span class="text-blue-600"
+          >{libro.autor}</span>
+      </p>
       <p class="text-sm text-gray-500">{libro.anio_publicacion}</p>
 
       <div class="mt-4 space-y-2">
@@ -51,8 +54,13 @@ const { libro } = Astro.props;
       </p>
       <p class="text-sm text-gray-500">(SOLES)</p>
       <button
+        data-id={libro.id}
+        data-titulo={libro.titulo}
+        data-precio={libro.precio}
+        data-imagen={libro.imagen}
+        data-idprice={libro.idprice}
         id="btn-comprar"
-        class="mt-4 w-full gap-2 flex items-center justify-center botonVerde text-white font-semibold py-2 px-4"
+        class="mt-4 agregar-carrito w-full gap-2 flex items-center justify-center botonVerde text-white font-semibold py-2 px-4"
       >
         <CarritoCompras />
         <span id="book-buy">COMPRA AHORA</span>
@@ -88,15 +96,15 @@ const { libro } = Astro.props;
   </div>
 
   <div
-    class="max-w-6xl mx-auto md:col-span-2 bg-white shadow border border-gray-300 p-4 rounded"
+    class="max-w-6xl w-full mx-auto md:col-span-2 bg-white shadow border border-gray-300 p-4 rounded"
   >
     <h2 id="book-synopsis" class="text-xl font-semibold">Sinopsis</h2>
-    <p class="mt-2 text-gray-700 leading-relaxed">{libro.sinopsis}</p>
+    <p class="mt-2 text-gray-700 leading-relaxed">{libro.descripcion}</p>
   </div>
 </section>
 
 <!-- Inicializar traducciones -->
 <script type="module">
-  import { initI18n } from '/src/utils/i18n.ts';
+  import { initI18n } from "/src/utils/i18n.ts";
   initI18n();
 </script>
