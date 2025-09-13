@@ -1,12 +1,33 @@
+type Categoria =
+  | "novela"
+  | "cuento"
+  | "poesía"
+  | "ensayo"
+  | "biografía"
+  | "autoayuda"
+  | "infantil"
+  | "juvenil"
+  | "fantasía"
+  | "ciencia ficción"
+  | "historia"
+  | "religión"
+  | "educativo"
+  | "arte"
+  | "cómic"
+  | "manga";
+
 export interface Libro {
-  id?:number;
+  id?: string;
   titulo: string;
   descripcion: string;
-  precio: number;
   autor?: string;
-  anio_publicacion?: number;
-  fecha_subida?: string;
-  categoria?: string;
+  editorial?: string;
+  precio?: number;
+  imagen?: string|string[]|undefined;
+  categoria?:Categoria;
   idioma?: string;
-  imagen: string;
-};
+  anio_publicacion?: string;
+  fecha_subida: Date;
+  vendedorId?: string;
+  estado?: "activo" | "pausado" | "agotado";
+}

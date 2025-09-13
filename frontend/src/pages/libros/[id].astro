@@ -4,8 +4,9 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Categoria from "../../components/secciones/Categoria.astro";
 import Footer from "../../components/Footer.astro";
-import type { Libro } from "../../types/libro";
 import { urlBase } from "../../services/urlBase.ts";
+const response = await fetch(`${urlBase}/api/productos/librosnew`);
+const librosNuevos = await response.json();
 
 export async function getStaticPaths() {
   const response = await fetch(`${urlBase}/api/productos/libros`);
@@ -23,7 +24,7 @@ const { libro } = Astro.props;
   <Header />
   <main class="flex flex-col min-h-screen mx-auto w-full p-4 max-w-6xl">
     <BookDetail libro={libro} />
-    <Categoria libros={libro} tituloSeccion="Recomendado" />
+    <Categoria libros={librosNuevos} tituloSeccion="Recomendado" />
   </main>
   <Footer />
 </Layout>

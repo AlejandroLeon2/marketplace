@@ -16,11 +16,7 @@ const { libros, tituloSeccion } = Astro.props;
       libros.map((libro: Libro) => (
         <li class="">
           <CardLibro
-            image={libro.imagen}
-            titulo={libro.titulo}
-            autor={libro.autor}
-            precio={libro.precio}
-            id={libro.id}
+          data={libro}
           />
         </li>
       ))

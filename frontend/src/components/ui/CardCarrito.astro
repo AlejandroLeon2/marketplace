@@ -1,15 +1,15 @@
 ---
-import CantidadBoton from "../ui/CantidadBoton.astro";
+
 import Tacho from "../svg/Tacho.astro";
 type Props = {
   titulo: string;
-  cantidad: number;
+
   precio: number;
   imagen: string;
   categoria?: string;
 };
 
-const { titulo, cantidad, precio, imagen, categoria } = Astro.props;
+const { titulo, precio, imagen, categoria } = Astro.props;
 ---
 
 <li class="">
@@ -28,10 +28,9 @@ const { titulo, cantidad, precio, imagen, categoria } = Astro.props;
         </button>
       </div>
 
-      <div class="flex justify-around items-center">
-        <CantidadBoton cantidad={cantidad} />
+      
         <p class="text-morado">S/. {precio}</p>
-      </div>
+
     </div>
   </article>
 </li>
